@@ -1,0 +1,13 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0B1220" offset="0"/>
+      <stop stop-color="#0ea5e9" offset="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g6)"/>
+  <path d="M0 520C220 470 420 450 620 470C820 490 1100 560 1320 540C1440 530 1520 500 1600 470V900H0V520Z" fill="#0ea5e9" opacity="0.35"/>
+  <text x="800" y="300" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial" font-size="60" font-weight="700">Lago di Garda</text>
+  <text x="800" y="370" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial" font-size="32" font-weight="600">Turismo & hospitality</text>
+  <text x="800" y="430" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial" font-size="26" opacity="0.85">Riprese long-range sulle scogliere</text>
+</svg>

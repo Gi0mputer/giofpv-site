@@ -1,0 +1,13 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0F172A" offset="0"/>
+      <stop stop-color="#991B1B" offset="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g1)"/>
+  <rect x="120" y="180" width="1360" height="540" rx="32" fill="#0B0B0C" fill-opacity="0.55" stroke="#FCA5A5" stroke-dasharray="12 18"/>
+  <text x="800" y="320" text-anchor="middle" fill="#FCD34D" font-family="Inter, Arial" font-size="64" font-weight="700">Automotive FPV</text>
+  <text x="800" y="410" text-anchor="middle" fill="#E5E7EB" font-family="Inter, Arial" font-size="44" font-weight="600">Huracán Sterrato</text>
+  <text x="800" y="480" text-anchor="middle" fill="#E5E7EB" font-family="Inter, Arial" font-size="28" opacity="0.85">Beyond the concrete • gravel run</text>
+</svg>
