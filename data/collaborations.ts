@@ -4,9 +4,9 @@ export type Collaboration = {
 };
 
 export const collaborations: Collaboration[] = [
-  { image: "/collaborations/lamborghini.svg", alt: "Lamborghini automotive" },
-  { image: "/collaborations/redbull.svg", alt: "Red Bull events" },
-  { image: "/collaborations/cube.svg", alt: "Cube Bikes trail" },
-  { image: "/collaborations/dolomiti.svg", alt: "Dolomiti Superski turismo" },
-  { image: "/collaborations/sony.svg", alt: "Sony FX6 cine rig" },
+  { image: "/collaborations/lake-hotel.svg", alt: "Hotel e B&B sul lago" },
+  { image: "/collaborations/mountain-lodge.svg", alt: "Rifugi e strutture in quota" },
+  { image: "/collaborations/coworking.svg", alt: "Spazi di coworking e uffici creativi" },
+  { image: "/collaborations/outdoor-events.svg", alt: "Eventi outdoor e sportivi" },
+  { image: "/collaborations/personal-projects.svg", alt: "Progetti personali su città, fiumi e sentieri" },
 ];
