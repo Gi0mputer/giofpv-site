@@ -6,7 +6,6 @@ export default function WorkPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16">
       <section className="space-y-6 text-center sm:text-left">
-        <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">GioFPV</p>
         <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight">
           Riprese FPV &amp; aeree per brand, turismo e sport.
         </h1>

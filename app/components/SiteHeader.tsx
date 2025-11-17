@@ -36,14 +36,6 @@ export function SiteHeader() {
               </Link>
             );
           })}
-          <Link
-            href="https://www.youtube.com/@giosbando"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[0.15em] text-neutral-200 transition hover:border-white/40 hover:text-white"
-          >
-            Altro
-          </Link>
         </nav>
       </div>
     </header>

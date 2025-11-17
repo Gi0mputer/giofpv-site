@@ -7,10 +7,10 @@ export function SiteFooter() {
         <div>
           <h3 className="text-xs uppercase tracking-[0.25em] text-neutral-500">Phone – WhatsApp</h3>
           <Link
-            href="https://wa.me/393331234567"
+            href="https://wa.me/393451575507"
             className="mt-2 inline-block text-lg text-white hover:text-amber-300"
           >
-            +39 333 123 4567
+            +39 3451575507
           </Link>
         </div>
         <div>
@@ -19,14 +19,14 @@ export function SiteFooter() {
             href="mailto:hello@giofpv.com"
             className="mt-2 inline-block text-lg text-white hover:text-amber-300"
           >
-            hello@giofpv.com
+            giovanni.fantoni.1997@gmail.com
           </a>
         </div>
         <div>
           <h3 className="text-xs uppercase tracking-[0.25em] text-neutral-500">Connect</h3>
           <div className="mt-2 flex items-center gap-3 text-white">
             <Link
-              href="https://instagram.com/giofpv"
+              href="https://instagram.com/gio.fanto"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1 text-xs uppercase trackin"
@@ -40,7 +40,7 @@ export function SiteFooter() {
       <div className="border-t border-white/5 bg-neutral-950/60">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 text-xs text-neutral-500">
           <p>
-            GioFPV — Verona, Italy • Via Arche Scaligere 12, 37121 VR • P.IVA IT01234567890
+              GioFpv — Verona, Italy • © 2025 Giovanni Fantoni
           </p>
         </div>
       </div>
