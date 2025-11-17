@@ -6,33 +6,21 @@ export type GearItem = {
 
 export const gear: GearItem[] = [
   {
-    title: "Sub-250g 2.5\"",
+    title: "DJI Mini 5 Pro",
     description:
-      "Perfetto per indoor, boutique e riprese vicino alle persone. GoPro 'naked' stabilizzata, rumore minimo e sicurezza massima.",
-    image: "/gear/nano.svg",
+      "Drone compatto e leggero, perfetto per riprese pulite e stabili sopra città, lago e montagne. Registra fino a 4K 60fps, con sensore capace di gestire bene tramonti e scene ad alto contrasto. Ideale per establishing shot di città e paesaggi, riprese di strutture ricettive e immobili, contenuti verticali per social.",
+    image: "/gear/mini5pro.svg",
   },
   {
-    title: "5-7\" FPV con GoPro 12/13",
+    title: "DJI Avata 2 — FPV cinewhoop",
     description:
-      "Drone agilissimo per inseguire atleti, auto o biker a oltre 150 km/h. Ideale per spot sportivi e landscape dinamici.",
-    image: "/gear/freestyle.svg",
+      "Il drone FPV principale per linee dinamiche e immersive. Grazie al frame protetto può volare vicino a persone, muri e oggetti mantenendo un buon margine di sicurezza. Registra in 4K 60fps con stabilizzazione digitale, ideale per inseguimenti di sport outdoor, fly-through all’interno di spazi architettonici, passaggi stretti tra corridoi e scale.",
+    image: "/gear/avata2.svg",
   },
   {
-    title: "DJI Mavic 3 / 4 Pro",
+    title: "Workflow e supporto in post",
     description:
-      "Setup leggero e rapidissimo da avviare con camera 5-6K 10-bit, sensore 4/3 e profili log per matching colore sul set.",
-    image: "/gear/mavic.svg",
-  },
-  {
-    title: "Cine-lifter fino a 2 kg",
-    description:
-      "Piattaforma per RED Komodo e Sony FX6, propulsione ad alto carico e vibrazioni controllate. 4K120 e look cinema.",
-    image: "/gear/cinelift.svg",
-  },
-  {
-    title: "Inspire 3 kit completo",
-    description:
-      "Stabilizzazione 3 assi con ottiche dedicate, 8K CinemaDNG/ProRes, RTK e team di due operatori per movimenti complessi.",
-    image: "/gear/inspire.svg",
+      "Oltre ai droni, ogni progetto include ND filter per controllare lo shutter e ottenere motion blur naturale, profili colore log per un grading coerente con il resto del girato, consegna file ottimizzata per editing in DaVinci Resolve, Premiere o Final Cut. Riprese già pronte per essere integrate nel montaggio, senza sorprese in color grading.",
+    image: "/gear/workflow.svg",
   },
 ];

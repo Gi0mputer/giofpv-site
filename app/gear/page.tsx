@@ -7,11 +7,11 @@ export default function GearPage() {
     <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-14 space-y-12">
       <section className="space-y-4 max-w-3xl">
         <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">Gear</p>
-        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight">Arsenale modulare</h1>
+        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight">Set FPV &amp; Aerial attuali</h1>
         <p className="text-neutral-300 leading-relaxed">
-          Droni costruiti e configurati per ogni scenario: sub-250g per indoor sicuri, 5–7″ per
-          inseguimenti, cine-lifter per camere cinema e sistemi DJI ready-to-go per set
-          time-critical. Ogni setup è assicurato e pronto con feed remoto per regia e client.
+          Due piattaforme principali per coprire il 90% dei progetti: un drone compatto da viaggio
+          per riprese pulite in 4K e un sistema FPV per voli dinamici in prima persona. Tutto in 4K
+          60fps, sia in formato orizzontale che verticale, pronto per social, web e campagne digital.
         </p>
       </section>
 

@@ -9,14 +9,17 @@ export default function ContactPage() {
         <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight">Parliamo del tuo progetto</h1>
         <p className="text-neutral-300 leading-relaxed">
           Nessun form: ti rispondo direttamente per telefono, mail o Instagram. Brief, location e
-          tempistiche: più info condividi, più veloce sarà la proposta.
+          tempistiche: più dettagli condividi, più veloce sarà la proposta.
         </p>
       </section>
 
       <div className="space-y-6 text-sm text-neutral-200">
         <div className="rounded-2xl border border-white/10 bg-neutral-900/80 p-5">
           <div className="text-xs uppercase tracking-[0.25em] text-neutral-500">Phone – WhatsApp</div>
-          <Link href="https://wa.me/393331234567" className="mt-2 block text-2xl font-semibold text-white hover:text-amber-300">
+          <Link
+            href="https://wa.me/393331234567"
+            className="mt-2 block text-2xl font-semibold text-white hover:text-amber-300"
+          >
             +39 333 123 4567
           </Link>
           <p className="mt-2 text-neutral-400">Disponibile per call rapide o note vocali dal set.</p>
@@ -30,7 +33,9 @@ export default function ContactPage() {
           >
             hello@giofpv.com
           </a>
-          <p className="mt-2 text-neutral-400">Invia briefing, referenze visive o richieste di set.</p>
+          <p className="mt-2 text-neutral-400">
+            Invia briefing, moodboard, referenze video o semplicemente qualche riga su ciò che vuoi raccontare.
+          </p>
         </div>
 
         <div className="rounded-2xl border border-white/10 bg-neutral-900/80 p-5">
@@ -47,6 +52,10 @@ export default function ContactPage() {
           <p className="mt-2 text-neutral-400">Stories dal set, backstage e anteprime dei lavori.</p>
         </div>
       </div>
+
+      <p className="text-xs text-neutral-500">
+        GioFPV — Verona, Italy • Via Arche Scaligere 12, 37121 VR • P.IVA IT01234567890
+      </p>
     </main>
   );
 }

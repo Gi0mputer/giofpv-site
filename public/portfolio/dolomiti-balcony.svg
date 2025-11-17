@@ -1,0 +1,14 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradDolomiti" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fbbf24" offset="0%"/>
+      <stop stop-color="#f97316" offset="40%"/>
+      <stop stop-color="#0f172a" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gradDolomiti)"/>
+  <path d="M200 540 L320 360 L440 500 L520 380 L640 520 L760 360 L880 520 L1040 400" stroke="#fff7ed" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="460" y="420" width="280" height="80" rx="20" fill="#0b1224" opacity="0.7" stroke="#fed7aa" stroke-width="4"/>
+  <text x="600" y="640" text-anchor="middle" fill="#fff7ed" font-family="Inter, Arial" font-size="46" font-weight="700">Dolomiti balcony</text>
+  <text x="600" y="690" text-anchor="middle" fill="#ffedd5" font-family="Inter, Arial" font-size="28" font-weight="500">Tourism &amp; Hospitality</text>
+</svg>
