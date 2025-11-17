@@ -1,0 +1,13 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradLodge" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fbbf24" offset="0%"/>
+      <stop stop-color="#0f172a" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gradLodge)"/>
+  <path d="M220 520 L360 340 L480 520 L620 360 L760 520 L900 340 L1040 520" stroke="#fff7ed" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="420" y="420" width="160" height="120" rx="18" fill="#0b1224" opacity="0.7" stroke="#fed7aa" stroke-width="4"/>
+  <rect x="660" y="420" width="160" height="120" rx="18" fill="#0b1224" opacity="0.7" stroke="#fed7aa" stroke-width="4"/>
+  <text x="600" y="620" text-anchor="middle" fill="#fff7ed" font-family="Inter, Arial" font-size="42" font-weight="700">Rifugi e strutture in quota</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradRaft" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0ea5e9" offset="0%"/>
+      <stop stop-color="#1d4ed8" offset="50%"/>
+      <stop stop-color="#0b1120" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gradRaft)"/>
+  <path d="M140 540 C260 520 300 400 420 380 C600 350 620 520 780 500 C940 480 980 360 1080 340" stroke="#e0f2fe" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <rect x="520" y="420" width="140" height="60" rx="18" fill="#f97316" stroke="#fef3c7" stroke-width="6"/>
+  <circle cx="550" cy="420" r="18" fill="#facc15"/>
+  <circle cx="630" cy="420" r="18" fill="#facc15"/>
+  <text x="600" y="640" text-anchor="middle" fill="#f8fafc" font-family="Inter, Arial" font-size="46" font-weight="700">Rafting line</text>
+  <text x="600" y="690" text-anchor="middle" fill="#dbeafe" font-family="Inter, Arial" font-size="28" font-weight="500">Sport &amp; Outdoor</text>
+</svg>

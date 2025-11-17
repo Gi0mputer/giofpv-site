@@ -1,0 +1,15 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradAvata" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f97316" offset="0%"/>
+      <stop stop-color="#0f172a" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gradAvata)"/>
+  <circle cx="420" cy="400" r="120" fill="#111827" stroke="#fed7aa" stroke-width="10"/>
+  <circle cx="780" cy="400" r="120" fill="#111827" stroke="#fed7aa" stroke-width="10"/>
+  <rect x="510" y="300" width="180" height="200" rx="40" fill="#0b1224" stroke="#fed7aa" stroke-width="8"/>
+  <circle cx="600" cy="400" r="40" fill="#f59e0b" stroke="#ffedd5" stroke-width="8"/>
+  <text x="600" y="620" text-anchor="middle" fill="#ffedd5" font-family="Inter, Arial" font-size="46" font-weight="700">DJI Avata 2</text>
+  <text x="600" y="670" text-anchor="middle" fill="#fed7aa" font-family="Inter, Arial" font-size="26" font-weight="500">FPV cinewhoop • 4K 60fps • stabilizzazione</text>
+</svg>
