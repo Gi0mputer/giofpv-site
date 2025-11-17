@@ -1,14 +1,6 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // puoi lasciare anche vuoto, se non ti serve altro per le immagini
 };
 
 export default nextConfig;
