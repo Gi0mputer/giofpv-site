@@ -1,0 +1,12 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="gg1" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0f172a" offset="0"/>
+      <stop stop-color="#22d3ee" offset="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gg1)"/>
+  <rect x="220" y="200" width="760" height="400" rx="48" fill="#0b1220" stroke="#67e8f9" stroke-width="12"/>
+  <text x="600" y="360" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial" font-size="48" font-weight="700">Sub-250g</text>
+  <text x="600" y="420" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial" font-size="26" opacity="0.9">Indoor / vicino alle persone</text>
+</svg>

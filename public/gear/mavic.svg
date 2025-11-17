@@ -1,0 +1,12 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="gg4" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#111827" offset="0"/>
+      <stop stop-color="#38bdf8" offset="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#gg4)"/>
+  <rect x="210" y="190" width="780" height="420" rx="46" fill="#0b1220" stroke="#7dd3fc" stroke-width="12"/>
+  <text x="600" y="360" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial" font-size="48" font-weight="700">Mavic 3 / 4 Pro</text>
+  <text x="600" y="420" text-anchor="middle" fill="#e0f2fe" font-family="Inter, Arial" font-size="26" opacity="0.9">6K 10-bit • setup rapido</text>
+</svg>

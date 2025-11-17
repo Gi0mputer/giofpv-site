@@ -1,0 +1,13 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0f172a" offset="0"/>
+      <stop stop-color="#f97316" offset="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g5)"/>
+  <rect x="520" y="180" width="560" height="520" rx="40" fill="#0B0F1C" stroke="#fb923c" stroke-width="10"/>
+  <text x="800" y="320" text-anchor="middle" fill="#fed7aa" font-family="Inter, Arial" font-size="60" font-weight="700">RED Komodo</text>
+  <text x="800" y="390" text-anchor="middle" fill="#fed7aa" font-family="Inter, Arial" font-size="38" font-weight="600">Cine-lifter FPV</text>
+  <text x="800" y="450" text-anchor="middle" fill="#fed7aa" font-family="Inter, Arial" font-size="26" opacity="0.85">4K120 in movimento ad alto carico</text>
+</svg>
