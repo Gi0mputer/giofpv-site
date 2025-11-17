@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "Next.js: dev",
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
