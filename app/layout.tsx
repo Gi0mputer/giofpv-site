@@ -9,23 +9,31 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://giofpv.com"),
-  title: "GIOFPV — Cinematic FPV & Aerial | Verona, Italy",
+  title: "GioFPV • FPV Drone & Aerial Shots",
   description:
-    "Portfolio FPV e riprese cinematografiche. Long-range, indoor, automotive, turismo. Operazioni EASA/assicurate. Contattami per un preventivo.",
+    "GioFPV — riprese FPV e drone per brand, turismo, sport ed eventi. Aerial shots, long-range, indoor e automotive. Verona, Italia — contattami per un preventivo.",
   openGraph: {
-    title: "GIOFPV — Cinematic FPV & Aerial",
+    title: "GioFPV • FPV Drone & Aerial Shots",
     description:
-      "Riprese FPV professionali per brand, sport, turismo e film. Verona • Italy • EU",
+      "Riprese FPV e drone per brand, turismo, sport ed eventi. Verona, Italia — portfolio e contatti su giofpv.com.",
     url: "https://giofpv.com",
-    siteName: "GIOFPV",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "GIOFPV" }],
+    siteName: "GioFPV",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "GioFPV — FPV Drone & Aerial Shots",
+      },
+    ],
     locale: "it_IT",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GIOFPV — Cinematic FPV & Aerial",
-    description: "Riprese FPV professionali per brand, sport, turismo e film.",
+    title: "GioFPV • FPV Drone & Aerial Shots",
+    description:
+      "Riprese FPV e drone per brand, turismo, sport ed eventi. Verona, Italia.",
     images: ["/og.jpg"],
   },
 };

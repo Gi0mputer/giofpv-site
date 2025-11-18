@@ -8,7 +8,7 @@ export function SiteFooter() {
 
         {/* PHONE */}
         <div className="flex flex-col text-center">
-          <h3 className="text-xs uppercase tracking-[0.25em] text-subtle mb-3">
+          <h3 className="text-xs uppercase tracking-[0.25em] text-subtle mb-2">
             Phone – WhatsApp
           </h3>
           <Link
@@ -21,7 +21,7 @@ export function SiteFooter() {
 
         {/* EMAIL */}
         <div className="flex flex-col text-center">
-          <h3 className="text-xs uppercase tracking-[0.25em] text-subtle mb-3">
+          <h3 className="text-xs uppercase tracking-[0.25em] text-subtle mb-2">
             Email
           </h3>
           <a
@@ -34,7 +34,7 @@ export function SiteFooter() {
 
         {/* SOCIAL */}
         <div className="flex flex-col text-center">
-          <h3 className="text-xs uppercase tracking-[0.25em] text-subtle mb-3">
+          <h3 className="text-xs uppercase tracking-[0.25em] text-subtle mb-2">
             Connect
           </h3>
           <div className="mt-1 flex justify-center items-center gap-3 text-white">
