@@ -15,3 +15,7 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+If doesnt work try:
+rm -f /workspaces/giofpv-site/.next/dev/lock
+npm run dev

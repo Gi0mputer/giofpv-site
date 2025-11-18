@@ -6,24 +6,23 @@ import { SiteHeader } from "./components/SiteHeader";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://giofpv.com"),
-  title: "GioFPV • FPV Drone & Aerial Shots",
+  title: "GioFPV • Aerial Shots",
   description:
-    "GioFPV — riprese FPV e drone per brand, turismo, sport ed eventi. Aerial shots, long-range, indoor e automotive. Verona, Italia — contattami per un preventivo.",
+    "Riprese aeree 4K cinematografiche e adrenaliniche con droni FPV e stabilizzati per eventi, turismo, sport e valorizzazione immobiliare.",
   openGraph: {
-    title: "GioFPV • FPV Drone & Aerial Shots",
+    title: "GioFPV • Aerial Shots",
     description:
-      "Riprese FPV e drone per brand, turismo, sport ed eventi. Verona, Italia — portfolio e contatti su giofpv.com.",
+      "Riprese aeree 4K, cinematografiche e adrenaliniche con droni FPV e stabilizzati. Verona, Italia — video per eventi, turismo, sport e immobili.",
     url: "https://giofpv.com",
     siteName: "GioFPV",
     images: [
       {
-        url: "/og.jpg",
+        url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "GioFPV — FPV Drone & Aerial Shots",
+        alt: "GioFPV — Riprese aeree 4K cinematografiche e adrenaliniche",
       },
     ],
     locale: "it_IT",
@@ -31,10 +30,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GioFPV • FPV Drone & Aerial Shots",
+    title: "GioFPV • Riprese aeree 4K cinematografiche e adrenaliniche",
     description:
-      "Riprese FPV e drone per brand, turismo, sport ed eventi. Verona, Italia.",
-    images: ["/og.jpg"],
+      "Riprese aeree 4K con droni FPV e stabilizzati per eventi, turismo, sport e valorizzazione immobiliare da Verona, Italia.",
+    images: ["/og.png"],
   },
 };
 
