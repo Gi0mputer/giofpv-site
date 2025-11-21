@@ -5,6 +5,7 @@ export type WorkItem = {
   thumb: string;
   description: string;
   category: string;
+  format?: "horizontal" | "vertical";
 };
 
 export const works: WorkItem[] = [
@@ -16,6 +17,7 @@ export const works: WorkItem[] = [
     description:
       "Sorvolo dei tetti di Verona al tramonto con passaggi ravvicinati tra campanili, cortili interni e scorci sul fiume. Ideale per raccontare la città in chiave cinematografica.",
     category: "City & Architecture",
+    format: "horizontal",
   },
   {
     title: "Single track — trail running POV",
@@ -25,6 +27,7 @@ export const works: WorkItem[] = [
     description:
       "Sequenza FPV lungo un sentiero in cresta: il drone segue un runner a pochi metri di distanza, alternando dettagli sulle gambe e panorami aperti sulle montagne.",
     category: "Sport & Outdoor",
+    format: "horizontal",
   },
   {
     title: "Lakeside retreat — hotel FPV tour",
@@ -34,6 +37,7 @@ export const works: WorkItem[] = [
     description:
       "Tour continuo che parte dal parcheggio, attraversa reception, lounge e spa, per uscire su giardino e pontile sul lago. Pensato per hotel e strutture ricettive.",
     category: "Tourism & Hospitality",
+    format: "horizontal",
   },
   {
     title: "Loft industriale — fly-through a bassa quota",
@@ -43,24 +47,27 @@ export const works: WorkItem[] = [
     description:
       "Voli lenti e precisi all’interno di un loft ristrutturato: soggiorno, cucina, soppalco e dettagli materici. Perfetto per annunci premium e campagne di vendita.",
     category: "Real Estate",
+    format: "horizontal",
   },
   {
     title: "Rafting line — fiume in piena",
-    duration: "02:05",
-    href: "https://youtube.com/watch?v=RAFTING_PLACEHOLDER",
+    duration: "00:45",
+    href: "https://youtube.com/shorts/RAFTING_PLACEHOLDER",
     thumb: "/portfolio/rafting-line.svg",
     description:
       "Il drone segue un gommone da rafting tra onde e rapide, alternando passaggi radenti sull’acqua e viste dall’alto per mostrare il contesto naturale.",
     category: "Sport & Outdoor",
+    format: "vertical",
   },
   {
     title: "Winter SUP — nebbia sul lago",
-    duration: "01:45",
-    href: "https://youtube.com/watch?v=SUP_PLACEHOLDER",
+    duration: "00:30",
+    href: "https://youtube.com/shorts/SUP_PLACEHOLDER",
     thumb: "/portfolio/winter-sup.svg",
     description:
       "Progetto personale: un’unica linea FPV segue una tavola SUP tra foschia, riflessi sull’acqua e controluce morbidi, per raccontare la calma dell’inverno.",
     category: "Personal Projects",
+    format: "vertical",
   },
   {
     title: "City fly-through — coworking e rooftop",
@@ -70,14 +77,16 @@ export const works: WorkItem[] = [
     description:
       "Ingresso dal portone, corridoi, open space e rooftop finale con vista sulla città. Perfetto per spazi di lavoro condivisi e brand urbani.",
     category: "City & Architecture",
+    format: "horizontal",
   },
   {
     title: "Dolomiti balcony — sunrise lines",
-    duration: "02:00",
-    href: "https://youtube.com/watch?v=DOLOMITI_PLACEHOLDER",
+    duration: "00:50",
+    href: "https://youtube.com/shorts/DOLOMITI_PLACEHOLDER",
     thumb: "/portfolio/dolomiti-balcony.svg",
     description:
       "Sorvoli dolci sulle creste all’alba, con passaggi vicino ai balconi e alle terrazze di un rifugio di montagna. Ideale per promozione turistica e storytelling emozionale.",
     category: "Tourism & Hospitality",
+    format: "vertical",
   },
 ];
