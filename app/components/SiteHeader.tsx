@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "/work", label: "Work" },
@@ -13,9 +14,23 @@ const navLinks = [
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 bg-neutral-950/80 backdrop-blur border-b border-white/10">
+    <header
+      className={`fixed top-0 z-40 w-full transition-all duration-300 ${isScrolled
+          ? "bg-neutral-950/80 backdrop-blur border-b border-white/10"
+          : "bg-transparent border-transparent"
+        }`}
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center px-4 sm:px-6 lg:px-8">
         {/* LOGO */}
         <Link
@@ -40,9 +55,8 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition hover:text-white ${
-                  isActive ? "text-white" : "text-neutral-400"
-                }`}
+                className={`transition hover:text-white ${isActive ? "text-white" : "text-neutral-400"
+                  }`}
               >
                 {link.label}
               </Link>

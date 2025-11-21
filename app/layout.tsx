@@ -35,11 +35,16 @@ export const metadata: Metadata = {
       "Riprese aeree 4K con droni FPV e stabilizzati per eventi, turismo, sport e valorizzazione immobiliare da Verona, Italia.",
     images: ["/og.png"],
   },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it">
+    <html lang="it" suppressHydrationWarning>
       <body className={inter.className + " bg-neutral-950 text-neutral-100 antialiased"}>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />

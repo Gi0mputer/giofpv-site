@@ -8,7 +8,7 @@ export default function WorkPage() {
     <main className="min-h-screen bg-neutral-950">
       <HeroVideo />
 
-      <div id="gallery" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
+      <div id="gallery" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16 animate-fade-in" style={{ animationDelay: "0.5s" }}>
         <div className="text-center space-y-4">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Featured Projects
