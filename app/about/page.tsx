@@ -6,7 +6,7 @@ export default function AboutPage() {
     <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 space-y-20 animate-fade-in">
       {/* Intro Section */}
       <section className="space-y-6 max-w-3xl">
-        <p className="text-xs uppercase tracking-[0.25em] text-sunset-sky font-medium">About Me</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium">About Me</p>
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
           Giovanni Fantoni
         </h1>
