@@ -79,38 +79,45 @@ export function WorkGallery({ items }: Props) {
                 className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/80 shadow-lg ${isVertical ? "col-span-1 row-span-2" : "col-span-2"
                   }`}
               >
-                <div className={`relative w-full ${isVertical ? "aspect-[9/16]" : "aspect-video"}`}>
-                  <Image
-                    fill
-                    alt={work.title}
-                    src={work.thumb}
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                    sizes={
-                      isVertical
-                        ? "(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                        : "(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
-                    }
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute left-3 top-3 rounded-full bg-black/70 px-2 py-1 text-[10px] font-medium text-neutral-200 backdrop-blur-sm">
-                    {work.duration}
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
-                    <span className="rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
-                      ▶ Play
-                    </span>
-                  </div>
-
-                  {/* Info overlay at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="text-[10px] uppercase tracking-widest text-amber-400 mb-1">
-                      {work.category}
+                <a
+                  href={work.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full w-full"
+                >
+                  <div className={`relative w-full ${isVertical ? "aspect-[9/16]" : "aspect-video"}`}>
+                    <Image
+                      fill
+                      alt={work.title}
+                      src={work.thumb}
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes={
+                        isVertical
+                          ? "(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                          : "(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+                      }
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute left-3 top-3 rounded-full bg-black/70 px-2 py-1 text-[10px] font-medium text-neutral-200 backdrop-blur-sm">
+                      {work.duration}
                     </div>
-                    <h3 className={`font-semibold leading-tight text-white ${isVertical ? "text-sm" : "text-lg"}`}>
-                      {work.title}
-                    </h3>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
+                      <span className="rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
+                        ▶ Play
+                      </span>
+                    </div>
+
+                    {/* Info overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <div className="text-[10px] uppercase tracking-widest text-amber-400 mb-1">
+                        {work.category}
+                      </div>
+                      <h3 className={`font-semibold leading-tight text-white ${isVertical ? "text-sm" : "text-lg"}`}>
+                        {work.title}
+                      </h3>
+                    </div>
                   </div>
-                </div>
+                </a>
               </article>
             );
           })}
