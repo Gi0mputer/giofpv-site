@@ -1,9 +1,22 @@
 @import "tailwindcss";
 
 /* Variabili globali */
+/* Variabili globali - Sunset Theme */
 :root {
+  /* Base colors */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Sunset Palette */
+  --sunset-amber: #f59e0b;
+  --sunset-orange: #ea580c;
+  --sunset-sky: #0ea5e9;
+  --sunset-violet: #8b5cf6;
+  
+  /* Semantic mappings */
+  --color-primary: var(--sunset-amber);
+  --color-secondary: var(--sunset-sky);
+  --color-accent: var(--sunset-orange);
 }
 
 /* Collegamento col tema di Tailwind v4 */
@@ -12,6 +25,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Custom colors */
+  --color-sunset-amber: var(--sunset-amber);
+  --color-sunset-orange: var(--sunset-orange);
+  --color-sunset-sky: var(--sunset-sky);
+  --color-sunset-violet: var(--sunset-violet);
 }
 
 /* Dark mode automatica */
