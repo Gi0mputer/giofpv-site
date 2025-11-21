@@ -2,11 +2,11 @@
 
 export function HeroVideo() {
     return (
-        <div className="relative h-[80vh] w-full overflow-hidden">
+        <div className="relative h-[100svh] w-full overflow-hidden">
             {/* Video Background */}
             <div className="absolute inset-0 z-0">
                 <iframe
-                    src="https://www.youtube.com/embed/y9n6HkftahM?autoplay=1&mute=1&controls=0&loop=1&playlist=y9n6HkftahM&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1"
+                    src="https://www.youtube.com/embed/f1_V5eqWQy4?autoplay=1&mute=1&controls=0&loop=1&playlist=f1_V5eqWQy4&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1"
                     className="h-full w-full object-cover scale-150 pointer-events-none"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

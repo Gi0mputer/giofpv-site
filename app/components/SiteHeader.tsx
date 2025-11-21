@@ -27,15 +27,15 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed top-0 z-40 w-full transition-all duration-300 ${isScrolled
-          ? "bg-neutral-950/80 backdrop-blur border-b border-white/10"
-          : "bg-transparent border-transparent"
+        ? "bg-neutral-950/80 backdrop-blur border-b border-white/10"
+        : "bg-transparent border-transparent"
         }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center px-4 sm:px-6 lg:px-8">
         {/* LOGO */}
         <Link
           href="/work"
-          className="flex flex-1 items-center gap-2 text-sm font-semibold tracking-[0.2em] uppercase"
+          className="flex flex-1 items-center gap-2 text-sm font-semibold tracking-[0.2em] uppercase text-white"
         >
           <Image
             src="/icon.png"

@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
-/* Variabili globali */
 /* Variabili globali - Sunset Theme */
 :root {
-  /* Base colors */
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base colors - Enforcing Dark Mode for Cinematic Feel */
+  --background: #0a0a0a;
+  --foreground: #ededed;
 
   /* Sunset Palette */
   --sunset-amber: #f59e0b;
@@ -33,7 +32,7 @@
   --color-sunset-violet: var(--sunset-violet);
 }
 
-/* Dark mode automatica */
+/* Dark mode automatica (redundant but kept for structure) */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
