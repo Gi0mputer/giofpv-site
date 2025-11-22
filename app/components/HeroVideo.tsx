@@ -4,7 +4,7 @@ import { FaChevronDown } from "react-icons/fa";
 
 export function HeroVideo() {
     return (
-        <div className="relative h-[100svh] w-full lg:max-w-[1400px] lg:mx-auto overflow-hidden flex flex-col lg:block bg-black">
+        <div className="relative h-[100svh] lg:h-[70svh] w-full lg:max-w-[1400px] lg:mx-auto overflow-hidden flex flex-col lg:block bg-black">
             {/* Video Background / Top Section on Mobile */}
             <div className="relative h-[75%] lg:h-full w-full overflow-hidden group">
                 <div className="absolute inset-0 z-0">
@@ -20,18 +20,18 @@ export function HeroVideo() {
                     <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none" />
                 </div>
 
-                {/* Desktop Scroll Indicator (Discreet, Bottom-Center) */}
-                <div className="hidden lg:block absolute bottom-2 left-1/2 -translate-x-1/2 pointer-events-none z-20">
-                    {/* Hover detection area - 120px radius (~3cm) */}
-                    <div className="relative w-[120px] h-[120px] pointer-events-auto group">
-                        {/* Clickable area - 80px radius (~2cm), centered */}
+                {/* Desktop Scroll Indicator (Bubble Design) */}
+                <div className="hidden lg:block absolute bottom-4 left-1/2 -translate-x-1/2 pointer-events-none z-20">
+                    {/* Hover detection area - 150px radius (~4cm) */}
+                    <div className="relative w-[150px] h-[150px] pointer-events-auto group">
+                        {/* Clickable bubble - centered */}
                         <div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] cursor-pointer"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] cursor-pointer"
                             onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
                         >
-                            {/* Visual indicator - just the arrow, semi-transparent */}
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <FaChevronDown className="text-sunset-amber h-8 w-8 opacity-50 animate-bounce" />
+                            {/* Transparent bubble that becomes visible on hover */}
+                            <div className="absolute inset-0 flex items-center justify-center rounded-full border-2 border-white/20 bg-white/5 opacity-0 group-hover:opacity-100 group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300">
+                                <FaChevronDown className="text-white h-5 w-5 animate-bounce" />
                             </div>
                         </div>
                     </div>
