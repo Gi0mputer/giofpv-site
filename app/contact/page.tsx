@@ -15,7 +15,7 @@ export default function ContactPage() {
           <p className="text-xs uppercase tracking-[0.25em] text-sunset-amber font-medium">Contact</p>
           <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-white">
             Let's create <br className="sm:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-500">Something Epic</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-amber to-sunset-orange">Something Epic</span>
           </h1>
           <p className="text-base sm:text-lg text-neutral-400 leading-relaxed max-w-xl mx-auto">
             Brief, location e tempistiche: più dettagli condividi, più veloce sarà la proposta.
