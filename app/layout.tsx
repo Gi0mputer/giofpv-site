@@ -42,15 +42,21 @@ export const metadata: Metadata = {
   },
 };
 
+function LayoutContent({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <SiteHeader />
+      <div className="flex-1">{children}</div>
+      <SiteFooter />
+    </div>
+  );
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" suppressHydrationWarning>
       <body className={inter.className + " bg-neutral-950 text-neutral-100 antialiased"}>
-        <div className="flex min-h-screen flex-col">
-          <SiteHeader />
-          <div className="flex-1">{children}</div>
-          <SiteFooter />
-        </div>
+        <LayoutContent>{children}</LayoutContent>
       </body>
     </html>
   );
