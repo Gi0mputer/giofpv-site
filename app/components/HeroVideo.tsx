@@ -20,14 +20,22 @@ export function HeroVideo() {
                     <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none" />
                 </div>
 
-                {/* Desktop Scroll Indicator (Hover Reveal) */}
-                <div
-                    className="hidden lg:flex absolute bottom-0 left-0 right-0 h-32 items-end justify-center pb-8 opacity-0 transition-opacity duration-500 hover:opacity-100 cursor-pointer bg-gradient-to-t from-black/80 to-transparent z-20"
-                    onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                    <div className="flex flex-col items-center gap-2 animate-bounce">
-                        <span className="text-xs uppercase tracking-widest text-white/80">Scroll Down</span>
-                        <FaChevronDown className="text-sunset-amber h-6 w-6" />
+                {/* Desktop Scroll Indicator (Discreet, Bottom-Center) */}
+                <div className="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none z-20">
+                    {/* Hover detection area - 120px radius (~3cm) */}
+                    <div className="relative w-[120px] h-[120px] pointer-events-auto group">
+                        {/* Clickable area - 80px radius (~2cm), centered */}
+                        <div
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] cursor-pointer"
+                            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                            {/* Visual indicator - small and discreet */}
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="flex flex-col items-center gap-1 bg-black/50 backdrop-blur-sm rounded-full p-3 border border-white/10">
+                                    <FaChevronDown className="text-sunset-amber h-4 w-4 animate-bounce" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,8 +51,6 @@ export function HeroVideo() {
                     <FaChevronDown className="text-sunset-amber h-6 w-6" />
                 </div>
             </div>
-
-            {/* Desktop Overlay Content (Hidden on Mobile) - REMOVED as replaced by hover indicator */}
         </div>
     );
 }
