@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
-/* Variabili globali - Sunset Theme */
+/* Variabili globali - Vibrant Multi-Color Theme */
 :root {
   /* Base colors - Enforcing Dark Mode for Cinematic Feel */
   --background: #0a0a0a;
   --foreground: #ededed;
 
-  /* Sunset Palette */
-  --sunset-amber: #f59e0b;
-  --sunset-orange: #ea580c;
-  --sunset-sky: #0ea5e9;
-  --sunset-violet: #8b5cf6;
+  /* Vibrant Neon Palette */
+  --sunset-amber: #fbbf24;
+  --sunset-orange: #f97316;
+  --sunset-sky: #06b6d4;
+  --sunset-violet: #a855f7;
 
   /* Semantic mappings */
   --color-primary: var(--sunset-amber);
