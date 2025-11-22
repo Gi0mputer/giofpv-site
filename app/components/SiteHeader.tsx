@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/gear", label: "Gear" },
-  { href: "/contact", label: "Contact" },
+  { href: "/work", label: "Work", color: "text-sunset-amber" },
+  { href: "/about", label: "About", color: "text-sunset-sky" },
+  { href: "/gear", label: "Gear", color: "text-sunset-violet" },
+  { href: "/contact", label: "Contact", color: "text-sunset-orange" },
 ];
 
 export function SiteHeader() {
@@ -32,27 +32,27 @@ export function SiteHeader() {
         {/* LOGO */}
         <Link
           href="/work"
-          className="flex flex-1 items-center gap-2 text-sm font-semibold tracking-[0.2em] uppercase text-white"
+          className="flex flex-1 items-center gap-2 text-sm font-semibold tracking-wide uppercase text-white"
         >
           <Image
             src="/icon.png"
             alt="GioFPV logo"
             width={24}
             height={24}
-            className="h-9 w-9 rounded-full object-cover"
+            className="h-8 w-8"
           />
-          <span>GioFPV</span>
+          <span>Gio<span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-sky to-sunset-violet">FPV</span></span>
         </Link>
 
         {/* NAV */}
-        <nav className="flex items-center gap-6 text-sm text-neutral-300">
+        <nav className="flex items-center gap-6 text-sm">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition hover:text-white ${isActive ? "text-white" : "text-neutral-400"
+                className={`transition ${isActive ? link.color : "text-neutral-500 hover:text-white"
                   }`}
               >
                 {link.label}

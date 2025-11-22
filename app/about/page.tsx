@@ -8,14 +8,11 @@ export default function AboutPage() {
 
         {/* Left Column: Bio */}
         <section className="space-y-8">
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.25em] text-sunset-sky font-medium">About Me</p>
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
-              Giovanni Fantoni
+          <div className="space-y-3">
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
+              <span className="text-white">Giovanni </span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-sky to-sunset-violet">Fantoni</span>
             </h1>
-            <h2 className="text-2xl sm:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-sunset-sky to-sunset-violet">
-              FPV &amp; Aerial Cinematography
-            </h2>
           </div>
 
           <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed max-w-xl">

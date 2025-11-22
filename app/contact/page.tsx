@@ -11,15 +11,12 @@ export default function ContactPage() {
       <div className="w-full max-w-4xl space-y-12 relative z-10 text-center">
 
         {/* Header */}
-        <section className="space-y-6">
-          <p className="text-xs uppercase tracking-[0.25em] text-sunset-sky font-medium">Contact</p>
-          <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-white">
-            Let's create <br className="sm:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-amber via-sunset-orange to-sunset-violet">Something Epic</span>
+        <section className="space-y-4">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+            Let's <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-sky to-sunset-violet">Talk</span>
           </h1>
-          <p className="text-base sm:text-lg text-neutral-400 leading-relaxed max-w-xl mx-auto">
-            Brief, location e tempistiche: più dettagli condividi, più veloce sarà la proposta.
-            Raccontami la tua idea.
+          <p className="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl mx-auto">
+            Brief, location e tempistiche: raccontami la tua idea.
           </p>
         </section>
 
