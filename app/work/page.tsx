@@ -5,7 +5,7 @@ import { HeroVideo } from "../components/HeroVideo";
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 pt-16">
+    <main className="min-h-screen bg-neutral-950 lg:pt-16">
       <HeroVideo />
 
       <div id="gallery" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-8 animate-fade-in" style={{ animationDelay: "0.5s" }}>

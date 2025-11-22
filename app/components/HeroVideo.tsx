@@ -4,7 +4,7 @@ import { FaChevronDown } from "react-icons/fa";
 
 export function HeroVideo() {
     return (
-        <div className="relative h-[100svh] lg:h-[85svh] w-full lg:max-w-[1400px] lg:mx-auto overflow-hidden flex flex-col lg:block bg-black">
+        <div className="relative h-[100svh] lg:h-[85svh] w-full lg:max-w-[1400px] lg:mx-auto overflow-hidden flex flex-col lg:block bg-black mt-16 lg:mt-0">
             {/* Video Background */}
             <div className="relative h-[75%] lg:h-full w-full overflow-hidden">
                 <iframe
