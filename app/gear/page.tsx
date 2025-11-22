@@ -12,7 +12,7 @@ export default function GearPage() {
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-sky via-sunset-violet to-sunset-orange">Backpack</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-sky via-sunset-sky via-sunset-violet to-sunset-orange">Backpack</span>
             </h1>
           </div>
 
