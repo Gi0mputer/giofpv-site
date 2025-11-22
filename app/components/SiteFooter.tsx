@@ -19,7 +19,7 @@ export function SiteFooter() {
 
         {/* Phone - Whatsapp Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaWhatsapp className="h-7 w-7 text-white transition-colors group-hover:text-sunset-sky" />
+          <FaWhatsapp className="h-7 w-7 text-sunset-sky transition-colors" />
           <div>
             <h3 className="text-base font-light tracking-wide text-white">Phone - Whatsapp</h3>
             <Link
@@ -33,7 +33,7 @@ export function SiteFooter() {
 
         {/* Email Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaEnvelope className="h-7 w-7 text-white transition-colors group-hover:text-sunset-amber" />
+          <FaEnvelope className="h-7 w-7 text-sunset-amber transition-colors" />
           <div>
             <h3 className="text-base font-light tracking-wide text-white">Email</h3>
             <a
@@ -47,7 +47,7 @@ export function SiteFooter() {
 
         {/* Connect Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaInstagram className="h-7 w-7 text-white transition-colors group-hover:text-sunset-violet" />
+          <FaInstagram className="h-7 w-7 text-sunset-violet transition-colors" />
           <div>
             <h3 className="text-base font-light tracking-wide text-white">Connect</h3>
             <Link

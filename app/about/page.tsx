@@ -10,8 +10,8 @@ export default function AboutPage() {
         <section className="space-y-8">
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
-              <span className="text-white">FPV Pilot & </span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-sky via-sunset-sky via-sunset-violet to-sunset-orange">Filmmaker</span>
+              <span className="bg-[linear-gradient(to_right,#06b6d4_0%,#22d3ee_50%,#67e8f9_100%)] bg-clip-text text-transparent">Aerial & FPV</span>
+              <span className="text-white"> Filmmaker</span>
             </h1>
           </div>
 

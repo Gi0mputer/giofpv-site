@@ -9,15 +9,14 @@ export default function ContactPage() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-amber/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-4xl space-y-12 relative z-10 text-center">
-
         {/* Header */}
         <section className="space-y-4">
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             Let's create <br className="sm:hidden" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-sky via-sunset-sky via-sunset-violet to-sunset-orange">Something Epic</span>
+            <span className="bg-[linear-gradient(to_right,#f97316_0%,#fbbf24_50%,#f59e0b_100%)] bg-clip-text text-transparent">Something Epic</span>
           </h1>
           <p className="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl mx-auto">
-            Brief, location e tempistiche: raccontami la tua idea.
+            Location e tempistiche: raccontami la tua idea.
           </p>
         </section>
 
@@ -31,7 +30,7 @@ export default function ContactPage() {
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Phone</div>
             <Link
               href="https://wa.me/393451575507"
-              className="block text-lg font-semibold text-white hover:text-sunset-amber transition-colors"
+              className="block text-lg font-semibold text-white hover:text-sunset-sky transition-colors"
             >
               +39 345 157 5507
             </Link>
@@ -43,12 +42,12 @@ export default function ContactPage() {
               <Mail size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Email</div>
-            <a
+            <Link
               href="mailto:gio.fantoni.fpv@gmail.com"
               className="block text-lg font-semibold text-white hover:text-sunset-amber transition-colors truncate"
             >
               gio.fantoni.fpv@gmail.com
-            </a>
+            </Link>
           </div>
 
           {/* Instagram */}
@@ -61,7 +60,7 @@ export default function ContactPage() {
               href="https://instagram.com/gio.drone"
               target="_blank"
               rel="noreferrer"
-              className="block text-lg font-semibold text-white hover:text-sunset-amber transition-colors"
+              className="block text-lg font-semibold text-white hover:text-sunset-violet transition-colors"
             >
               @gio.drone
             </Link>
