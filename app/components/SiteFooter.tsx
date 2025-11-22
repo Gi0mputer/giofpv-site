@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaInstagram, FaWhatsapp, FaEnvelope, FaRegThumbsUp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export function SiteFooter() {
   return (
@@ -36,20 +36,19 @@ export function SiteFooter() {
         </div>
 
         {/* Connect Section */}
-        <div className="border-t border-white/20 md:border-t-0 py-12 md:py-16 flex flex-col items-center justify-center gap-6 text-center">
-          <div className="flex flex-col items-center gap-2">
-            <FaRegThumbsUp className="h-8 w-8 text-white" />
+        <div className="border-t border-white/20 md:border-t-0 py-12 md:py-16 flex flex-col items-center justify-center gap-4 text-center">
+          <FaInstagram className="h-8 w-8 text-white" />
+          <div>
             <h3 className="text-lg font-light tracking-wide">Connect</h3>
+            <Link
+              href="https://instagram.com/gio.drone"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 block text-xl font-light hover:text-pink-500 transition-colors"
+            >
+              @gio.drone
+            </Link>
           </div>
-
-          <Link
-            href="https://instagram.com/gio.drone"
-            target="_blank"
-            rel="noreferrer"
-            className="transition hover:scale-110 hover:text-pink-500"
-          >
-            <FaInstagram className="h-10 w-10 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white p-1 rounded-lg" />
-          </Link>
         </div>
       </div>
 
