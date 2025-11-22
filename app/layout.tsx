@@ -28,18 +28,14 @@ export const metadata: Metadata = {
     locale: "it_IT",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "GioFPV • Riprese aeree 4K cinematografiche e adrenaliniche",
-    description:
-      "Riprese aeree 4K con droni FPV e stabilizzati per eventi, turismo, sport e valorizzazione immobiliare da Verona, Italia.",
-    images: ["/og.png"],
-  },
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
     shortcut: "/icon.png",
-    apple: "/icon.png",
+    apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
 };
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
