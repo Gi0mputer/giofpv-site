@@ -4,8 +4,8 @@ import { Zap } from "lucide-react";
 
 export default function GearPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 pt-36 pb-12 px-6 lg:pt-24 lg:flex lg:items-center lg:justify-center lg:p-24">
-      <div className="w-full max-w-7xl grid gap-12 lg:grid-cols-2 lg:gap-24 items-start">
+    <main className="min-h-screen bg-neutral-950 pt-36 pb-24 px-6 lg:pt-32 lg:pb-32 lg:px-24">
+      <div className="w-full max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 lg:gap-24 items-start">
 
         {/* Left Column: Header & Intro */}
         <section className="space-y-8 lg:sticky lg:top-24">
