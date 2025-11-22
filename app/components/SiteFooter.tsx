@@ -8,13 +8,13 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3">
 
         {/* Phone - Whatsapp Section */}
-        <div className="border-t border-white/20 md:border-t-0 py-12 md:py-16 flex flex-col items-center justify-center gap-4 text-center">
-          <FaWhatsapp className="h-8 w-8 text-white" />
+        <div className="group border-t border-white/20 md:border-t-0 py-12 md:py-16 flex flex-col items-center justify-center gap-4 text-center cursor-pointer">
+          <FaWhatsapp className="h-8 w-8 text-white transition-colors group-hover:text-sunset-amber" />
           <div>
-            <h3 className="text-lg font-light tracking-wide">Phone - Whatsapp</h3>
+            <h3 className="text-lg font-light tracking-wide text-white">Phone - Whatsapp</h3>
             <Link
               href="https://wa.me/393451575507"
-              className="mt-2 block text-xl font-light hover:text-neutral-300"
+              className="mt-2 block text-xl font-light text-white transition-colors group-hover:text-sunset-amber"
             >
               +39 345 157 5507
             </Link>
@@ -22,13 +22,13 @@ export function SiteFooter() {
         </div>
 
         {/* Email Section */}
-        <div className="border-t border-white/20 md:border-t-0 md:border-l md:border-r md:border-white/10 py-12 md:py-16 flex flex-col items-center justify-center gap-4 text-center">
-          <FaEnvelope className="h-8 w-8 text-white" />
+        <div className="group border-t border-white/20 md:border-t-0 md:border-l md:border-r md:border-white/10 py-12 md:py-16 flex flex-col items-center justify-center gap-4 text-center cursor-pointer">
+          <FaEnvelope className="h-8 w-8 text-white transition-colors group-hover:text-sunset-amber" />
           <div>
-            <h3 className="text-lg font-light tracking-wide">Email</h3>
+            <h3 className="text-lg font-light tracking-wide text-white">Email</h3>
             <a
               href="mailto:gio.fantoni.fpv@gmail.com"
-              className="mt-2 block text-lg font-light hover:text-neutral-300"
+              className="mt-2 block text-lg font-light text-white transition-colors group-hover:text-sunset-amber"
             >
               gio.fantoni.fpv@gmail.com
             </a>
@@ -36,15 +36,15 @@ export function SiteFooter() {
         </div>
 
         {/* Connect Section */}
-        <div className="border-t border-white/20 md:border-t-0 py-12 md:py-16 flex flex-col items-center justify-center gap-4 text-center">
-          <FaInstagram className="h-8 w-8 text-white" />
+        <div className="group border-t border-white/20 md:border-t-0 py-12 md:py-16 flex flex-col items-center justify-center gap-4 text-center cursor-pointer">
+          <FaInstagram className="h-8 w-8 text-white transition-colors group-hover:text-sunset-amber" />
           <div>
-            <h3 className="text-lg font-light tracking-wide">Connect</h3>
+            <h3 className="text-lg font-light tracking-wide text-white">Connect</h3>
             <Link
               href="https://instagram.com/gio.drone"
               target="_blank"
               rel="noreferrer"
-              className="mt-2 block text-xl font-light hover:text-pink-500 transition-colors"
+              className="mt-2 block text-xl font-light text-white transition-colors group-hover:text-sunset-amber"
             >
               @gio.drone
             </Link>
