@@ -1,72 +1,81 @@
+// app/contact/page.tsx
 import Link from "next/link";
 import { Phone, Mail, Instagram } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 space-y-20 animate-fade-in">
-      <section className="space-y-6 max-w-3xl">
-        <p className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium">Contact</p>
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
-          Parliamo del tuo <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-amber to-sunset-orange">Progetto</span>
-        </h1>
-        <p className="text-lg text-neutral-300 leading-relaxed max-w-2xl">
-          Brief, location e tempistiche: più dettagli condividi, più veloce sarà la proposta.
-          Raccontami la tua idea.
-        </p>
-      </section>
+    <main className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      {/* Background Gradient Blob */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-amber/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="group rounded-2xl border border-white/10 bg-neutral-900/50 p-8 transition-all hover:bg-neutral-900 hover:border-sunset-amber/30">
-          <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-sunset-amber group-hover:scale-110 transition-transform duration-300">
-            <Phone size={24} />
+      <div className="w-full max-w-4xl space-y-12 relative z-10 text-center">
+
+        {/* Header */}
+        <section className="space-y-6">
+          <p className="text-xs uppercase tracking-[0.25em] text-sunset-amber font-medium">Contact</p>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
+            Let's create <br className="sm:hidden" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-500">Something Epic</span>
+          </h1>
+          <p className="text-lg text-neutral-400 leading-relaxed max-w-xl mx-auto">
+            Brief, location e tempistiche: più dettagli condividi, più veloce sarà la proposta.
+            Raccontami la tua idea.
+          </p>
+        </section>
+
+        {/* Contact Cards */}
+        <div className="grid gap-4 sm:grid-cols-3">
+          {/* Phone */}
+          <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
+              <Phone size={20} />
+            </div>
+            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Phone</div>
+            <Link
+              href="https://wa.me/393451575507"
+              className="block text-lg font-semibold text-white hover:text-sunset-amber transition-colors"
+            >
+              +39 345 157 5507
+            </Link>
           </div>
-          <div className="text-xs uppercase tracking-[0.25em] text-neutral-500 mb-2">Phone – WhatsApp</div>
-          <Link
-            href="https://wa.me/393451575507"
-            className="block text-xl font-semibold text-white hover:text-sunset-amber transition-colors"
-          >
-            +39 3451575507
-          </Link>
-          <p className="mt-3 text-sm text-neutral-400">Disponibile per messaggi o note vocali.</p>
+
+          {/* Email */}
+          <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
+              <Mail size={20} />
+            </div>
+            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Email</div>
+            <a
+              href="mailto:gio.fantoni.fpv@gmail.com"
+              className="block text-lg font-semibold text-white hover:text-sunset-amber transition-colors truncate"
+            >
+              gio.fantoni.fpv@gmail.com
+            </a>
+          </div>
+
+          {/* Instagram */}
+          <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
+              <Instagram size={20} />
+            </div>
+            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Instagram</div>
+            <Link
+              href="https://instagram.com/gio.drone"
+              target="_blank"
+              rel="noreferrer"
+              className="block text-lg font-semibold text-white hover:text-sunset-amber transition-colors"
+            >
+              @gio.drone
+            </Link>
+          </div>
         </div>
 
-        <div className="group rounded-2xl border border-white/10 bg-neutral-900/50 p-8 transition-all hover:bg-neutral-900 hover:border-sunset-amber/30">
-          <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-sunset-amber group-hover:scale-110 transition-transform duration-300">
-            <Mail size={24} />
-          </div>
-          <div className="text-xs uppercase tracking-[0.25em] text-neutral-500 mb-2">Email</div>
-          <a
-            href="mailto:hello@giofpv.com"
-            className="block text-xl font-semibold text-white hover:text-sunset-amber transition-colors break-all"
-          >
-            giovanni.fantoni.1997@gmail.com
-          </a>
-          <p className="mt-3 text-sm text-neutral-400">
-            Invia briefing, moodboard o referenze video.
+        {/* Footer Info */}
+        <div className="pt-8 border-t border-white/5">
+          <p className="text-xs text-neutral-600">
+            GioFpv — Verona, Italy • © 2025 Giovanni Fantoni
           </p>
         </div>
-
-        <div className="group rounded-2xl border border-white/10 bg-neutral-900/50 p-8 transition-all hover:bg-neutral-900 hover:border-sunset-amber/30">
-          <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-sunset-amber group-hover:scale-110 transition-transform duration-300">
-            <Instagram size={24} />
-          </div>
-          <div className="text-xs uppercase tracking-[0.25em] text-neutral-500 mb-2">Connect</div>
-          <Link
-            href="https://instagram.com/gio.fanto"
-            target="_blank"
-            rel="noreferrer"
-            className="block text-xl font-semibold text-white hover:text-sunset-amber transition-colors"
-          >
-            @gio.fanto
-          </Link>
-          <p className="mt-3 text-sm text-neutral-400">Guarda le mie Stories e i miei Reels.</p>
-        </div>
-      </div>
-
-      <div className="pt-10 border-t border-white/10">
-        <p className="text-xs text-neutral-500">
-          GioFpv — Verona, Italy • © 2025 Giovanni Fantoni
-        </p>
       </div>
     </main>
   );
