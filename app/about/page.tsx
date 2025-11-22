@@ -11,7 +11,7 @@ export default function AboutPage() {
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
               <span className="text-white">Giovanni </span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-orange to-sunset-violet">Fantoni</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#fbbf24] via-[#f97316] via-[#06b6d4] to-[#a855f7]">Fantoni</span>
             </h1>
           </div>
 
