@@ -1,42 +1,15 @@
-// app/about/page.tsx
-import { collaborations } from "@/data/collaborations";
-
-export default function AboutPage() {
-  return (
-    <main className="min-h-screen bg-neutral-950 flex items-center justify-center p-6 sm:p-12 lg:p-24">
-      <div className="w-full max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-
-        {/* Left Column: Bio */}
-        <section className="space-y-8">
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.25em] text-sunset-amber font-medium">About Me</p>
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
-              Giovanni Fantoni
-            </h1>
-            <h2 className="text-2xl sm:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-500">
-              FPV &amp; Aerial Cinematography
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-lg text-neutral-400 leading-relaxed max-w-xl">
-            <p>
-              Mi chiamo Giovanni Fantoni e sono un pilota di droni e filmmaker FPV con base a Verona,
-              Italia. Vengo dall’informatica e dagli sport outdoor: per anni ho passato più weekend su
-              fiumi, sentieri e neve che davanti alla TV.
-            </p>
-            <p>
               Il drone è arrivato come estensione naturale di tutto questo: la voglia di raccontare
               luoghi e persone da punti di vista che da terra non esistono.
-            </p>
-            <p>
-              Oggi mi concentro su riprese FPV e aeree pulite, leggibili e sicure: voli che seguono
-              l’azione da vicino senza diventare mai caotici.
-            </p>
-          </div>
-        </section>
+            </p >
+  <p>
+    Oggi mi concentro su riprese FPV e aeree pulite, leggibili e sicure: voli che seguono
+    l’azione da vicino senza diventare mai caotici.
+  </p>
+          </div >
+        </section >
 
-        {/* Right Column: Collaborations Grid */}
-        <div className="space-y-6">
+  {/* Right Column: Collaborations Grid */ }
+  < div className = "space-y-6" >
           <div className="border-b border-white/10 pb-4 mb-6">
             <h3 className="text-xl font-semibold text-white">Collaborations</h3>
             <p className="text-sm text-neutral-500 mt-1">
@@ -62,8 +35,8 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-    </main>
+        </div >
+      </div >
+    </main >
   );
 }

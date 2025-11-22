@@ -4,7 +4,7 @@ import { Phone, Mail, Instagram } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+    <main className="min-h-screen bg-neutral-950 pt-28 pb-12 px-6 lg:flex lg:flex-col lg:items-center lg:justify-center lg:p-6 relative overflow-hidden">
       {/* Background Gradient Blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-amber/5 rounded-full blur-3xl pointer-events-none" />
 
