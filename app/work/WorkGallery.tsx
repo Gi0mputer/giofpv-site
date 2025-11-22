@@ -97,30 +97,7 @@ export function WorkGallery({ items, initialVisible }: Props) {
 
   return (
     <section className="space-y-8">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap items-center gap-3 text-sm">
-          <span className="rounded-full border border-white/15 px-4 py-2 text-neutral-200">
-            {currentCategoryLabel}
-          </span>
-          <select
-            value={category}
-            onChange={(e) => {
-              setCategory(e.target.value);
-              setVisible(6);
-            }}
-            className="rounded-full border border-white/15 bg-neutral-900/80 px-3 py-2 text-neutral-100 shadow-sm focus:border-amber-400 focus:outline-none"
-          >
-            {categories.map((cat) => (
-              <option key={cat} value={cat} className="bg-neutral-900">
-                {cat === "All" ? "All Categories" : cat}
-              </option>
-            ))}
-          </select>
-        </div>
-        <p className="text-xs text-neutral-500" aria-live="polite">
-          {videoCountLabel}
-        </p>
-      </div>
+
 
       {filtered.length === 0 ? (
         <div className="rounded-2xl border border-white/10 bg-neutral-900/80 p-6 text-center text-neutral-200">
