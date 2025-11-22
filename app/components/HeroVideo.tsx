@@ -21,7 +21,7 @@ export function HeroVideo() {
                 </div>
 
                 {/* Desktop Scroll Indicator (Discreet, Bottom-Center) */}
-                <div className="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none z-20">
+                <div className="hidden lg:block absolute bottom-2 left-1/2 -translate-x-1/2 pointer-events-none z-20">
                     {/* Hover detection area - 120px radius (~3cm) */}
                     <div className="relative w-[120px] h-[120px] pointer-events-auto group">
                         {/* Clickable area - 80px radius (~2cm), centered */}
@@ -29,11 +29,9 @@ export function HeroVideo() {
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] cursor-pointer"
                             onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
                         >
-                            {/* Visual indicator - small and discreet */}
+                            {/* Visual indicator - just the arrow, semi-transparent */}
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="flex flex-col items-center gap-1 bg-black/50 backdrop-blur-sm rounded-full p-3 border border-white/10">
-                                    <FaChevronDown className="text-sunset-amber h-4 w-4 animate-bounce" />
-                                </div>
+                                <FaChevronDown className="text-sunset-amber h-8 w-8 opacity-50 animate-bounce" />
                             </div>
                         </div>
                     </div>
