@@ -39,7 +39,7 @@ export function SiteHeader() {
             alt="GioFPV logo"
             width={24}
             height={24}
-            className="h-8 w-8"
+            className="h-10 w-10"
           />
           <span>Gio<span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-[#fa991d] via-sunset-orange via-sunset-sky to-sunset-violet">FPV</span></span>
         </Link>
