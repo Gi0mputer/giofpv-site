@@ -19,7 +19,7 @@ export default function WorkPage() {
           </p>
         </div>
 
-        <WorkGallery items={works} />
+        <WorkGallery items={works} initialVisible={2} />
       </div>
     </main>
   );

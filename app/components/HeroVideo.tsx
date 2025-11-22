@@ -17,31 +17,9 @@ export function HeroVideo() {
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent" />
             </div>
 
-            {/* Content */}
-            <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-                <h1 className="text-5xl sm:text-7xl font-bold tracking-tighter text-white drop-shadow-lg">
-                    Cinematic <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-amber to-sunset-orange">FPV</span>
-                </h1>
-                <p className="mt-6 max-w-2xl text-lg sm:text-xl text-neutral-200 drop-shadow-md">
-                    Riprese aeree immersive e dinamiche per brand, eventi e turismo.
-                    <br className="hidden sm:block" />
-                    Prospettive uniche, velocità e precisione.
-                </p>
-
-                <div className="mt-10 flex gap-4">
-                    <a
-                        href="#gallery"
-                        className="rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-8 py-3 text-sm font-medium text-white transition hover:bg-white/20 hover:scale-105"
-                    >
-                        Esplora i lavori
-                    </a>
-                    <a
-                        href="/contact"
-                        className="rounded-full bg-gradient-to-r from-sunset-amber to-sunset-orange px-8 py-3 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition hover:shadow-orange-500/40 hover:scale-105"
-                    >
-                        Contattami
-                    </a>
-                </div>
+            {/* Content - Minimal or removed as requested */}
+            <div className="relative z-10 flex h-full flex-col items-center justify-end pb-20 text-center px-4 pointer-events-none">
+                {/* Optional: Minimal indicator or arrow could go here, but keeping it clean for now */}
             </div>
         </div>
     );

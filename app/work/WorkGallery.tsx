@@ -6,6 +6,7 @@ import type { WorkItem } from "@/data/work";
 
 type Props = {
   items: WorkItem[];
+  initialVisible?: number;
 };
 
 function getYoutubeId(url: string) {
@@ -72,14 +73,17 @@ function VideoCard({ work }: { work: WorkItem }) {
   );
 }
 
-export function WorkGallery({ items }: Props) {
+export function WorkGallery({ items, initialVisible }: Props) {
+  const props = { items, initialVisible }; // Capture props for use in state initialization if needed, or just use directly.
+  // Actually simpler to just destructure in the function signature and use directly.
+
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(items.map((i) => i.category)))],
     [items]
   );
 
   const [category, setCategory] = useState("All");
-  const [visible, setVisible] = useState(6);
+  const [visible, setVisible] = useState(items.length > 0 ? (props.initialVisible || 6) : 6);
 
   const filtered = items.filter((item) =>
     category === "All" ? true : item.category === category
