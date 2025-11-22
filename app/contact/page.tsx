@@ -14,7 +14,7 @@ export default function ContactPage() {
         <section className="space-y-4">
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             Let's create <br className="sm:hidden" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#fbbf24] via-[#f97316] via-[#06b6d4] to-[#a855f7]">Something Epic</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-sunset-amber via-sunset-orange via-sunset-sky to-sunset-violet">Something Epic</span>
           </h1>
           <p className="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl mx-auto">
             Brief, location e tempistiche: raccontami la tua idea.
