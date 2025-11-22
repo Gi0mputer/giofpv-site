@@ -10,10 +10,10 @@ export default function GearPage() {
         {/* Left Column: Header & Intro */}
         <section className="space-y-8 lg:sticky lg:top-24">
           <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.25em] text-sunset-amber font-medium">Equipment</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-sunset-violet font-medium">Equipment</p>
             <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-white">
               What's in my <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-500">Backpack</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-amber to-sunset-violet">Backpack</span>
             </h1>
           </div>
 

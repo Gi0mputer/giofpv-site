@@ -19,12 +19,12 @@ export function SiteFooter() {
 
         {/* Phone - Whatsapp Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaWhatsapp className="h-7 w-7 text-white transition-colors group-hover:text-sunset-amber" />
+          <FaWhatsapp className="h-7 w-7 text-white transition-colors group-hover:text-sunset-sky" />
           <div>
             <h3 className="text-base font-light tracking-wide text-white">Phone - Whatsapp</h3>
             <Link
               href="https://wa.me/393451575507"
-              className="mt-2 block text-lg font-light text-white transition-colors group-hover:text-sunset-amber"
+              className="mt-2 block text-lg font-light text-white transition-colors group-hover:text-sunset-sky"
             >
               +39 345 157 5507
             </Link>
@@ -47,14 +47,14 @@ export function SiteFooter() {
 
         {/* Connect Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaInstagram className="h-7 w-7 text-white transition-colors group-hover:text-sunset-amber" />
+          <FaInstagram className="h-7 w-7 text-white transition-colors group-hover:text-sunset-violet" />
           <div>
             <h3 className="text-base font-light tracking-wide text-white">Connect</h3>
             <Link
               href="https://instagram.com/gio.drone"
               target="_blank"
               rel="noreferrer"
-              className="mt-2 block text-lg font-light text-white transition-colors group-hover:text-sunset-amber"
+              className="mt-2 block text-lg font-light text-white transition-colors group-hover:text-sunset-violet"
             >
               @gio.drone
             </Link>

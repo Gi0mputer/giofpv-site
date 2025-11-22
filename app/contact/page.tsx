@@ -12,10 +12,10 @@ export default function ContactPage() {
 
         {/* Header */}
         <section className="space-y-6">
-          <p className="text-xs uppercase tracking-[0.25em] text-sunset-amber font-medium">Contact</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-sunset-sky font-medium">Contact</p>
           <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-white">
             Let's create <br className="sm:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-amber to-sunset-orange">Something Epic</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sunset-amber via-sunset-orange to-sunset-violet">Something Epic</span>
           </h1>
           <p className="text-base sm:text-lg text-neutral-400 leading-relaxed max-w-xl mx-auto">
             Brief, location e tempistiche: più dettagli condividi, più veloce sarà la proposta.
@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="grid gap-4 sm:grid-cols-3">
           {/* Phone */}
           <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
               <Phone size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Phone</div>
@@ -55,7 +55,7 @@ export default function ContactPage() {
 
           {/* Instagram */}
           <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
               <Instagram size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Instagram</div>

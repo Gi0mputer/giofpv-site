@@ -9,11 +9,11 @@ export default function AboutPage() {
         {/* Left Column: Bio */}
         <section className="space-y-8">
           <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.25em] text-sunset-amber font-medium">About Me</p>
-            <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-white">
+            <p className="text-xs uppercase tracking-[0.25em] text-sunset-sky font-medium">About Me</p>
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
               Giovanni Fantoni
             </h1>
-            <h2 className="text-2xl sm:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-500">
+            <h2 className="text-2xl sm:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-sunset-sky to-sunset-violet">
               FPV &amp; Aerial Cinematography
             </h2>
           </div>
@@ -21,7 +21,7 @@ export default function AboutPage() {
           <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed max-w-xl">
             <p>
               Mi chiamo Giovanni Fantoni e sono un pilota di droni e filmmaker FPV con base a Verona,
-              Italia. Vengo dall’informatica e dagli sport outdoor: per anni ho passato più weekend su
+              Italia. Vengo dall'informatica e dagli sport outdoor: per anni ho passato più weekend su
               fiumi, sentieri e neve che davanti alla TV.
             </p>
             <p>
@@ -30,7 +30,7 @@ export default function AboutPage() {
             </p>
             <p>
               Oggi mi concentro su riprese FPV e aeree pulite, leggibili e sicure: voli che seguono
-              l’azione da vicino senza diventare mai caotici.
+              l'azione da vicino senza diventare mai caotici.
             </p>
           </div>
         </section>
