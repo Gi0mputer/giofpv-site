@@ -5,23 +5,18 @@ import { FaChevronDown } from "react-icons/fa";
 export function HeroVideo() {
     return (
         <div className="relative h-[100svh] lg:h-[85svh] w-full lg:max-w-[1400px] lg:mx-auto overflow-hidden flex flex-col lg:block bg-black">
-            {/* Video Background / Top Section on Mobile */}
+            {/* Video Background */}
             <div className="relative h-[75%] lg:h-full w-full overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <iframe
-                        src="https://www.youtube.com/embed/kddVKHFSUAw?autoplay=1&mute=1&controls=1&loop=1&playlist=kddVKHFSUAw&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080&disablekb=0"
-                        className="h-full w-full object-cover"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    />
-                    {/* Overlay to darken video for text readability - reduced opacity for interaction */}
-                    <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-                    {/* Gradient overlay at bottom to blend with content */}
-                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none" />
-                </div>
+                <iframe
+                    src="https://www.youtube.com/embed/kddVKHFSUAw?autoplay=1&mute=1&controls=1&loop=1&playlist=kddVKHFSUAw&rel=0&modestbranding=1&playsinline=1&vq=hd1080"
+                    className="absolute inset-0 h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Hero Video"
+                />
             </div>
 
-            {/* Mobile Bottom Section (CTA) */}
+            {/* Mobile CTA Section */}
             <div
                 className="relative z-10 flex h-[25%] lg:hidden flex-col items-center justify-center text-center px-4 bg-neutral-950 cursor-pointer"
                 onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
