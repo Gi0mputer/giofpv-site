@@ -3,7 +3,7 @@ import { collaborations } from "@/data/collaborations";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 pt-36 pb-12 px-6 lg:flex lg:items-center lg:justify-center lg:p-24">
+    <main className="min-h-screen bg-neutral-950 pt-36 pb-12 px-6 lg:pt-24 lg:flex lg:items-center lg:justify-center lg:p-24">
       <div className="w-full max-w-7xl grid gap-12 lg:grid-cols-2 lg:gap-24 items-center">
 
         {/* Left Column: Bio */}

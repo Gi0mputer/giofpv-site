@@ -9,8 +9,8 @@ export function HeroVideo() {
             <div className="relative h-[75%] lg:h-full w-full overflow-hidden group">
                 <div className="absolute inset-0 z-0">
                     <iframe
-                        src="https://www.youtube.com/embed/kddVKHFSUAw?autoplay=1&mute=1&controls=1&loop=1&playlist=kddVKHFSUAw&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080"
-                        className="h-full w-full object-cover scale-125"
+                        src="https://www.youtube.com/embed/kddVKHFSUAw?autoplay=1&mute=1&controls=1&loop=1&playlist=kddVKHFSUAw&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080&disablekb=0"
+                        className="h-full w-full object-cover"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     />
