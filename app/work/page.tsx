@@ -8,7 +8,7 @@ export default function WorkPage() {
   return (
     <main className="min-h-screen bg-neutral-950 pt-16">
       <HeroVideo />
-      <div id="gallery" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+      <div id="gallery" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 mt-12 space-y-6 animate-fade-in" style={{ animationDelay: "0.5s" }}>
         <div className="text-center space-y-2 mb-6">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
             <span className="bg-[linear-gradient(to_right,#f97316_0%,#fbbf24_20%,#06b6d4_60%,#a855f7_100%)] bg-clip-text text-transparent">Projects</span>
