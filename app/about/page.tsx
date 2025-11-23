@@ -1,6 +1,6 @@
 // app/about/page.tsx
 import { collaborations } from "@/data/collaborations";
-import { ArrowDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -33,14 +33,13 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        {/* Scroll Indicator - Desktop Only, Minimal Chevron */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex animate-bounce">
           <Link
             href="#collaborations"
-            className="flex flex-col items-center gap-2 text-neutral-500 hover:text-white transition-colors"
+            className="text-white/40 hover:text-cyan-400 transition-all duration-300 hover:scale-110"
           >
-            <span className="text-[10px] uppercase tracking-widest text-cyan-400">See Collaborations</span>
-            <ArrowDown size={20} />
+            <ChevronDown size={32} strokeWidth={1.5} />
           </Link>
         </div>
       </section>
