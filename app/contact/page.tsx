@@ -67,12 +67,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Footer Info */}
-        <div className="pt-8 border-t border-white/5">
-          <p className="text-xs text-neutral-600">
-            GioFpv — Verona, Italy • © 2025 Giovanni Fantoni
-          </p>
-        </div>
+
       </div>
     </main>
   );
