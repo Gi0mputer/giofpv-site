@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Tests - Short Text</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: sans-serif;
+            padding: 40px;
+        }
+
+        .gradient-text {
+            font-size: 4rem;
+            font-weight: 800;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: baseline;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .label {
+            font-size: 0.875rem;
+            color: #a3a3a3;
+            margin-bottom: 10px;
+            font-family: monospace;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-2xl mb-12 text-neutral-400">Short Text Tests</h1>
+
+        <!-- Option A -->
+        <div class="row">
+            <div class="col">
+                <p class="label">Option A: Violet -> CYAN -> AMBER -> Orange</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#a855f7_0%,#06b6d4_15%,#06b6d4_45%,#fbbf24_55%,#fbbf24_85%,#f97316_100%)]">
+                    FPV
+                </h2>
+            </div>
+            <div class="col">
+                <p class="label">Option A</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#a855f7_0%,#06b6d4_15%,#06b6d4_45%,#fbbf24_55%,#fbbf24_85%,#f97316_100%)]">
+                    Projects
+                </h2>
+            </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="row">
+            <div class="col">
+                <p class="label">Option B: Orange -> AMBER -> CYAN -> Violet</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#f97316_0%,#fbbf24_15%,#fbbf24_45%,#06b6d4_55%,#06b6d4_85%,#a855f7_100%)]">
+                    FPV
+                </h2>
+            </div>
+            <div class="col">
+                <p class="label">Option B</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#f97316_0%,#fbbf24_15%,#fbbf24_45%,#06b6d4_55%,#06b6d4_85%,#a855f7_100%)]">
+                    Projects
+                </h2>
+            </div>
+        </div>
+
+        <!-- Option C -->
+        <div class="row">
+            <div class="col">
+                <p class="label">Option C: Orange -> CYAN -> AMBER -> Violet</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#f97316_0%,#06b6d4_15%,#06b6d4_45%,#fbbf24_55%,#fbbf24_85%,#a855f7_100%)]">
+                    FPV
+                </h2>
+            </div>
+            <div class="col">
+                <p class="label">Option C</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#f97316_0%,#06b6d4_15%,#06b6d4_45%,#fbbf24_55%,#fbbf24_85%,#a855f7_100%)]">
+                    Projects
+                </h2>
+            </div>
+        </div>
+
+        <!-- Option D -->
+        <div class="row">
+            <div class="col">
+                <p class="label">Option D: Violet -> AMBER -> CYAN -> Orange</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#a855f7_0%,#fbbf24_15%,#fbbf24_45%,#06b6d4_55%,#06b6d4_85%,#f97316_100%)]">
+                    FPV
+                </h2>
+            </div>
+            <div class="col">
+                <p class="label">Option D</p>
+                <h2
+                    class="gradient-text bg-[linear-gradient(90deg,#a855f7_0%,#fbbf24_15%,#fbbf24_45%,#06b6d4_55%,#06b6d4_85%,#f97316_100%)]">
+                    Projects
+                </h2>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

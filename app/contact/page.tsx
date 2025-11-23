@@ -13,7 +13,7 @@ export default function ContactPage() {
         <section className="space-y-4">
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             Let's create <br className="sm:hidden" />
-            <span className="bg-[linear-gradient(to_right,#f97316_0%,#fbbf24_50%,#f59e0b_100%)] bg-clip-text text-transparent">Something Epic</span>
+            <span className="bg-[linear-gradient(90deg,#00f0ff_0%,#00f0ff_25%,#bd00ff_35%,#bd00ff_55%,#ffcc00_65%,#ffcc00_95%,#ff5500_100%)] bg-clip-text text-transparent">Something Epic</span>
           </h1>
           <p className="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl mx-auto">
             Location e tempistiche: raccontami la tua idea.
