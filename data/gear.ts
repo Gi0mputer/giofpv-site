@@ -2,19 +2,31 @@ export type GearItem = {
   title: string;
   description: string;
   image: string;
+  links: {
+    mobile: string;
+    desktop: string;
+  };
 };
 
 export const gear: GearItem[] = [
   {
     title: "DJI Mini 5 Pro",
     description:
-      "Drone compatto e leggero, perfetto per riprese pulite e stabili sopra città, lago e montagne. Registra fino a 4K 60fps, con sensore capace di gestire bene tramonti e scene ad alto contrasto. Ideale per establishing shot di città e paesaggi, riprese di strutture ricettive e immobili, contenuti verticali per social.",
+      "Gimbal stabilizzato per riprese cinematografiche, sensore ad alta gamma dinamica per gestire luci complesse. Perfetto per video verticali social senza perdita di qualità.",
     image: "/gear/mini3pro.png",
+    links: {
+      mobile: "https://www.youtube.com/shorts/tuLYOFB4MfI",
+      desktop: "https://www.youtube.com/watch?v=jRzpagPx6uY",
+    },
   },
   {
     title: "DJI Avata 2 — FPV cinewhoop",
     description:
-      "Il drone FPV principale per linee dinamiche e immersive. Grazie al frame protetto può volare vicino a persone, muri e oggetti mantenendo un buon margine di sicurezza. Registra in 4K 60fps con stabilizzazione digitale, ideale per inseguimenti di sport outdoor, fly-through all'interno di spazi architettonici, passaggi stretti tra corridoi e scale.",
+      "Voli immersivi ed emozionanti con la sicurezza del frame protetto. Sensore di qualità che permette crop verticali per social mantenendo un look dinamico e coinvolgente.",
     image: "/gear/avata2.png",
+    links: {
+      mobile: "https://www.youtube.com/shorts/DjmqnwXcRaM",
+      desktop: "https://www.youtube.com/watch?v=RNhmV4yCP6M",
+    },
   },
 ];

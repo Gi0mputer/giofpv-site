@@ -4,11 +4,11 @@ import { Phone, Mail, Instagram } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <main className="h-[100dvh] min-h-[600px] bg-neutral-950 pt-28 pb-6 px-6 flex flex-col items-center justify-start sm:justify-center relative overflow-hidden">
+    <main className="h-[100dvh] bg-neutral-950 pt-24 pb-6 px-6 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background Gradient Blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-amber/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="w-full max-w-4xl space-y-12 relative z-10 text-center">
+      <div className="w-full max-w-4xl space-y-8 sm:space-y-12 relative z-10 text-center">
         {/* Header */}
         <section className="space-y-4">
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
