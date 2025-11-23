@@ -7,7 +7,7 @@ export default function AboutPage() {
   return (
     <main className="bg-neutral-950">
       {/* Section 1: Bio */}
-      <section className="min-h-[100dvh] flex flex-col items-center justify-center px-6 pt-20 pb-24 relative">
+      <section className="min-h-[100dvh] flex flex-col items-center justify-start pt-32 pb-24 px-6 relative">
         <div className="w-full max-w-2xl space-y-8">
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
