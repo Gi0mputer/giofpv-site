@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 
 export function HeroVideo() {
     return (
-        <div className="relative w-full pt-16 pb-4">
+        <div className="relative w-full pt-24 lg:pt-16 pb-4">
             {/* Compact Video Container */}
             <div className="relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-lg">
                 <iframe
