@@ -41,7 +41,7 @@ export function SiteHeader() {
             height={24}
             className="h-10 w-10"
           />
-          <span>Gio<span className="bg-[linear-gradient(to_right,#f97316_0%,#fbbf24_20%,#06b6d4_60%,#a855f7_100%)] bg-clip-text text-transparent">FPV</span></span>
+          <span>Gio<span className="bg-[linear-gradient(90deg,#00f0ff_0%,#00f0ff_25%,#bd00ff_35%,#bd00ff_55%,#ffcc00_65%,#ffcc00_95%,#ff5500_100%)] bg-clip-text text-transparent">FPV</span></span>
         </Link>
 
         {/* NAV */}

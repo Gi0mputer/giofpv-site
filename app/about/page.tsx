@@ -11,7 +11,7 @@ export default function AboutPage() {
         <div className="w-full max-w-2xl space-y-8 text-center mx-auto">
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
-              <span className="bg-[linear-gradient(90deg,#00f0ff_0%,#00f0ff_25%,#bd00ff_35%,#bd00ff_55%,#ffcc00_65%,#ffcc00_95%,#ff5500_100%)] bg-clip-text text-transparent">Aerial & FPV</span>
+              <span className="bg-[linear-gradient(to_right,#06b6d4_0%,#22d3ee_50%,#67e8f9_100%)] bg-clip-text text-transparent">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
             </h1>
           </div>
@@ -39,7 +39,7 @@ export default function AboutPage() {
             href="#collaborations"
             className="flex flex-col items-center gap-2 text-neutral-500 hover:text-white transition-colors"
           >
-            <span className="text-[10px] uppercase tracking-widest">See Collaborations</span>
+            <span className="text-[10px] uppercase tracking-widest text-cyan-400">See Collaborations</span>
             <ArrowDown size={20} />
           </Link>
         </div>
