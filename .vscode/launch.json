@@ -2,18 +2,31 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Next.js: dev",
-      "type": "node",
+      "name": "Desktop (Chrome)",
+      "type": "chrome",
       "request": "launch",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal",
-      "serverReadyAction": {
-        "pattern": "started server on .*:(\\d+)",
-        "uriFormat": "http://localhost:%s",
-        "action": "openExternally"
-      }
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Mobile (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": [
+        "--window-size=375,812",
+        "--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
+      ]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Desktop & Mobile",
+      "configurations": [
+        "Desktop (Chrome)",
+        "Mobile (Chrome)"
+      ]
     }
   ]
 }

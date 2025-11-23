@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function GearPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 pt-20 pb-12 px-6 lg:pt-32 lg:pb-32 lg:px-24">
+    <main className="min-h-screen bg-neutral-950 pt-28 pb-12 px-6 lg:pt-32 lg:pb-32 lg:px-24">
       <div className="w-full max-w-7xl mx-auto grid gap-8 lg:grid-cols-2 lg:gap-24 items-start">
 
         {/* Left Column: Header & Intro */}
@@ -29,26 +29,24 @@ export default function GearPage() {
           {gear.map((item, index) => (
             <div
               key={item.title}
-              className="group relative rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10"
+              className="group relative rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 flex items-center gap-4"
             >
-              <div className="flex items-start gap-4">
-                <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/5 overflow-hidden group-hover:scale-110 transition-transform">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={48}
-                    height={48}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h2 className="text-xl font-semibold text-white group-hover:text-sunset-amber transition-colors">
-                    {item.title}
-                  </h2>
-                  <p className="text-sm text-neutral-400 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-white/5 overflow-hidden group-hover:scale-110 transition-transform">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={64}
+                  height={64}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-lg font-semibold text-white group-hover:text-sunset-amber transition-colors">
+                  {item.title}
+                </h2>
+                <p className="text-xs text-neutral-400 leading-relaxed line-clamp-3">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
