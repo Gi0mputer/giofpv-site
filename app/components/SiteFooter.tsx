@@ -65,8 +65,7 @@ export function SiteFooter() {
       {/* Footer Bottom */}
       <div className="border-t border-white/10 py-6">
         <div className="mx-auto max-w-6xl px-4 text-center text-xs text-neutral-600 font-light">
-          <p>GioFpv • Verona, Italy • © 2025 Giovanni Fantoni</p>
-          <p className="mt-1">P.IVA 02676470228</p>
+          <p>GIOFPV • Verona, Italy • © 2025 Giovanni Fantoni</p>
         </div>
       </div>
     </footer>
