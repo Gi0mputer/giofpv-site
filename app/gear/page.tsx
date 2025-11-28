@@ -18,8 +18,14 @@ export default function GearPage() {
 
           <div className="space-y-4 text-sm sm:text-lg text-neutral-300 leading-relaxed">
             <p>
-              Due piattaforme principali per coprire il 90% dei progetti: un drone compatto da viaggio
-              per riprese pulite in 4K e un sistema FPV per voli dinamici in prima persona.
+              L' attrezzatura che porto con me mi permette di adattarmi a qualsiasi tipo di ripresa,
+              dalle immagini stabili e cinematiche ai voli più dinamici e immersivi.
+
+              Per le immagini più pulite utilizzo un drone stabilizzato con gimbal a tre assi,
+              ideale per viste dall'alto, panoramiche e primi piani stabili e definiti.
+
+              Quando invece serve movimento, energia o un punto di vista impossibile per un drone tradizionale,
+              uso un drone FPV che permette passaggi precisi, inseguimenti e prospettive ravvicinate e adrenaliniche.
             </p>
           </div>
         </section>
@@ -59,7 +65,7 @@ export default function GearPage() {
                     rel="noopener noreferrer"
                     className="sm:hidden text-sunset-violet hover:text-sunset-fuchsia underline underline-offset-4 text-sm font-medium transition-colors"
                   >
-                    Per saperne di più
+                    see more
                   </a>
                   {/* Desktop Link */}
                   <a
@@ -68,7 +74,7 @@ export default function GearPage() {
                     rel="noopener noreferrer"
                     className="hidden sm:inline-block text-sunset-violet hover:text-sunset-fuchsia underline underline-offset-4 text-sm font-medium transition-colors"
                   >
-                    Per saperne di più
+                    see more
                   </a>
                 </div>
               </div>

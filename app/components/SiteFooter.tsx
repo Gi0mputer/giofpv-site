@@ -18,54 +18,54 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3">
 
         {/* Phone - Whatsapp Section */}
-        <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
+        <Link
+          href="https://wa.me/393451575507"
+          className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+        >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
             <Phone size={20} />
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Phone - Whatsapp</h3>
-            <Link
-              href="https://wa.me/393451575507"
-              className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-sky"
-            >
+            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-sky">
               +39 345 157 5507
-            </Link>
+            </span>
           </div>
-        </div>
+        </Link>
 
         {/* Email Section */}
-        <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
+        <a
+          href="mailto:giovanni.fantoni.1997@gmail.com"
+          className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+        >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
             <Mail size={20} />
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Email</h3>
-            <a
-              href="mailto:gio.fantoni.fpv@gmail.com"
-              className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-amber"
-            >
-              gio.fantoni.fpv@gmail.com
-            </a>
+            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-amber">
+              giovanni.fantoni.1997@gmail.com
+            </span>
           </div>
-        </div>
+        </a>
 
         {/* Connect Section */}
-        <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
+        <Link
+          href="https://instagram.com/gio.fanto"
+          target="_blank"
+          rel="noreferrer"
+          className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+        >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
             <Instagram size={20} />
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Connect</h3>
-            <Link
-              href="https://instagram.com/gio.drone"
-              target="_blank"
-              rel="noreferrer"
-              className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-violet"
-            >
-              @gio.drone
-            </Link>
+            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-violet">
+              @gio.fanto
+            </span>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Footer Bottom */}

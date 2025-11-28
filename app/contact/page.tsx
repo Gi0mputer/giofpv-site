@@ -23,48 +23,48 @@ export default function ContactPage() {
         {/* Contact Cards */}
         <div className="grid gap-4 sm:grid-cols-3">
           {/* Phone */}
-          <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
+          <Link
+            href="https://wa.me/393451575507"
+            className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
+          >
             <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
               <Phone size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Phone</div>
-            <Link
-              href="https://wa.me/393451575507"
-              className="block text-lg font-semibold text-white hover:text-sunset-sky transition-colors"
-            >
+            <span className="block text-lg font-semibold text-white group-hover:text-sunset-sky transition-colors">
               +39 345 157 5507
-            </Link>
-          </div>
+            </span>
+          </Link>
 
           {/* Email */}
-          <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
+          <a
+            href="mailto:gio.fantoni.fpv@gmail.com"
+            className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
+          >
             <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
               <Mail size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Email</div>
-            <Link
-              href="mailto:gio.fantoni.fpv@gmail.com"
-              className="block text-lg font-semibold text-white hover:text-sunset-amber transition-colors truncate"
-            >
-              gio.fantoni.fpv@gmail.com
-            </Link>
-          </div>
+            <span className="block text-lg font-semibold text-white group-hover:text-sunset-amber transition-colors truncate">
+              giovanni.fantoni.1997@gmail.com
+            </span>
+          </a>
 
           {/* Instagram */}
-          <div className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1">
+          <Link
+            href="https://instagram.com/gio.fanto"
+            target="_blank"
+            rel="noreferrer"
+            className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
+          >
             <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
               <Instagram size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Instagram</div>
-            <Link
-              href="https://instagram.com/gio.drone"
-              target="_blank"
-              rel="noreferrer"
-              className="block text-lg font-semibold text-white hover:text-sunset-violet transition-colors"
-            >
-              @gio.drone
-            </Link>
-          </div>
+            <span className="block text-lg font-semibold text-white group-hover:text-sunset-violet transition-colors">
+              @gio.fanto
+            </span>
+          </Link>
         </div>
 
 

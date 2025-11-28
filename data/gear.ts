@@ -12,7 +12,7 @@ export const gear: GearItem[] = [
   {
     title: "DJI Mini 5 Pro",
     description:
-      "Gimbal stabilizzato per riprese cinematografiche, sensore ad alta gamma dinamica per gestire luci complesse. Perfetto per video verticali social senza perdita di qualità.",
+      "Dotato di un sensore CMOS da 1″ con 50 MP, è il primo a portare questa qualità su un drone leggero. La camera può filmare in posizione verticale, mantenendo la piena risoluzione anche per reel e contenuti social. Il gimbal aggiornato introduce un nuovo asse di rotazione che permette riprese ruotate e d'effetto, non realizzabili con modelli precedenti.",
     image: "/gear/mini3pro.png",
     links: {
       mobile: "https://www.youtube.com/shorts/tuLYOFB4MfI",
@@ -20,9 +20,9 @@ export const gear: GearItem[] = [
     },
   },
   {
-    title: "DJI Avata 2 — FPV cinewhoop",
+    title: "DJI Avata 2",
     description:
-      "Voli immersivi ed emozionanti con la sicurezza del frame protetto. Sensore di qualità che permette crop verticali per social mantenendo un look dinamico e coinvolgente.",
+      "Il più recente drone FPV prodotto da DJI. La manovrabilità FPV consente traiettorie di volo immersive e adrenaliniche, passaggi precisi, inseguimenti e prospettive impossibili da ottenere con un drone tradizionale. Grazie al frame protetto può volare vicino a oggetti e superfici in maggiore sicurezza. La camera stabilizzata digitalmente registra in 4K a 100 fps, permettendo riprese di alta qualità che mantengono definizione anche dopo un crop verticale per contenuti social.",
     image: "/gear/avata2.png",
     links: {
       mobile: "https://www.youtube.com/shorts/DjmqnwXcRaM",
