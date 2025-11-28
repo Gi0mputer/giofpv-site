@@ -71,11 +71,21 @@ export function WorkGallery({ items, initialVisible }: Props) {
   const canLoadMore = actuallyVisibleCount < horizontalVideos.length;
 
   const handleLoadMore = () => {
-    setVisibleHorizontal((prev) => prev + 3);
+    setVisibleHorizontal((prev) => prev + 4); // Load 4 videos at a time (matching vertical slot)
     setTimeout(() => {
-      const section = document.getElementById('horizontal-section');
-      section?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
+      // Scroll to horizontal section with offset for fixed header
+      const horizontalSection = document.getElementById('horizontal-section');
+      if (horizontalSection) {
+        const headerHeight = 64; // Height of fixed header (h-16 = 4rem = 64px)
+        const elementPosition = horizontalSection.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 200);
   };
 
   return (

@@ -1,21 +1,66 @@
 @import "tailwindcss";
 
-/* Variabili globali - Vibrant Multi-Color Theme */
+/* ========================================================================
+   COLOR SYSTEM - Centralized Theme Colors
+   ========================================================================
+   
+   Questo file centralizza TUTTI i colori del sito.
+   Ogni pagina ha il suo colore principale e il suo gradiente unico.
+   
+   STRUTTURA:
+   - Base colors: Sfondo e testo di default
+   - Logo gradient: Il gradiente arcobaleno del logo "FPV"
+   - Page colors: Ogni pagina ha un colore mono e un gradiente per i titoli
+   
+   MAPPATURA PAGINE:
+   - Work (/)        → Amber (#fbbf24)  | Gradiente: Amber → Orange
+   - About           → Cyan  (#06b6d4)  | Gradiente: Cyan → Sky → Light Cyan
+   - Gear            → Violet (#a855f7) | Gradiente: Violet → Purple → Fuchsia
+   - Contact         → Orange (#f97316) | Gradiente: Orange → Amber → Orange
+   
+   USO NEI COMPONENTI:
+   - Header links: hover:text-sunset-{page-color}
+   - Scroll arrows: hover:text-{color} (specifico per pagina)
+   - Titles: bg-gradient-{page} bg-clip-text text-transparent
+   
+   ======================================================================== */
+
 :root {
-  /* Base colors - Enforcing Dark Mode for Cinematic Feel */
+  /* --- BASE COLORS --- */
   --background: #0a0a0a;
   --foreground: #ededed;
 
-  /* Vibrant Neon Palette */
-  --sunset-amber: #fbbf24;
-  --sunset-orange: #f97316;
-  --sunset-sky: #06b6d4;
-  --sunset-violet: #a855f7;
+  /* --- LOGO GRADIENT (Header - "FPV" text) --- */
+  /* Gradiente multi-colore che rappresenta il brand */
+  --gradient-logo: linear-gradient(90deg, #00f0ff 0%, #00f0ff 25%, #bd00ff 35%, #bd00ff 55%, #ffcc00 65%, #ffcc00 95%, #ff5500 100%);
 
-  /* Semantic mappings */
-  --color-primary: var(--sunset-amber);
-  --color-secondary: var(--sunset-sky);
-  --color-accent: var(--sunset-orange);
+  /* --- WORK PAGE COLORS (Homepage - /) --- */
+  /* Mono color: Amber | Used for: header link hover, scroll arrow, accents */
+  --color-work-primary: #fbbf24;
+  --sunset-amber: #fbbf24;
+  /* Page gradient: Used for "Projects" title */
+  --gradient-work: linear-gradient(to right, #fbbf24 0%, #f59e0b 100%);
+
+  /* --- ABOUT PAGE COLORS (/about) --- */
+  /* Mono color: Cyan | Used for: header link hover, scroll arrow, accents */
+  --color-about-primary: #06b6d4;
+  --sunset-sky: #06b6d4;
+  /* Page gradient: Used for "Aerial & FPV" title */
+  --gradient-about: linear-gradient(to right, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);
+
+  /* --- GEAR PAGE COLORS (/gear) --- */
+  /* Mono color: Violet | Used for: header link hover, borders, accents */
+  --color-gear-primary: #a855f7;
+  --sunset-violet: #a855f7;
+  /* Page gradient: Used for "Backpack" title */
+  --gradient-gear: linear-gradient(to right, #a855f7 0%, #7c3aed 50%, #d946ef 100%);
+
+  /* --- CONTACT PAGE COLORS (/contact) --- */
+  /* Mono color: Orange | Used for: header link hover, icons, accents */
+  --color-contact-primary: #f97316;
+  --sunset-orange: #f97316;
+  /* Page gradient: Used for "Something Epic" title */
+  --gradient-contact: linear-gradient(to right, #f97316 0%, #fbbf24 50%, #f59e0b 100%);
 }
 
 /* Collegamento col tema di Tailwind v4 */
@@ -25,14 +70,27 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Custom colors */
+  /* Expose gradients as background images */
+  --background-image-gradient-logo: var(--gradient-logo);
+  --background-image-gradient-work: var(--gradient-work);
+  --background-image-gradient-about: var(--gradient-about);
+  --background-image-gradient-gear: var(--gradient-gear);
+  --background-image-gradient-contact: var(--gradient-contact);
+
+  /* Expose primary colors */
+  --color-work-primary: var(--color-work-primary);
+  --color-about-primary: var(--color-about-primary);
+  --color-gear-primary: var(--color-gear-primary);
+  --color-contact-primary: var(--color-contact-primary);
+
+  /* Legacy color names (used in many components) */
   --color-sunset-amber: var(--sunset-amber);
   --color-sunset-orange: var(--sunset-orange);
   --color-sunset-sky: var(--sunset-sky);
   --color-sunset-violet: var(--sunset-violet);
 }
 
-/* Dark mode automatica (redundant but kept for structure) */
+/* Dark mode automatica */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

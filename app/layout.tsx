@@ -6,6 +6,7 @@ import { SiteHeader } from "./components/SiteHeader";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://giofpv.com"),
   title: "GioFPV • Aerial Shots",
@@ -28,15 +29,6 @@ export const metadata: Metadata = {
     locale: "it_IT",
     type: "website",
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/icon.png", sizes: "512x512", type: "image/png" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: "/manifest.json",
 };
 
 function LayoutContent({ children }: { children: React.ReactNode }) {

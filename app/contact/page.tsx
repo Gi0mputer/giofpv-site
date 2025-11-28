@@ -4,7 +4,7 @@ import { Phone, Mail, Instagram } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <main className="h-[100dvh] bg-neutral-950 pt-24 pb-6 px-6 flex flex-col items-center justify-center relative overflow-hidden">
+    <main className="min-h-[100dvh] bg-neutral-950 pt-24 pb-6 px-6 flex flex-col items-center justify-center relative overflow-hidden supports-[min-height:100dvh]:min-h-[100dvh]">
       {/* Background Gradient Blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-amber/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -13,7 +13,7 @@ export default function ContactPage() {
         <section className="space-y-4">
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
             Let's create <br className="sm:hidden" />
-            <span className="bg-[linear-gradient(to_right,#f97316_0%,#fbbf24_50%,#f59e0b_100%)] bg-clip-text text-transparent">Something Epic</span>
+            <span className="bg-gradient-contact bg-clip-text text-transparent">Something Epic</span>
           </h1>
           <p className="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-xl mx-auto">
             Location e tempistiche: raccontami la tua idea.

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function GearPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 pt-24 pb-12 px-6 lg:pt-28 lg:pb-12 lg:px-24 flex flex-col items-center">
+    <main className="min-h-screen bg-neutral-950 pt-24 pb-12 px-6 lg:pt-20 lg:pb-12 lg:px-24 flex flex-col items-center">
       <div className="w-full max-w-5xl space-y-8 lg:space-y-12">
 
         {/* Header & Intro - Centered */}
@@ -12,7 +12,7 @@ export default function GearPage() {
           <div className="space-y-2">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
-              <span className="bg-[linear-gradient(to_right,#a855f7_0%,#7c3aed_50%,#d946ef_100%)] bg-clip-text text-transparent">Backpack</span>
+              <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
             </h1>
           </div>
 

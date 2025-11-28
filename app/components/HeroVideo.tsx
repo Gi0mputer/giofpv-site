@@ -5,9 +5,9 @@ import { ChevronDown } from "lucide-react";
 
 export function HeroVideo() {
     return (
-        <div className="relative w-full pt-24 lg:pt-16 pb-4">
-            {/* Compact Video Container */}
-            <div className="relative aspect-video w-full max-w-5xl mx-auto overflow-hidden rounded-lg">
+        <section className="relative w-full h-screen flex flex-col items-center justify-center px-6">
+            {/* Centered Video Container */}
+            <div className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-lg" style={{ aspectRatio: '16/9' }}>
                 <iframe
                     src="https://www.youtube.com/embed/kddVKHFSUAw?autoplay=1&mute=1&controls=1&loop=1&playlist=kddVKHFSUAw&rel=0&modestbranding=1&playsinline=1&vq=hd1080"
                     className="absolute inset-0 h-full w-full"
@@ -17,8 +17,8 @@ export function HeroVideo() {
                 />
             </div>
 
-            {/* Scroll Down Button - Minimal Chevron (Desktop Only) */}
-            <div className="hidden lg:flex justify-center mt-4 animate-bounce">
+            {/* Scroll Down Button - Positioned at Bottom */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex animate-bounce">
                 <Link
                     href="#gallery"
                     className="text-white/40 hover:text-amber-400 transition-all duration-300 hover:scale-110"
@@ -26,6 +26,6 @@ export function HeroVideo() {
                     <ChevronDown size={32} strokeWidth={1.5} />
                 </Link>
             </div>
-        </div>
+        </section>
     );
 }

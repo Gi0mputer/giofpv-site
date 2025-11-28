@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { Instagram, Phone, Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
@@ -19,12 +19,14 @@ export function SiteFooter() {
 
         {/* Phone - Whatsapp Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaWhatsapp className="h-7 w-7 text-sunset-sky transition-colors" />
+          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
+            <Phone size={20} />
+          </div>
           <div>
-            <h3 className="text-base font-light tracking-wide text-white">Phone - Whatsapp</h3>
+            <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Phone - Whatsapp</h3>
             <Link
               href="https://wa.me/393451575507"
-              className="mt-2 block text-lg font-light text-white transition-colors group-hover:text-sunset-sky"
+              className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-sky"
             >
               +39 345 157 5507
             </Link>
@@ -33,12 +35,14 @@ export function SiteFooter() {
 
         {/* Email Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaEnvelope className="h-7 w-7 text-sunset-amber transition-colors" />
+          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
+            <Mail size={20} />
+          </div>
           <div>
-            <h3 className="text-base font-light tracking-wide text-white">Email</h3>
+            <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Email</h3>
             <a
               href="mailto:gio.fantoni.fpv@gmail.com"
-              className="mt-2 block text-base font-light text-white transition-colors group-hover:text-sunset-amber"
+              className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-amber"
             >
               gio.fantoni.fpv@gmail.com
             </a>
@@ -47,14 +51,16 @@ export function SiteFooter() {
 
         {/* Connect Section */}
         <div className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer">
-          <FaInstagram className="h-7 w-7 text-sunset-violet transition-colors" />
+          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
+            <Instagram size={20} />
+          </div>
           <div>
-            <h3 className="text-base font-light tracking-wide text-white">Connect</h3>
+            <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Connect</h3>
             <Link
               href="https://instagram.com/gio.drone"
               target="_blank"
               rel="noreferrer"
-              className="mt-2 block text-lg font-light text-white transition-colors group-hover:text-sunset-violet"
+              className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-violet"
             >
               @gio.drone
             </Link>

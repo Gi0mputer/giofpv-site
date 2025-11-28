@@ -7,11 +7,11 @@ export default function AboutPage() {
   return (
     <main className="bg-neutral-950">
       {/* Section 1: Bio */}
-      <section className="min-h-[100dvh] flex flex-col items-center justify-start pt-28 pb-24 px-6 relative">
+      <section className="min-h-[100dvh] flex flex-col items-center justify-center pt-20 pb-24 px-6 relative">
         <div className="w-full max-w-2xl space-y-8 text-center mx-auto">
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
-              <span className="bg-[linear-gradient(to_right,#06b6d4_0%,#22d3ee_50%,#67e8f9_100%)] bg-clip-text text-transparent">Aerial & FPV</span>
+              <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
             </h1>
           </div>
@@ -33,8 +33,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Scroll Indicator - Desktop Only, Minimal Chevron */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex animate-bounce">
+        {/* Scroll Indicator - Visible on all screens, positioned at bottom */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex animate-bounce z-10">
           <Link
             href="#collaborations"
             className="text-white/40 hover:text-cyan-400 transition-all duration-300 hover:scale-110"
