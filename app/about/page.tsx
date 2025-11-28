@@ -8,8 +8,8 @@ export default function AboutPage() {
     <main className="bg-neutral-950">
       {/* Section 1: Bio */}
       <section className="min-h-[100dvh] flex flex-col items-center justify-center pt-20 pb-24 px-6 relative">
-        <div className="w-full max-w-2xl space-y-8 text-center mx-auto">
-          <div className="space-y-3">
+        <div className="w-full max-w-2xl space-y-8 mx-auto">
+          <div className="space-y-3 text-center">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
               <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
@@ -18,17 +18,20 @@ export default function AboutPage() {
 
           <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed">
             <p>
-              Mi chiamo Giovanni Fantoni e sono un pilota di droni e filmmaker FPV con base a Verona,
-              Italia. Vengo dall'informatica e dagli sport outdoor: per anni ho passato più weekend su
-              fiumi, sentieri e neve che davanti alla TV.
+              Mi chiamo Giovanni Fantoni.
+              Sono da sempre appassionato di tecnologia e mi sono laureato in Informatica, ma in parallelo ho sempre coltivato una grande passione per l’outdoor, lo sport e la natura.
             </p>
             <p>
-              Il drone è arrivato come estensione naturale di tutto questo: la voglia di raccontare
-              luoghi e persone da punti di vista che da terra non esistono.
+              Fin da piccolo mi ha affascinato la possibilità di vedere le cose dall’alto, da una prospettiva diversa rispetto a quella a cui siamo abituati. Una prospettiva che va oltre il nostro punto di vista naturale.
             </p>
             <p>
-              Oggi mi concentro su riprese FPV e aeree pulite, leggibili e sicure: voli che seguono
-              l'azione da vicino senza diventare mai caotici.
+              Quando le tecnologie dei droni hanno iniziato a evolversi rapidamente, ho visto in loro il punto d’incontro perfetto tra queste due parti di me. Dal mio primo drone ho continuato a sperimentare e aggiornarmi per quasi dieci anni, trovandomi a riprendere in tanti scenari e occasioni diverse.
+            </p>
+            <p>
+              Di recente mi sono concentrato sulle riprese FPV, che hanno ampliato ancora di più le possibilità creative e mi hanno fatto appassionare definitivamente a questo mondo. Mi permettono di catturare momenti e prospettive che prima non erano nemmeno immaginabili.
+            </p>
+            <p>
+              Mi interessa mostrare un luogo o un momento in modo da valorizzarlo e renderlo entusiasmante, rivelando ciò che normalmente non è possibile filmare.
             </p>
           </div>
         </div>
