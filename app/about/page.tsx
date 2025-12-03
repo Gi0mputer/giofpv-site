@@ -42,11 +42,38 @@ export default function AboutPage() {
           </div>
 
           {/* Text Container with Floats */}
-          <div className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix">
+          <div className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix relative">
 
-            {/* Left Bubble - Logo (Desktop) */}
-            <div className="hidden lg:block float-left mr-8 mb-4 shape-circle">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 relative z-10">
+            {/* 1. Profile Pic - Top Right (Float Right) */}
+            <div className="float-right ml-6 mb-2 lg:ml-12 lg:mb-6 shape-circle">
+              <div className="w-32 h-32 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 relative z-10">
+                <Image
+                  src="/profilepic.png"
+                  alt="Giovanni Fantoni"
+                  width={224}
+                  height={224}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+
+            {/* Paragraph 1 */}
+            <p className="mb-6">
+              Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
+              <br />
+              Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
+            </p>
+
+            {/* Paragraph 2 */}
+            <p className="mb-6">
+              Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
+              <br />
+              Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
+            </p>
+
+            {/* 2. Logo - Bottom Left (Float Left) - Inserted before last paragraph */}
+            <div className="float-left mr-6 mt-2 lg:mr-12 lg:mt-12 shape-circle">
+              <div className="w-28 h-28 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 relative z-10">
                 <Image
                   src="/icon.png"
                   alt="GioFPV Logo"
@@ -57,40 +84,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right Bubble - Profile (Desktop) */}
-            <div className="hidden lg:block float-right ml-8 mb-4 mt-24 shape-circle">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 relative z-10">
-                <Image
-                  src="/profilepic.png"
-                  alt="Giovanni Fantoni"
-                  width={192}
-                  height={192}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </div>
-
-            {/* Mobile Bubbles (Centered, not floating) */}
-            <div className="lg:hidden flex justify-center gap-6 mb-8">
-              <div className="w-28 h-28 rounded-full overflow-hidden border-3 border-sunset-sky/30 shadow-[0_0_30px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 shrink-0">
-                <Image src="/icon.png" alt="GioFPV Logo" width={112} height={112} className="object-cover w-full h-full" />
-              </div>
-              <div className="w-28 h-28 rounded-full overflow-hidden border-3 border-sunset-violet/30 shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] bg-neutral-900 shrink-0">
-                <Image src="/profilepic.png" alt="Giovanni Fantoni" width={112} height={112} className="object-cover w-full h-full" />
-              </div>
-            </div>
-
-            {/* Paragraphs */}
-            <p className="mb-6">
-              Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
-              <br />
-              Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
-            </p>
-            <p className="mb-6">
-              Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
-              <br />
-              Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
-            </p>
+            {/* Paragraph 3 */}
             <p>
               Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
               Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
