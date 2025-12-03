@@ -148,4 +148,6 @@ html {
 .shape-circle {
   shape-outside: circle(50%);
   -webkit-shape-outside: circle(50%);
+  shape-margin: 0.5rem;
+  -webkit-shape-margin: 0.5rem;
 }

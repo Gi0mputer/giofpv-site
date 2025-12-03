@@ -15,12 +15,12 @@ export function SiteFooter() {
   return (
     <footer className="bg-black text-white">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3">
+      <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3  mt-10 md:mt-5">
 
         {/* Phone - Whatsapp Section */}
         <Link
           href="https://wa.me/393451575507"
-          className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+          className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
         >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
             <Phone size={20} />
@@ -36,7 +36,7 @@ export function SiteFooter() {
         {/* Email Section */}
         <a
           href="mailto:giovanni.fantoni.1997@gmail.com"
-          className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+          className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
         >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
             <Mail size={20} />
@@ -54,7 +54,7 @@ export function SiteFooter() {
           href="https://instagram.com/gio.fanto"
           target="_blank"
           rel="noreferrer"
-          className="group py-8 md:py-10 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+          className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
         >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
             <Instagram size={20} />
@@ -69,7 +69,7 @@ export function SiteFooter() {
       </div>
 
       {/* Footer Bottom */}
-      <div className="border-t border-white/10 py-6">
+      <div className="border-t border-white/10 py-4">
         <div className="mx-auto max-w-6xl px-4 text-center text-xs text-neutral-600 font-light">
           <p>GIOFPV • Verona, Italy • © 2025 Giovanni Fantoni</p>
         </div>

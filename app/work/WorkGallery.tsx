@@ -109,7 +109,7 @@ export function WorkGallery({ items, initialVisible }: Props) {
       )}
 
       {canLoadMore && (
-        <div className="flex justify-center pt-4">
+        <div className="flex justify-center pt-6 mb-5">
           <button type="button" onClick={handleLoadMore}
             className="rounded-full border border-white/20 px-6 py-2 text-sm font-medium text-white transition hover:border-amber-400 hover:text-amber-400">
             See more

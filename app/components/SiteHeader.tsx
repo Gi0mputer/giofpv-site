@@ -31,7 +31,7 @@ export function SiteHeader() {
         {/* LOGO */}
         <Link
           href="/work"
-          className="flex flex-1 items-center gap-2 text-sm font-semibold tracking-wide uppercase text-white"
+          className="flex flex-1 items-center gap-2 text-base md:text-lg font-semibold tracking-wide uppercase text-white"
         >
           <Image
             src="/icon.png"
@@ -44,7 +44,7 @@ export function SiteHeader() {
         </Link>
 
         {/* NAV */}
-        <nav className="flex items-center gap-4 md:gap-6 text-base md:text-lg">
+        <nav className="flex items-center gap-6 md:gap-8 text-lg md:text-xl">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
