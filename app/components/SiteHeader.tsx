@@ -44,14 +44,14 @@ export function SiteHeader() {
         </Link>
 
         {/* NAV */}
-        <nav className="flex items-center gap-6 text-sm md:text-lg">
+        <nav className="flex items-center gap-4 md:gap-6 text-base md:text-lg">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition ${isActive
+                className={`py-2 px-1 transition ${isActive
                   ? link.color
                   : `text-neutral-500 ${link.color.replace('text-', 'hover:text-')}`
                   }`}
