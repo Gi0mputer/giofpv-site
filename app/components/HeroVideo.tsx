@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 
 export function HeroVideo() {
     return (
-        <section className="relative w-full flex flex-col items-center px-0 md:px-6 pt-24 pb-4 md:h-screen md:pt-[70px] md:pb-6 md:justify-between bg-neutral-950">
+        <section className="relative w-full flex flex-col items-center px-0 md:px-6 pt-24 pb-6 md:h-screen md:pt-[70px] md:pb-6 md:justify-between bg-neutral-950">
             {/* Centered Video Container */}
             <div className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-lg shadow-xl shadow-black/30 z-10" style={{ aspectRatio: '16/9' }}>
                 <iframe
