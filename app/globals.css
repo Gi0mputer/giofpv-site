@@ -138,3 +138,8 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Reserve space for scrollbar to prevent layout shift without showing empty bar */
+html {
+  scrollbar-gutter: stable;
+}
