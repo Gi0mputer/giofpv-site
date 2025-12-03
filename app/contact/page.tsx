@@ -8,7 +8,7 @@ export default function ContactPage() {
       {/* Background Gradient Blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-amber/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="w-full max-w-6xl space-y-8 sm:space-y-12 relative z-10 text-center">
+      <div className="w-full max-w-5xl space-y-8 sm:space-y-12 relative z-10 text-center">
         {/* Header */}
         <section className="space-y-4">
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">

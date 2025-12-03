@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function GearPage() {
   return (
     <main className="min-h-screen bg-neutral-950 pt-24 pb-12 px-6 lg:pt-20 lg:pb-12 lg:px-24 flex flex-col items-center">
-      <div className="w-full max-w-5xl space-y-8 lg:space-y-12">
+      <div className="w-full max-w-4xl space-y-8 lg:space-y-12">
 
         {/* Header & Intro - Centered Header, Left Text */}
-        <section className="space-y-4 mx-auto max-w-2xl">
+        <section className="space-y-4 mx-auto max-w-4xl">
           <div className="space-y-2 text-center">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
