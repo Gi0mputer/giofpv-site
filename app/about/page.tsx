@@ -4,26 +4,32 @@ import { gear } from "@/data/gear";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 export default function AboutPage() {
-  const [isGearExpanded, setIsGearExpanded] = useState(false);
-  const cardsRef = useRef<HTMLElement>(null);
+  // State to track MULTIPLE expanded cards (array of titles)
+  const [expandedCards, setExpandedCards] = useState<string[]>([]);
 
-  const toggleGear = () => {
-    const newState = !isGearExpanded;
-    setIsGearExpanded(newState);
+  const toggleGear = (title: string) => {
+    setExpandedCards((prev) => {
+      const isCurrentlyExpanded = prev.includes(title);
 
-    if (newState && cardsRef.current) {
-      setTimeout(() => {
-        const yOffset = -20;
-        const element = cardsRef.current;
-        if (element) {
-          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-      }, 100);
-    }
+      if (isCurrentlyExpanded) {
+        // Close card: remove from array
+        return prev.filter((t) => t !== title);
+      } else {
+        // Open card: add to array AND scroll to it
+        setTimeout(() => {
+          const element = document.getElementById(`gear-${title}`);
+          if (element) {
+            const yOffset = -100; // Header height + some padding
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 100); // Small delay to ensure render
+        return [...prev, title];
+      }
+    });
   };
 
   return (
@@ -76,7 +82,7 @@ export default function AboutPage() {
             <p className="mt-7 mb-4">
               Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
             </p>
-            <p className="mb-4">
+            <p className="mb-4 ml-16">
               Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
             </p>
             <p className="mb-4">
@@ -92,13 +98,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="gear" ref={cardsRef} className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 bg-neutral-950 scroll-mt-0">
+      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
         <div className="w-full max-w-5xl space-y-6 sm:space-y-8">
           <div className="space-y-4 text-center mx-auto max-w-3xl">
-            <h2 className="text-2xl sm:text-5xl font-bold tracking-tight text-white">
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
               <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
-            </h2>
+            </h1>
             <div className="space-y-4 text-base sm:text-lg text-neutral-300 leading-relaxed text-justify max-w-4xl mx-auto">
               <p>
                 L'attrezzatura che porto con me mi permette di adattarmi a qualsiasi tipo di ripresa,
@@ -116,61 +122,65 @@ export default function AboutPage() {
           </div>
 
           <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 mx-auto max-w-5xl">
-            {gear.map((item) => (
-              <div
-                key={item.title}
-                className={`group relative rounded-3xl border border-white/5 bg-white/5 transition-all duration-500 ${isGearExpanded ? "bg-white/10 border-white/10" : "hover:bg-white/8 hover:border-white/8"
-                  }`}
-              >
-                {!isGearExpanded && (
-                  <button onClick={toggleGear} className="w-full p-4 sm:p-8 flex flex-col items-center gap-4 sm:gap-6 text-center cursor-pointer">
-                    <div className="flex h-20 w-20 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden group-hover:scale-105 transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
-                      <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-sunset-violet transition-colors">
-                      {item.title}
-                    </h3>
-                    <div className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-4 py-1.5 sm:px-6 sm:py-2 text-xs sm:text-sm font-medium text-white transition-all group-hover:bg-white/10 group-hover:border-white/20 group-hover:scale-105">
-                      See more
-                    </div>
-                  </button>
-                )}
-
-                {isGearExpanded && (
-                  <div className="p-4 sm:p-8 flex flex-col items-center text-center gap-4 sm:gap-6 animate-fade-in">
-                    <div className="flex h-24 w-24 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
-                      <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
-                    </div>
-
-                    <div className="space-y-3 sm:space-y-4 flex flex-col items-center flex-grow">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-white">
+            {gear.map((item) => {
+              const isExpanded = expandedCards.includes(item.title);
+              return (
+                <div
+                  key={item.title}
+                  id={`gear-${item.title}`} // Unique ID for scrolling
+                  className={`group relative rounded-3xl border border-white/5 bg-white/5 transition-all duration-500 ${isExpanded ? "bg-white/10 border-white/10" : "hover:bg-white/8 hover:border-white/8"
+                    }`}
+                >
+                  {!isExpanded && (
+                    <button onClick={() => toggleGear(item.title)} className="w-full p-4 sm:p-8 flex flex-col items-center gap-4 sm:gap-6 text-center cursor-pointer">
+                      <div className="flex h-20 w-20 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden group-hover:scale-105 transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
+                        <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-sunset-violet transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-base text-neutral-400 leading-relaxed">
-                        {item.description}
-                      </p>
+                      <div className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-4 py-1.5 sm:px-6 sm:py-2 text-xs sm:text-sm font-medium text-white transition-all group-hover:bg-white/10 group-hover:border-white/20 group-hover:scale-105">
+                        See more
+                      </div>
+                    </button>
+                  )}
 
-                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2 w-full sm:w-auto">
-                        <a
-                          href={item.links.desktop}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 hover:scale-105"
-                        >
-                          See on YouTube
-                        </a>
-                        <button
-                          onClick={toggleGear}
-                          className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-neutral-400 transition-all hover:bg-white/10 hover:border-white/20 hover:text-white"
-                        >
-                          Show less
-                        </button>
+                  {isExpanded && (
+                    <div className="p-4 sm:p-8 flex flex-col items-center text-center gap-4 sm:gap-6 animate-fade-in">
+                      <div className="flex h-24 w-24 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
+                        <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
+                      </div>
+
+                      <div className="space-y-3 sm:space-y-4 flex flex-col items-center flex-grow">
+                        <h3 className="text-xl sm:text-2xl font-semibold text-white">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs sm:text-base text-neutral-400 leading-relaxed">
+                          {item.description}
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2 w-full sm:w-auto">
+                          <a
+                            href={item.links.desktop}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 hover:scale-105"
+                          >
+                            See on YouTube
+                          </a>
+                          <button
+                            onClick={() => toggleGear(item.title)}
+                            className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-neutral-400 transition-all hover:bg-white/10 hover:border-white/20 hover:text-white"
+                          >
+                            Show less
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
