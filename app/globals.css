@@ -143,3 +143,9 @@ body {
 html {
   scrollbar-gutter: stable;
 }
+
+/* Utility for circular text wrapping */
+.shape-circle {
+  shape-outside: circle(50%);
+  -webkit-shape-outside: circle(50%);
+}

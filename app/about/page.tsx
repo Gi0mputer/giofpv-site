@@ -4,18 +4,33 @@ import { gear } from "@/data/gear";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function AboutPage() {
-  const [expandedDrone, setExpandedDrone] = useState<number | null>(null);
+  // State to toggle ALL gear items at once
+  const [isGearExpanded, setIsGearExpanded] = useState(false);
+  const gearSectionRef = useRef<HTMLElement>(null);
 
-  const toggleDrone = (index: number) => {
-    setExpandedDrone(expandedDrone === index ? null : index);
+  const toggleGear = () => {
+    const newState = !isGearExpanded;
+    setIsGearExpanded(newState);
+
+    // If expanding, scroll to position the cards nicely
+    if (newState && gearSectionRef.current) {
+      setTimeout(() => {
+        const yOffset = -40; // Offset to leave some space at top
+        const element = gearSectionRef.current;
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   return (
     <main className="bg-neutral-950">
-      {/* Section 1: Bio */}
+      {/* Section 1: Bio with Floating Bubbles */}
       <section className="min-h-[100dvh] flex flex-col items-center justify-center pt-24 pb-24 px-6 relative">
         <div className="w-full max-w-5xl mx-auto">
           {/* Title */}
@@ -26,75 +41,60 @@ export default function AboutPage() {
             </h1>
           </div>
 
-          {/* Bio with Floating Bubbles */}
-          <div className="relative">
-            {/* Desktop: Absolute positioned bubbles */}
-            <div className="hidden lg:block">
-              {/* Left Bubble - Logo */}
-              <div className="absolute -left-32 top-0 w-56 h-56 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
+          {/* Text Container with Floats */}
+          <div className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix">
+
+            {/* Left Bubble - Logo (Desktop) */}
+            <div className="hidden lg:block float-left mr-8 mb-4 shape-circle">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 relative z-10">
                 <Image
                   src="/icon.png"
                   alt="GioFPV Logo"
-                  width={224}
-                  height={224}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-
-              {/* Right Bubble - Profile */}
-              <div className="absolute -right-32 top-40 w-56 h-56 rounded-full overflow-hidden border-4 border-sunset-violet/30 shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)] bg-neutral-900">
-                <Image
-                  src="/profilepic.png"
-                  alt="Giovanni Fantoni"
-                  width={224}
-                  height={224}
+                  width={192}
+                  height={192}
                   className="object-cover w-full h-full"
                 />
               </div>
             </div>
 
-            {/* Mobile/Tablet: Inline bubbles */}
+            {/* Right Bubble - Profile (Desktop) */}
+            <div className="hidden lg:block float-right ml-8 mb-4 mt-24 shape-circle">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 relative z-10">
+                <Image
+                  src="/profilepic.png"
+                  alt="Giovanni Fantoni"
+                  width={192}
+                  height={192}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+
+            {/* Mobile Bubbles (Centered, not floating) */}
             <div className="lg:hidden flex justify-center gap-6 mb-8">
-              {/* Logo Bubble */}
-              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-3 border-sunset-sky/30 shadow-[0_0_30px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 shrink-0">
-                <Image
-                  src="/icon.png"
-                  alt="GioFPV Logo"
-                  width={144}
-                  height={144}
-                  className="object-cover w-full h-full"
-                />
+              <div className="w-28 h-28 rounded-full overflow-hidden border-3 border-sunset-sky/30 shadow-[0_0_30px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 shrink-0">
+                <Image src="/icon.png" alt="GioFPV Logo" width={112} height={112} className="object-cover w-full h-full" />
               </div>
-
-              {/* Profile Bubble */}
-              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-3 border-sunset-violet/30 shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] bg-neutral-900 shrink-0">
-                <Image
-                  src="/profilepic.png"
-                  alt="Giovanni Fantoni"
-                  width={144}
-                  height={144}
-                  className="object-cover w-full h-full"
-                />
+              <div className="w-28 h-28 rounded-full overflow-hidden border-3 border-sunset-violet/30 shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] bg-neutral-900 shrink-0">
+                <Image src="/profilepic.png" alt="Giovanni Fantoni" width={112} height={112} className="object-cover w-full h-full" />
               </div>
             </div>
 
-            {/* Bio Text */}
-            <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
-              <p>
-                Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
-                <br />
-                Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
-              </p>
-              <p>
-                Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
-                <br />
-                Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
-              </p>
-              <p>
-                Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
-                Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
-              </p>
-            </div>
+            {/* Paragraphs */}
+            <p className="mb-6">
+              Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
+              <br />
+              Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
+            </p>
+            <p className="mb-6">
+              Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
+              <br />
+              Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
+            </p>
+            <p>
+              Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
+              Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
+            </p>
           </div>
         </div>
 
@@ -110,7 +110,11 @@ export default function AboutPage() {
       </section>
 
       {/* Section 2: Gear */}
-      <section id="gear" className="flex flex-col items-center justify-center px-6 py-16 md:py-20 bg-neutral-950">
+      <section
+        id="gear"
+        ref={gearSectionRef}
+        className="min-h-[100dvh] flex flex-col items-center justify-center px-6 py-16 bg-neutral-950 scroll-mt-0"
+      >
         <div className="w-full max-w-5xl space-y-8">
           {/* Header & Intro */}
           <div className="space-y-6 text-center mx-auto max-w-3xl">
@@ -135,19 +139,18 @@ export default function AboutPage() {
           </div>
 
           {/* Gear Cards - Expandable */}
-          <div className="grid gap-6 sm:grid-cols-2 mx-auto max-w-4xl">
+          <div className="grid gap-6 sm:grid-cols-2 mx-auto max-w-5xl">
             {gear.map((item, index) => {
-              const isExpanded = expandedDrone === index;
               return (
                 <div
                   key={item.title}
-                  className={`group relative rounded-3xl border border-white/5 bg-white/5 transition-all ${isExpanded ? "bg-white/10 border-white/10" : "hover:bg-white/8 hover:border-white/8"
+                  className={`group relative rounded-3xl border border-white/5 bg-white/5 transition-all duration-500 ${isGearExpanded ? "bg-white/10 border-white/10" : "hover:bg-white/8 hover:border-white/8"
                     }`}
                 >
                   {/* Collapsed State */}
-                  {!isExpanded && (
+                  {!isGearExpanded && (
                     <button
-                      onClick={() => toggleDrone(index)}
+                      onClick={toggleGear}
                       className="w-full p-8 flex flex-col items-center gap-6 text-center cursor-pointer"
                     >
                       <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden group-hover:scale-105 transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
@@ -169,9 +172,9 @@ export default function AboutPage() {
                   )}
 
                   {/* Expanded State */}
-                  {isExpanded && (
-                    <div className="p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 md:gap-8">
-                      <div className="flex h-24 w-24 md:h-32 md:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
+                  {isGearExpanded && (
+                    <div className="p-6 md:p-8 flex flex-col items-center text-center gap-6 animate-fade-in">
+                      <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
                         <Image
                           src={item.image}
                           alt={item.title}
@@ -181,8 +184,8 @@ export default function AboutPage() {
                         />
                       </div>
 
-                      <div className="space-y-4 flex flex-col items-center md:items-start flex-grow">
-                        <h3 className="text-xl sm:text-2xl font-semibold text-white">
+                      <div className="space-y-4 flex flex-col items-center flex-grow">
+                        <h3 className="text-2xl font-semibold text-white">
                           {item.title}
                         </h3>
                         <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
@@ -190,27 +193,17 @@ export default function AboutPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                          {/* See on YouTube Button */}
-                          <a
-                            href={item.links.mobile}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="sm:hidden inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 hover:scale-105"
-                          >
-                            See on YouTube
-                          </a>
                           <a
                             href={item.links.desktop}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hidden sm:inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 hover:scale-105"
+                            className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 hover:scale-105"
                           >
                             See on YouTube
                           </a>
 
-                          {/* Collapse Button */}
                           <button
-                            onClick={() => toggleDrone(index)}
+                            onClick={toggleGear}
                             className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-neutral-400 transition-all hover:bg-white/10 hover:border-white/20 hover:text-white"
                           >
                             Show less
@@ -225,38 +218,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* TODO: Collaborations section - could be added to Work page in the future
-      <section id="collaborations" className="min-h-[100dvh] flex flex-col items-center justify-center px-6 py-24 bg-neutral-900/30">
-        <div className="w-full max-w-4xl space-y-12">
-          <div className="text-center space-y-2">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white">Collaborations</h3>
-            <p className="text-neutral-500 max-w-xl mx-auto">
-              Settori e contesti dove le riprese aeree portano valore aggiunto.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            {collaborations.map((item) => (
-              <div
-                key={item.title}
-                className="group relative overflow-hidden rounded-xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10"
-              >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
-                  <item.icon size={20} />
-                </div>
-                <h4 className="mb-2 text-lg font-semibold text-white group-hover:text-sunset-amber transition-colors">
-                  {item.title}
-                </h4>
-                <p className="text-sm text-neutral-400 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      */}
     </main>
   );
 }
