@@ -18,20 +18,16 @@ export default function AboutPage() {
 
           <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed">
             <p>
-              Mi chiamo Giovanni Fantoni.
-              Sono da sempre appassionato di tecnologia e mi sono laureato in Informatica, ma in parallelo ho sempre coltivato una grande passione per l’outdoor, lo sport e la natura.
+              Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
+              Sono da sempre appassionato di tecnologia, mi sono laureato in Informatica, ma in parallelo ho sempre coltivato una grande passione per l’outdoor, gli sport all'aperto e la natura.
             </p>
             <p>
-              Fin da piccolo mi ha affascinato la possibilità di vedere le cose dall’alto, da una prospettiva diversa rispetto a quella a cui siamo abituati. Una prospettiva che va oltre il nostro punto di vista naturale.
+              Da sempre mi affascina la possibilità di vedere le cose dall’alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
+              Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d’incontro perfetto tra le mie passioni.
             </p>
             <p>
-              Quando le tecnologie dei droni hanno iniziato a evolversi rapidamente, ho visto in loro il punto d’incontro perfetto tra queste due parti di me. Dal mio primo drone ho continuato a sperimentare e aggiornarmi per quasi dieci anni, trovandomi a riprendere in tanti scenari e occasioni diverse.
-            </p>
-            <p>
-              Di recente mi sono concentrato sulle riprese FPV, che hanno ampliato ancora di più le possibilità creative e mi hanno fatto appassionare definitivamente a questo mondo. Mi permettono di catturare momenti e prospettive che prima non erano nemmeno immaginabili.
-            </p>
-            <p>
-              Mi interessa mostrare un luogo o un momento in modo da valorizzarlo e renderlo entusiasmante, rivelando ciò che normalmente non è possibile filmare.
+              Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
+              Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
             </p>
           </div>
         </div>
