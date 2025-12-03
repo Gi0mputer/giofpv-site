@@ -19,10 +19,12 @@ export default function AboutPage() {
           <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed">
             <p>
               Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
-              Sono da sempre appassionato di tecnologia, mi sono laureato in Informatica, ma in parallelo ho sempre coltivato una grande passione per l’outdoor, gli sport all'aperto e la natura.
+              <br />
+              Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
             </p>
             <p>
-              Da sempre mi affascina la possibilità di vedere le cose dall’alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
+              Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l’outdoor, gli sport all'aperto e la natura.
+              <br />
               Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d’incontro perfetto tra le mie passioni.
             </p>
             <p>

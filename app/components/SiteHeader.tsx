@@ -45,7 +45,7 @@ export function SiteHeader() {
         </Link>
 
         {/* NAV */}
-        <nav className="flex items-center gap-6 text-sm">
+        <nav className="flex items-center gap-6 text-sm md:text-lg">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
@@ -53,8 +53,8 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 className={`transition ${isActive
-                    ? link.color
-                    : `text-neutral-500 ${link.color.replace('text-', 'hover:text-')}`
+                  ? link.color
+                  : `text-neutral-500 ${link.color.replace('text-', 'hover:text-')}`
                   }`}
               >
                 {link.label}
