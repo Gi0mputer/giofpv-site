@@ -18,19 +18,33 @@ export default function AboutPage() {
       {/* Section 1: Bio */}
       <section className="min-h-[100dvh] flex flex-col items-center justify-center pt-24 pb-24 px-6 relative">
         <div className="w-full max-w-5xl mx-auto">
-          <div className="space-y-3 text-center mb-8">
+          {/* Title */}
+          <div className="space-y-3 text-center mb-12">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
               <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-            {/* Profile Image */}
-            <div className="shrink-0">
-              <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)]">
+          {/* Bio with Floating Bubbles */}
+          <div className="relative">
+            {/* Desktop: Absolute positioned bubbles */}
+            <div className="hidden lg:block">
+              {/* Left Bubble - Logo */}
+              <div className="absolute -left-32 top-0 w-56 h-56 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
                 <Image
                   src="/icon.png"
+                  alt="GioFPV Logo"
+                  width={224}
+                  height={224}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              {/* Right Bubble - Profile */}
+              <div className="absolute -right-32 top-40 w-56 h-56 rounded-full overflow-hidden border-4 border-sunset-violet/30 shadow-[0_0_40px_-10px_rgba(168,85,247,0.4)] bg-neutral-900">
+                <Image
+                  src="/profilepic.png"
                   alt="Giovanni Fantoni"
                   width={224}
                   height={224}
@@ -39,8 +53,33 @@ export default function AboutPage() {
               </div>
             </div>
 
+            {/* Mobile/Tablet: Inline bubbles */}
+            <div className="lg:hidden flex justify-center gap-6 mb-8">
+              {/* Logo Bubble */}
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-3 border-sunset-sky/30 shadow-[0_0_30px_-10px_rgba(6,182,212,0.4)] bg-neutral-900 shrink-0">
+                <Image
+                  src="/icon.png"
+                  alt="GioFPV Logo"
+                  width={144}
+                  height={144}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              {/* Profile Bubble */}
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-3 border-sunset-violet/30 shadow-[0_0_30px_-10px_rgba(168,85,247,0.4)] bg-neutral-900 shrink-0">
+                <Image
+                  src="/profilepic.png"
+                  alt="Giovanni Fantoni"
+                  width={144}
+                  height={144}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+
             {/* Bio Text */}
-            <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed flex-grow">
+            <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
               <p>
                 Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
                 <br />
