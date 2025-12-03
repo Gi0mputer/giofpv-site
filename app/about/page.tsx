@@ -71,15 +71,15 @@ export default function AboutPage() {
       </section>
 
       {/* Section 2: Gear */}
-      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-6 py-24 bg-neutral-900/30">
-        <div className="w-full max-w-5xl space-y-12">
+      <section id="gear" className="flex flex-col items-center justify-center px-6 py-16 md:py-20 bg-neutral-950">
+        <div className="w-full max-w-5xl space-y-8">
           {/* Header & Intro */}
-          <div className="space-y-4 text-center mx-auto max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+          <div className="space-y-6 text-center mx-auto max-w-3xl">
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
               <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
             </h2>
-            <div className="space-y-6 text-base sm:text-lg text-neutral-300 leading-relaxed">
+            <div className="space-y-4 text-base sm:text-lg text-neutral-300 leading-relaxed">
               <p>
                 L'attrezzatura che porto con me mi permette di adattarmi a qualsiasi tipo di ripresa,
                 dalle immagini stabili e cinematiche ai voli più dinamici e immersivi.
@@ -96,7 +96,7 @@ export default function AboutPage() {
           </div>
 
           {/* Gear Cards - Expandable */}
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 mx-auto max-w-4xl">
             {gear.map((item, index) => {
               const isExpanded = expandedDrone === index;
               return (
