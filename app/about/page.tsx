@@ -46,7 +46,7 @@ export default function AboutPage() {
 
   return (
     <main className="bg-neutral-950">
-      <section className="min-h-[100dvh] flex flex-col items-center justify-start pt-16 pb-6 px-6 sm:pt-18 sm:pb-15 relative">
+      <section className="min-h-[100dvh] flex flex-col items-center justify-center pt-16 pb-6 px-6 sm:pt-18 sm:pb-15 relative">
         <div className="w-full max-w-5xl mx-auto">
           <div className="text-center mb-3 sm:mb-10">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight">
