@@ -46,18 +46,18 @@ export default function AboutPage() {
 
   return (
     <main className="bg-neutral-950">
-      <section className="min-h-[100dvh] flex flex-col items-center justify-start pt-18 pb-8 px-6 sm:pt-18 sm:pb-15 relative">
+      <section className="min-h-[100dvh] flex flex-col items-center justify-start pt-16 pb-6 px-6 sm:pt-18 sm:pb-15 relative">
         <div className="w-full max-w-5xl mx-auto">
-          <div className="text-center mb-5 sm:mb-10">
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
+          <div className="text-center mb-3 sm:mb-10">
+            <h1 className="text-2xl sm:text-5xl font-bold tracking-tight">
               <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
             </h1>
           </div>
 
-          <div className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix text-left sm:text-justify">
-            <div className="float-right mt-0 sm:mt-10 lg:mt-0 ml-1 lg:ml-16 mb-2 lg:mb-2 shape-circle">
-              <div className="w-40 h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
+          <div className="text-sm sm:text-lg text-neutral-300 leading-snug sm:leading-relaxed max-w-4xl mx-auto clearfix text-left sm:text-justify">
+            <div className="float-right mt-0 sm:mt-10 lg:mt-0 ml-3 lg:ml-16 mb-1 lg:mb-2 shape-circle">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
                 <Image
                   src="/profilepic.png"
                   alt="Giovanni Fantoni"
@@ -68,19 +68,19 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <p className="mb-2 sm:mb-4">
+            <p className="mb-1 sm:mb-4">
               Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
             </p>
-            <p className="mb-2 sm:mb-4">
+            <p className="mb-1 sm:mb-4">
               Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
             </p>
 
-            <p className="mb-3 sm:mb-5">
+            <p className="mb-2 sm:mb-5">
               Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
             </p>
 
-            <div className="float-left mr-6 mt-8 sm:mt-12 lg:mr-16 lg:mt-0 shape-circle">
-              <div className="w-40 h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
+            <div className="float-left mr-3 mt-4 sm:mt-12 lg:mr-16 lg:mt-0 shape-circle">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
                 <Image
                   src="/icon.png"
                   alt="GioFPV Logo"
@@ -91,13 +91,13 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <p className="mt-4 mb-2 sm:mt-7 sm:mb-4">
+            <p className="mt-2 mb-1 sm:mt-7 sm:mb-4">
               Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
             </p>
-            <p className="mb-3 ml-16">
+            <p className="mb-1 ml-8 sm:ml-16">
               Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
             </p>
-            <p className="mb-2 sm:mb-4">
+            <p className="mb-1 sm:mb-4">
               Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
             </p>
           </div>
@@ -110,14 +110,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-16 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
-        <div className="w-full max-w-5xl space-y-4 sm:space-y-8">
-          <div className="space-y-3 text-center mx-auto max-w-3xl">
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-6 sm:py-16 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
+        <div className="w-full max-w-5xl space-y-3 sm:space-y-8">
+          <div className="space-y-2 sm:space-y-3 text-center mx-auto max-w-3xl">
+            <h1 className="text-2xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
               <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
             </h1>
-            <div className="space-y-4 text-base sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
+            <div className="space-y-2 sm:space-y-4 text-sm sm:text-lg text-neutral-300 leading-snug sm:leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
               <p>
                 L'attrezzatura che porto con me mi permette di adattarmi a qualsiasi tipo di ripresa,
                 dalle immagini stabili e cinematiche ai voli più dinamici e immersivi.
@@ -133,7 +133,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid gap-3 sm:gap-6 sm:grid-cols-2 mx-auto max-w-5xl items-start">
+          <div className="grid gap-2 sm:gap-6 sm:grid-cols-2 mx-auto max-w-5xl items-start">
             {gear.map((item) => {
               const isExpanded = expandedCards.includes(item.title);
               return (
