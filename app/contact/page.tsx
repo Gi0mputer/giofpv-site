@@ -4,11 +4,11 @@ import { Phone, Mail, Instagram } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <main className="h-[100dvh] bg-neutral-950 pt-24 pb-6 px-6 flex flex-col items-center justify-center relative overflow-hidden overflow-y-hidden supports-[height:100dvh]:h-[100dvh]">
+    <main className="h-[100dvh] bg-neutral-950 pt-20 sm:pt-24 pb-6 px-6 flex flex-col items-center justify-center relative overflow-hidden overflow-y-hidden supports-[height:100dvh]:h-[100dvh]">
       {/* Background Gradient Blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-amber/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="w-full max-w-5xl space-y-8 sm:space-y-12 relative z-10 text-center">
+      <div className="w-full max-w-5xl space-y-4 sm:space-y-12 relative z-10 text-center">
         {/* Header */}
         <section className="space-y-4">
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
@@ -21,11 +21,11 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Cards */}
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-3">
           {/* Phone */}
           <Link
             href="https://wa.me/393451575507"
-            className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
+            className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
             <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
               <Phone size={20} />
@@ -39,7 +39,7 @@ export default function ContactPage() {
           {/* Email */}
           <a
             href="mailto:gio.fantoni.fpv@gmail.com"
-            className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
+            className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
             <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
               <Mail size={20} />
@@ -55,7 +55,7 @@ export default function ContactPage() {
             href="https://instagram.com/gio.fanto"
             target="_blank"
             rel="noreferrer"
-            className="group rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
+            className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
             <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
               <Instagram size={20} />

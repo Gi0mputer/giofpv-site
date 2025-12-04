@@ -16,7 +16,19 @@ export default function AboutPage() {
 
       if (isCurrentlyExpanded) {
         // Close card: remove from array
-        return prev.filter((t) => t !== title);
+        const newState = prev.filter((t) => t !== title);
+
+        // If all cards are closed, scroll back to the section start
+        if (newState.length === 0) {
+          setTimeout(() => {
+            const gearSection = document.getElementById('gear');
+            if (gearSection) {
+              gearSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        }
+
+        return newState;
       } else {
         // Open card: add to array AND scroll to it
         setTimeout(() => {
@@ -34,7 +46,7 @@ export default function AboutPage() {
 
   return (
     <main className="bg-neutral-950">
-      <section className="min-h-[100dvh] flex flex-col items-center justify-start pt-18 pb-15 px-6 relative">
+      <section className="min-h-[100dvh] flex flex-col items-center justify-start pt-18 pb-8 px-6 sm:pt-18 sm:pb-15 relative">
         <div className="w-full max-w-5xl mx-auto">
           <div className="text-center mb-5 sm:mb-10">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
@@ -43,8 +55,8 @@ export default function AboutPage() {
             </h1>
           </div>
 
-          <div className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix text-justify">
-            <div className="float-right mt-10 lg:mt-0 ml-6 lg:ml-16 mb-0 shape-circle">
+          <div className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix text-left sm:text-justify">
+            <div className="float-right mt-0 sm:mt-10 lg:mt-0 ml-1 lg:ml-16 mb-2 lg:mb-2 shape-circle">
               <div className="w-40 h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
                 <Image
                   src="/profilepic.png"
@@ -56,18 +68,18 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <p className="mb-4">
+            <p className="mb-2 sm:mb-4">
               Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
             </p>
-            <p className="mb-4">
+            <p className="mb-2 sm:mb-4">
               Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
             </p>
 
-            <p className="mb-5">
+            <p className="mb-3 sm:mb-5">
               Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
             </p>
 
-            <div className="float-left mr-6 mt-12 lg:mr-16 lg:mt-0 shape-circle">
+            <div className="float-left mr-6 mt-8 sm:mt-12 lg:mr-16 lg:mt-0 shape-circle">
               <div className="w-40 h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
                 <Image
                   src="/icon.png"
@@ -79,13 +91,13 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <p className="mt-7 mb-4">
+            <p className="mt-4 mb-2 sm:mt-7 sm:mb-4">
               Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
             </p>
-            <p className="mb-4 ml-16">
+            <p className="mb-3 ml-16">
               Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
             </p>
-            <p className="mb-4">
+            <p className="mb-2 sm:mb-4">
               Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
             </p>
           </div>
@@ -98,14 +110,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
-        <div className="w-full max-w-5xl space-y-6 sm:space-y-8">
-          <div className="space-y-4 text-center mx-auto max-w-3xl">
+      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-16 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
+        <div className="w-full max-w-5xl space-y-4 sm:space-y-8">
+          <div className="space-y-3 text-center mx-auto max-w-3xl">
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
               <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
             </h1>
-            <div className="space-y-4 text-base sm:text-lg text-neutral-300 leading-relaxed text-justify max-w-4xl mx-auto">
+            <div className="space-y-4 text-base sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
               <p>
                 L'attrezzatura che porto con me mi permette di adattarmi a qualsiasi tipo di ripresa,
                 dalle immagini stabili e cinematiche ai voli più dinamici e immersivi.
@@ -121,7 +133,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 mx-auto max-w-5xl">
+          <div className="grid gap-3 sm:gap-6 sm:grid-cols-2 mx-auto max-w-5xl items-start">
             {gear.map((item) => {
               const isExpanded = expandedCards.includes(item.title);
               return (
@@ -132,7 +144,7 @@ export default function AboutPage() {
                     }`}
                 >
                   {!isExpanded && (
-                    <button onClick={() => toggleGear(item.title)} className="w-full p-4 sm:p-8 flex flex-col items-center gap-4 sm:gap-6 text-center cursor-pointer">
+                    <button onClick={() => toggleGear(item.title)} className="w-full p-3 sm:p-6 flex flex-col items-center gap-3 sm:gap-6 text-center cursor-pointer">
                       <div className="flex h-20 w-20 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden group-hover:scale-105 transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
                         <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
                       </div>
@@ -146,7 +158,7 @@ export default function AboutPage() {
                   )}
 
                   {isExpanded && (
-                    <div className="p-4 sm:p-8 flex flex-col items-center text-center gap-4 sm:gap-6 animate-fade-in">
+                    <div className="p-3 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-6 animate-fade-in">
                       <div className="flex h-24 w-24 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
                         <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
                       </div>
@@ -159,7 +171,7 @@ export default function AboutPage() {
                           {item.description}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2 w-full sm:w-auto">
+                        <div className="flex flex-col gap-2 sm:gap-3 pt-2 w-full sm:w-auto">
                           <a
                             href={item.links.desktop}
                             target="_blank"
@@ -172,7 +184,7 @@ export default function AboutPage() {
                             onClick={() => toggleGear(item.title)}
                             className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-6 py-2 text-sm font-medium text-neutral-400 transition-all hover:bg-white/10 hover:border-white/20 hover:text-white"
                           >
-                            Show less
+                            Hide
                           </button>
                         </div>
                       </div>

@@ -27,11 +27,11 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 z-40 w-full transition-all duration-300 bg-neutral-950/90 backdrop-blur`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
         {/* LOGO */}
         <Link
           href="/work"
-          className="flex flex-1 items-center gap-2 text-base md:text-lg font-semibold tracking-wide uppercase text-white"
+          className="flex items-center gap-2 text-base md:text-lg font-semibold tracking-wide uppercase text-white"
         >
           <Image
             src="/icon.png"
@@ -44,7 +44,7 @@ export function SiteHeader() {
         </Link>
 
         {/* NAV */}
-        <nav className="flex items-center gap-6 md:gap-8 text-lg md:text-xl">
+        <nav className="flex items-center gap-3 sm:gap-6 md:gap-8 text-base sm:text-lg md:text-xl">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
