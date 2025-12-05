@@ -16,6 +16,17 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-If doesnt work try:
-rm -f /workspaces/giofpv-site/.next/dev/lock
-npm run dev
+## Windows notes
+
+- PowerShell can block npm scripts because of execution policy. Quick fix: run `Set-ExecutionPolicy -Scope Process Bypass` before `npm run dev`, or rely on `.npmrc` and the workspace task/settings that force cmd.exe for scripts/terminal.
+- If you see "Port 3000 is in use" or `.next/dev/lock` errors, stop stale Node processes: `Get-NetTCPConnection -LocalPort 3000 | Select OwningProcess` then `Stop-Process -Id <PID>`. If needed, remove the leftover lock with `Remove-Item -Force .next/dev/lock`.
+
+### Quick env check
+
+On Windows/PowerShell, run:
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File scripts/check-env.ps1
+```
+
+The script checks Node/npm presence/version, ensures `.npmrc` forces `cmd.exe`, warns if ExecutionPolicy is Restricted, and reports if port 3000 or `.next/dev/lock` are occupied.

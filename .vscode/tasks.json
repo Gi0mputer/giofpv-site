@@ -6,6 +6,15 @@
             "type": "npm",
             "script": "dev",
             "isBackground": true,
+            "options": {
+                "shell": {
+                    "executable": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+                    "args": [
+                        "/d",
+                        "/c"
+                    ]
+                }
+            },
             "problemMatcher": {
                 "owner": "custom",
                 "pattern": {
