@@ -10,6 +10,8 @@ export default function AboutPage() {
   // State to track MULTIPLE expanded cards (array of titles)
   const [expandedCards, setExpandedCards] = useState<string[]>([]);
 
+  const getHeaderOffset = () => (window.innerWidth >= 1024 ? 90 : 72);
+
   const smoothScrollTo = (targetY: number, duration = 550) => {
     const startY = window.pageYOffset;
     const diff = targetY - startY;
@@ -40,7 +42,8 @@ export default function AboutPage() {
           setTimeout(() => {
             const gearSection = document.getElementById("gear");
             if (gearSection) {
-              const y = gearSection.getBoundingClientRect().top + window.pageYOffset - 80;
+              const headerOffset = getHeaderOffset();
+              const y = gearSection.getBoundingClientRect().top + window.pageYOffset - headerOffset +50 ;
               smoothScrollTo(y);
             }
           }, 100);
@@ -56,9 +59,11 @@ export default function AboutPage() {
             setTimeout(() => {
               const element = document.getElementById(`gear-${expandedAbove.title}`);
               if (element) {
+                const headerOffset = getHeaderOffset();
                 const elementRect = element.getBoundingClientRect();
                 const elementTop = elementRect.top + window.pageYOffset;
-                const y = elementTop - window.innerHeight / 2 + elementRect.height / 2;
+                const visibleHeight = window.innerHeight - headerOffset;
+                const y = elementTop - headerOffset - visibleHeight / 2 + elementRect.height / 2 + 16;
                 smoothScrollTo(y);
               }
             }, 150);
@@ -71,8 +76,8 @@ export default function AboutPage() {
         setTimeout(() => {
           const element = document.getElementById(`gear-${title}`);
           if (element) {
-            const yOffset = -100; // Header height + some padding
-            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            const headerOffset = getHeaderOffset();
+            const y = element.getBoundingClientRect().top + window.pageYOffset - headerOffset - 30;
             smoothScrollTo(y);
           }
         }, 100); // Small delay to ensure render
@@ -165,7 +170,7 @@ export default function AboutPage() {
               What's in my{" "}
               <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
             </h1>
-            <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[15px] sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
+            <div className="mt-3 sm:mt-8 space-y-2 sm:space-y-3 text-[15px] sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
               <p>
                 Utilizzo droni diversi a seconda del contesto e a ciò che la scena richiede.
               </p>
