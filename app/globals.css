@@ -32,28 +32,34 @@
 
   /* --- LOGO GRADIENT (Header - "FPV" text) --- */
   /* Gradiente multi-colore che rappresenta il brand */
-  --gradient-logo: linear-gradient(90deg, #fbbf24 0%, #06b6d4 50%, #a855f7 100%);
+  --gradient-logo: linear-gradient(90deg,
+    #fbbf24 0%,
+    #fbbf24 50%,
+    #0ea5e9 62%,
+    #22d3ee 70%,
+    #7c3aed 94%,
+    #a855f7 100%);
 
   /* --- WORK PAGE COLORS (Homepage - /) --- */
   /* Mono color: Amber | Used for: header link hover, scroll arrow, accents */
   --color-work-primary: #fbbf24;
   --sunset-amber: #fbbf24;
   /* Page gradient: Used for "Projects" title */
-  --gradient-work: linear-gradient(to right, #fbbf24 0%, #f59e0b 100%);
+  --gradient-work: linear-gradient(to right, #fbbf24 0%, #fbbf24 55%, #f59e0b 85%, #f97316 100%);
 
   /* --- ABOUT PAGE COLORS (/about) --- */
-  /* Mono color: Cyan | Used for: header link hover, scroll arrow, accents */
-  --color-about-primary: #06b6d4;
-  --sunset-sky: #06b6d4;
+  /* Mono color: Cyan (cooler, less green) | Used for: header link hover, scroll arrow, accents */
+  --color-about-primary: #0ea5e9;
+  --sunset-sky: #0ea5e9;
   /* Page gradient: Used for "Aerial & FPV" title */
-  --gradient-about: linear-gradient(to right, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);
+  --gradient-about: linear-gradient(to right, #0ea5e9 0%, #22d3ee 55%, #67e8f9 100%);
 
   /* --- GEAR PAGE COLORS (/gear) --- */
   /* Mono color: Violet | Used for: header link hover, borders, accents */
   --color-gear-primary: #a855f7;
   --sunset-violet: #a855f7;
   /* Page gradient: Used for "Backpack" title */
-  --gradient-gear: linear-gradient(to right, #a855f7 0%, #7c3aed 50%, #d946ef 100%);
+  --gradient-gear: linear-gradient(to right, #a855f7 0%, #7c3aed 55%, #d946ef 100%);
 
   /* --- CONTACT PAGE COLORS (/contact) --- */
   /* Mono color: Orange | Used for: header link hover, icons, accents */
