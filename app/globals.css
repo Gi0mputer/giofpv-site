@@ -151,3 +151,12 @@ html {
   shape-margin: 0.5rem;
   -webkit-shape-margin: 0.5rem;
 }
+
+/* Compact hero tuning only for short desktop viewports (no mobile impact) */
+@media (min-width: 1024px) and (max-height: 820px) {
+  .about-hero {
+    min-height: 70vh;
+    padding-top: 2.5rem;
+    padding-bottom: 1.25rem;
+  }
+}
