@@ -10,6 +10,23 @@ export default function AboutPage() {
   // State to track MULTIPLE expanded cards (array of titles)
   const [expandedCards, setExpandedCards] = useState<string[]>([]);
 
+  const smoothScrollTo = (targetY: number, duration = 550) => {
+    const startY = window.pageYOffset;
+    const diff = targetY - startY;
+    const startTime = performance.now();
+    const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOutCubic(progress);
+      window.scrollTo(0, startY + diff * eased);
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  };
+
   const toggleGear = (title: string) => {
     setExpandedCards((prev) => {
       const isCurrentlyExpanded = prev.includes(title);
@@ -21,11 +38,31 @@ export default function AboutPage() {
         // If all cards are closed, scroll back to the section start
         if (newState.length === 0) {
           setTimeout(() => {
-            const gearSection = document.getElementById('gear');
+            const gearSection = document.getElementById("gear");
             if (gearSection) {
-              gearSection.scrollIntoView({ behavior: 'smooth' });
+              const y = gearSection.getBoundingClientRect().top + window.pageYOffset - 80;
+              smoothScrollTo(y);
             }
           }, 100);
+        } else {
+          // If there is an expanded card above the one just closed, center on it
+          const closedIndex = gear.findIndex((g) => g.title === title);
+          const expandedAbove = gear
+            .slice(0, closedIndex)
+            .reverse()
+            .find((g) => newState.includes(g.title));
+
+          if (expandedAbove) {
+            setTimeout(() => {
+              const element = document.getElementById(`gear-${expandedAbove.title}`);
+              if (element) {
+                const elementRect = element.getBoundingClientRect();
+                const elementTop = elementRect.top + window.pageYOffset;
+                const y = elementTop - window.innerHeight / 2 + elementRect.height / 2;
+                smoothScrollTo(y);
+              }
+            }, 150);
+          }
         }
 
         return newState;
@@ -36,7 +73,7 @@ export default function AboutPage() {
           if (element) {
             const yOffset = -100; // Header height + some padding
             const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({ top: y, behavior: 'smooth' });
+            smoothScrollTo(y);
           }
         }, 100); // Small delay to ensure render
         return [...prev, title];
@@ -46,88 +83,98 @@ export default function AboutPage() {
 
   return (
     <main className="bg-neutral-950">
-      <section className="min-h-[100dvh] flex flex-col items-center justify-center pt-16 pb-6 px-6 sm:pt-18 sm:pb-15 relative">
-        <div className="w-full max-w-5xl mx-auto">
-          <div className="text-center mb-3 sm:mb-10">
-            <h1 className="text-2xl sm:text-5xl font-bold tracking-tight">
-              <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
-              <span className="text-white"> Filmmaker</span>
-            </h1>
-          </div>
-
-          <div className="text-[15px] sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix text-left sm:text-justify">
-            <div className="float-right mt-0 sm:mt-10 lg:mt-0 ml-3 lg:ml-16 mb-1 lg:mb-2 shape-circle">
-              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
-                <Image
-                  src="/profilepic.png"
-                  alt="Giovanni Fantoni"
-                  width={224}
-                  height={224}
-                  className="object-cover w-full h-full"
-                />
-              </div>
+      <section className="relative flex flex-col bg-neutral-950 min-h-[100svh] pt-17 pb-8 px-5 sm:pt-18 sm:pb-16 sm:px-6 md:h-screen md:pt-[70px] md:pb-6 md:justify-between">
+        <div className="flex-1 flex items-center w-full">
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="text-center mb-3 sm:mb-10">
+              <h1 className="text-2xl sm:text-5xl font-bold tracking-tight">
+                <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
+                <span className="text-white"> Filmmaker</span>
+              </h1>
             </div>
 
-            <p className="mb-2 sm:mb-4">
-              Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
-            </p>
-            <p className="mb-2 sm:mb-4">
-              Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
-            </p>
-
-            <p className="mb-2 sm:mb-5">
-              Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
-            </p>
-
-            <div className="float-left mr-3 mt-4 sm:mt-12 lg:mr-16 lg:mt-0 shape-circle">
-              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
-                <Image
-                  src="/icon.png"
-                  alt="GioFPV Logo"
-                  width={208}
-                  height={208}
-                  className="object-cover w-full h-full"
-                />
+            <div className="text-[15px] sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix text-left sm:text-justify">
+              <div className="float-right mt-5 sm:mt-10 lg:mt-0 ml-2 lg:ml-16 mb-3 lg:mb-3 shape-circle">
+                <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
+                  <Image
+                    src="/profilepic.png"
+                    alt="Giovanni Fantoni"
+                    width={224}
+                    height={224}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
               </div>
-            </div>
 
-            <p className="mt-3 mb-2 sm:mt-7 sm:mb-4">
-              Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
-            </p>
-            <p className="mb-2 ml-10 sm:ml-16">
-              Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
-            </p>
-            <p className="mb-2 sm:mb-4">
-              Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
-            </p>
+              <p className="mb-1 sm:mb-3">
+                Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
+              </p>
+              <p className="mb-2 sm:mb-3">
+                Da sempre ho una grande curiosita' e desiderio di esplorare, gia' da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
+              </p>
+
+              <p className="mb-1 sm:mb-6">
+                Sono appassionato di tecnologia, mi sono laureato in Informatica e in parallelo ho sempre coltivato una grande passione per l'outdoor, gli sport all'aperto e la natura.
+              </p>
+
+              <div className="float-left mr-4 mt-3 sm:mt-12 lg:mr-16 lg:mt-0 mb-0 lg:mb-3 shape-circle">
+                <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
+                  <Image
+                    src="/icon.png"
+                    alt="GioFPV Logo"
+                    width={208}
+                    height={208}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+
+              <div className="text-right sm:text-justify">
+                <p className="mt-2 mb-1 sm:mt-7 sm:mb-3">
+                  Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
+                </p>
+                <p className="mb-1 ml-8 sm:mb-3 sm:ml-16">
+                  Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilita' creative.
+                </p>
+              </div>
+              <p className="mb-3 sm:mb-3 text-left sm:text-justify">
+                Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista piu' interessante.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex animate-bounce z-10">
+        {/* Arrow mobile: visibile solo sotto md */}
+        <div className="pb-0 sm:pb-8 flex justify-center md:hidden">
+          <Link href="#gear" className="text-white/40 hover:text-cyan-400 transition-all duration-300 hover:scale-110 animate-bounce">
+            <ChevronDown size={32} strokeWidth={1.5} />
+          </Link>
+        </div>
+        {/* Arrow desktop: stessa posizione della hero Work */}
+        <div className="hidden md:flex md:w-full md:justify-center animate-bounce z-20">
           <Link href="#gear" className="text-white/40 hover:text-cyan-400 transition-all duration-300 hover:scale-110">
             <ChevronDown size={32} strokeWidth={1.5} />
           </Link>
         </div>
       </section>
 
-      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 py-6 sm:py-16 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
-        <div className="w-full max-w-5xl space-y-3 sm:space-y-8">
-          <div className="space-y-2 sm:space-y-3 text-center mx-auto max-w-3xl">
+      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-5 sm:px-6 py-3 sm:py-10 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
+        <div className="w-full max-w-5xl space-y-2 sm:space-y-6">
+          <div className="space-y-1 sm:space-y-2 text-center mx-auto max-w-3xl">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
               <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
             </h1>
-            <div className="space-y-3 sm:space-y-4 text-[15px] sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
+            <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-[15px] sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
               <p>
-                L'attrezzatura che porto con me mi permette di adattarmi a qualsiasi tipo di ripresa,
-                dalle immagini stabili e cinematiche ai voli più dinamici e immersivi.
+                Utilizzo droni diversi a seconda del contesto e a ciò che la scena richiede.
               </p>
               <p>
-                Per le immagini più pulite utilizzo un drone stabilizzato con gimbal a tre assi,
+                Per riprese cinematiche utilizzo un drone stabilizzato con gimbal a tre assi,
                 ideale per viste dall'alto, panoramiche e primi piani stabili e definiti.
               </p>
               <p>
-                Quando invece serve movimento, energia o un punto di vista impossibile per un drone tradizionale,
+                Per riprese dinamiche e immersive, quando serve energia e un punto di vista impossibile per un drone tradizionale,
                 uso un drone FPV che permette passaggi precisi, inseguimenti e prospettive ravvicinate e adrenaliniche.
               </p>
             </div>
@@ -140,11 +187,15 @@ export default function AboutPage() {
                 <div
                   key={item.title}
                   id={`gear-${item.title}`} // Unique ID for scrolling
-                  className={`group relative rounded-3xl border border-white/5 bg-white/5 transition-all duration-500 ${isExpanded ? "bg-white/10 border-white/10" : "hover:bg-white/8 hover:border-white/8"
-                    }`}
+                  className={`group relative rounded-3xl border border-white/5 bg-white/5 transition-all duration-500 ${
+                    isExpanded ? "bg-white/10 border-white/10" : "hover:bg-white/8 hover:border-white/8"
+                  }`}
                 >
                   {!isExpanded && (
-                    <button onClick={() => toggleGear(item.title)} className="w-full p-3 sm:p-6 flex flex-col items-center gap-3 sm:gap-6 text-center cursor-pointer">
+                    <button
+                      onClick={() => toggleGear(item.title)}
+                      className="w-full p-3 sm:p-6 flex flex-col items-center gap-3 sm:gap-6 text-center cursor-pointer"
+                    >
                       <div className="flex h-20 w-20 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden group-hover:scale-105 transition-transform border-2 border-sunset-violet/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.3)]">
                         <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
                       </div>

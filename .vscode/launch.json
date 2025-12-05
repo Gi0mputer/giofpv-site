@@ -7,28 +7,8 @@
       "request": "launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}",
-      "preLaunchTask": "dev"
-    },
-    {
-      "name": "Mobile (Chrome)",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}",
       "preLaunchTask": "dev",
-      "runtimeArgs": [
-        "--window-size=375,812",
-        "--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
-      ]
-    }
-  ],
-  "compounds": [
-    {
-      "name": "Desktop & Mobile",
-      "configurations": [
-        "Desktop (Chrome)",
-        "Mobile (Chrome)"
-      ]
+      "runtimeExecutable": "${env:ProgramFiles}\\Google\\Chrome\\Application\\chrome.exe"
     }
   ]
 }
