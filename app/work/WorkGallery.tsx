@@ -74,9 +74,9 @@ export function WorkGallery({ items, initialVisible }: Props) {
     setVisibleHorizontal((prev) => prev + 4); // Load 4 videos at a time (matching vertical slot)
     setTimeout(() => {
       // Scroll to horizontal section with offset for fixed header
-      const horizontalSection = document.getElementById('horizontal-section');
-      if (horizontalSection) {
-        const headerHeight = 64; // Height of fixed header (h-16 = 4rem = 64px)
+        const horizontalSection = document.getElementById('horizontal-section');
+        if (horizontalSection) {
+        const headerHeight = 56; // Height of fixed header (h-14 = 3.5rem = 56px)
         const elementPosition = horizontalSection.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
 

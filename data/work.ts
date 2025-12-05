@@ -10,7 +10,7 @@ export type WorkItem = {
 export const works: WorkItem[] = [
   // CITTÀ
   {
-    title: "Verona rooftops — golden hour",
+    title: "Verona rooftops",
     duration: "01:35",
     href: "https://www.youtube.com/watch?v=GHFcHXJUGuY",
     description:
@@ -19,7 +19,7 @@ export const works: WorkItem[] = [
     format: "horizontal",
   },
   {
-    title: "City fly-through — coworking e rooftop",
+    title: "City fly-through",
     duration: "01:30",
     href: "https://www.youtube.com/watch?v=NcBjx_eyvxc",
     description:
@@ -30,7 +30,7 @@ export const works: WorkItem[] = [
 
   // EVENTI
   {
-    title: "Rafting line — fiume in piena",
+    title: "Rafting line",
     duration: "00:45",
     href: "https://www.youtube.com/shorts/Ks3F5A2O9tM",
     description:
@@ -41,7 +41,7 @@ export const works: WorkItem[] = [
 
   // SPORT
   {
-    title: "Single track — trail running POV",
+    title: "Single track",
     duration: "02:10",
     href: "https://www.youtube.com/watch?v=fZuiuAQt2DE",
     description:
@@ -50,7 +50,7 @@ export const works: WorkItem[] = [
     format: "horizontal",
   },
   {
-    title: "Winter SUP — nebbia sul lago",
+    title: "Winter SUP",
     duration: "00:30",
     href: "https://www.youtube.com/shorts/wFfYwtqJEaY",
     description:
@@ -61,7 +61,7 @@ export const works: WorkItem[] = [
 
   // ADRENALINA & NATURA
   {
-    title: "Dolomiti balcony — sunrise lines",
+    title: "Dolomiti balcony",
     duration: "00:50",
     href: "https://www.youtube.com/shorts/b70-_6EgXZw",
     description:
@@ -70,7 +70,7 @@ export const works: WorkItem[] = [
     format: "vertical",
   },
   {
-    title: "Mountain Ridge — cinematic flow",
+    title: "Mountain Ridge",
     duration: "00:40",
     href: "https://www.youtube.com/shorts/C83FnY5cRMU",
     description:

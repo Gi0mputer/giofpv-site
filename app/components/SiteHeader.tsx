@@ -27,24 +27,24 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 z-40 w-full transition-all duration-300 bg-neutral-950/90 backdrop-blur`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-3 sm:gap-4">
         {/* LOGO */}
         <Link
           href="/work"
-          className="flex items-center gap-2 text-base md:text-lg font-semibold tracking-wide uppercase text-white"
+          className="flex items-center gap-2 text-sm sm:text-base md:text-lg font-semibold tracking-wide uppercase text-white"
         >
           <Image
             src="/favicon-48x48.png"
             alt="GioFPV logo"
-            width={24}
-            height={24}
-            className="h-10 w-10"
+            width={22}
+            height={22}
+            className="h-9 w-9"
           />
           <span>Gio<span className="bg-gradient-logo bg-clip-text text-transparent">FPV</span></span>
         </Link>
 
         {/* NAV */}
-        <nav className="flex items-center gap-3 sm:gap-6 md:gap-8 text-base sm:text-lg md:text-xl">
+        <nav className="flex items-center gap-2.5 sm:gap-5 md:gap-6 text-sm sm:text-base md:text-lg">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
