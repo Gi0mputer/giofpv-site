@@ -42,6 +42,7 @@ We have successfully transformed the GioFPV portfolio site into a premium, cinem
     - **Do NOT delete `theme/colors.json`**: It is required by the script to apply the correct gradients to the generated icons.
 - **Debug Page**:
     - A `/debug` page exists to check viewport dimensions and scaling issues across different devices.
+    - Discrepancy observed on another desktop (browser zoom 100%): the `/debug` page shows `Window Inner 1440 x 675`, `Screen 1440 x 810`, `Device Pixel Ratio 2`. The high DPR (system display scaling) halves the effective CSS width, so breakpoints behave like a tablet; fix by lowering Windows display scaling or testing at DPR 1.
 
 ## Next Steps
 - **Content**: Replace the AI-generated thumbnails with actual project screenshots when available.
