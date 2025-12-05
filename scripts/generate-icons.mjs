@@ -56,29 +56,31 @@ async function generateForSize(entry) {
   // 1) Base gradiente
   const gradient = sharp(svgBuffer).resize(size, size);
 
-  // 1bis) Maschera ridimensionata alla misura corrente
-  const maskBuffer = await sharp(BASE_ICON).resize(size, size).toBuffer();
+  // 1bis) Maschere ridimensionate
+  const baseMask = await sharp(BASE_ICON).resize(size, size).toBuffer();
+  const gMaskExists = fs.existsSync(G_MASK);
+  const droneMaskExists = fs.existsSync(DRONE_MASK);
+  const gMask = gMaskExists ? await sharp(G_MASK).resize(size, size).toBuffer() : baseMask;
 
-  // 2) Applica la maschera dell'icona (solo dove c'è alpha)
-  const maskedBuffer = await gradient
-    .composite([
-      {
-        input: maskBuffer,
-        blend: "dest-in",
-      },
-    ])
+  // 2) Livello G: gradiente mascherato con G-mask (o base)
+  const gLayer = await gradient
+    .composite([{ input: gMask, blend: "dest-in" }])
     .png()
     .toBuffer();
 
-  // Futuro: applicare la maschera del drone con colore dedicato
-  // const droneLayer = await sharp(DRONE_MASK).resize(size, size).tint(DRONE_COLOR).png().toBuffer();
-  // const withDrone = await sharp(maskedBuffer)
-  //   .composite([{ input: droneLayer, blend: "src-over" }])
-  //   .png()
-  //   .toBuffer();
+  let finalBuffer = gLayer;
+
+  // 3) Livello drone (colore separato) se disponibile
+  if (droneMaskExists) {
+    const droneLayer = await sharp(DRONE_MASK).resize(size, size).tint(palette.drone).png().toBuffer();
+    finalBuffer = await sharp(finalBuffer)
+      .composite([{ input: droneLayer, blend: "src-over" }])
+      .png()
+      .toBuffer();
+  }
 
   const outPath = path.join(OUTPUT_DIR, name);
-  await sharp(maskedBuffer).toFile(outPath);
+  await sharp(finalBuffer).toFile(outPath);
   console.log(`Generata: ${outPath}`);
 }
 
