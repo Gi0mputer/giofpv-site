@@ -2,11 +2,11 @@
 const fs = require('fs');
 
 function polarToCartesian(cx, cy, radius, angleInDegrees) {
-  var angleInRadians = (angleInDegrees * Math.PI) / 180.0;
-  return {
-    x: cx + radius * Math.cos(angleInRadians),
-    y: cy + radius * Math.sin(angleInRadians)
-  };
+    var angleInRadians = (angleInDegrees * Math.PI) / 180.0;
+    return {
+        x: cx + radius * Math.cos(angleInRadians),
+        y: cy + radius * Math.sin(angleInRadians)
+    };
 }
 
 // Restoration to Clean Geometry with Standard Proportions
@@ -26,16 +26,16 @@ const pInStart = polarToCartesian(CX, CY, RI, ANGLE_START);
 const pInEnd = polarToCartesian(CX, CY, RI, ANGLE_END);
 
 const dOuter = [
-  "M", pOutStart.x.toFixed(1), pOutStart.y.toFixed(1),
-  "A", RO, RO, 0, 1, 0, pOutEnd.x.toFixed(1), pOutEnd.y.toFixed(1)
+    "M", pOutStart.x.toFixed(1), pOutStart.y.toFixed(1),
+    "A", RO, RO, 0, 1, 0, pOutEnd.x.toFixed(1), pOutEnd.y.toFixed(1)
 ].join(" ");
 
 const dInner = [
-  "M", pInStart.x.toFixed(1), pInStart.y.toFixed(1),
-  "A", RI, RI, 0, 1, 0, pInEnd.x.toFixed(1), pInEnd.y.toFixed(1)
+    "M", pInStart.x.toFixed(1), pInStart.y.toFixed(1),
+    "A", RI, RI, 0, 1, 0, pInEnd.x.toFixed(1), pInEnd.y.toFixed(1)
 ].join(" ");
 
-// Connections (Straight lines for now to verify positions)
+// Connections (Straight lines for verify positions)
 const topConn = `M ${pOutEnd.x.toFixed(1)} ${pOutEnd.y.toFixed(1)} L ${pInEnd.x.toFixed(1)} ${pInEnd.y.toFixed(1)}`;
 const botConn = `M ${pOutStart.x.toFixed(1)} ${pOutStart.y.toFixed(1)} L ${pInStart.x.toFixed(1)} ${pInStart.y.toFixed(1)}`;
 
