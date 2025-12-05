@@ -38,10 +38,10 @@ function makeGradientSvg(width, height, { c1, c2, c3 }) {
   return `
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="${c1}" />
+    <linearGradient id="grad" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="${c3}" />
       <stop offset="50%" stop-color="${c2}" />
-      <stop offset="100%" stop-color="${c3}" />
+      <stop offset="100%" stop-color="${c1}" />
     </linearGradient>
   </defs>
   <rect x="0" y="0" width="100%" height="100%" fill="url(#grad)" />
@@ -74,7 +74,7 @@ async function generateForSize(entry) {
   if (droneMaskExists) {
     const droneLayer = await sharp(DRONE_MASK).resize(size, size).tint(palette.drone).png().toBuffer();
     finalBuffer = await sharp(finalBuffer)
-      .composite([{ input: droneLayer, blend: "src-over" }])
+      .composite([{ input: droneLayer, blend: "over" }])
       .png()
       .toBuffer();
   }

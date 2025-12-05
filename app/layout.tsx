@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://giofpv.com"),
   title: "GioFPV • Aerial Shots",
   description:
-    "Riprese aeree 4K cinematografiche e adrenaliniche con droni FPV e stabilizzati per eventi, turismo, sport e valorizzazione immobiliare.",
+    "Riprese aeree FPV e stabilizzate in 4K per eventi, turismo e immobili.",
   openGraph: {
     title: "GioFPV • Aerial Shots",
     description:
-      "Riprese aeree 4K, cinematografiche e adrenaliniche con droni FPV e stabilizzati. Verona, Italia — video per eventi, turismo, sport e immobili.",
+      "Riprese aeree FPV e stabilizzate in 4K. Verona, Italia — video per eventi, turismo, sport e immobili.",
     url: "https://giofpv.com",
     siteName: "GioFPV",
     images: [

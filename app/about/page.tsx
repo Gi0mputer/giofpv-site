@@ -125,7 +125,7 @@ export default function AboutPage() {
               <div className="float-left mr-4 mt-3 sm:mt-12 lg:mr-16 lg:mt-0 mb-0 lg:mb-3 shape-circle">
                 <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/30 shadow-[0_0_40px_-10px_rgba(6,182,212,0.4)] bg-neutral-900">
                   <Image
-                    src="/icon.png"
+                    src="/favicon-48x48.png"
                     alt="GioFPV Logo"
                     width={208}
                     height={208}

@@ -32,7 +32,7 @@
 
   /* --- LOGO GRADIENT (Header - "FPV" text) --- */
   /* Gradiente multi-colore che rappresenta il brand */
-  --gradient-logo: linear-gradient(90deg, #00f0ff 0%, #00f0ff 25%, #bd00ff 35%, #bd00ff 55%, #ffcc00 65%, #ffcc00 95%, #ff5500 100%);
+  --gradient-logo: linear-gradient(90deg, #fbbf24 0%, #06b6d4 50%, #a855f7 100%);
 
   /* --- WORK PAGE COLORS (Homepage - /) --- */
   /* Mono color: Amber | Used for: header link hover, scroll arrow, accents */
