@@ -1,0 +1,30 @@
+DIAGNOSI DEBUG VISUALIZZAZIONE PC REMOTO
+========================================
+
+Se sull'altro PC il sito appare "strano", "zoommato" o con element fuori posto, controlla questi punti:
+
+1. DATI RILEVATI SU QUESTA MACCHINA (di riferimento):
+   - Window Inner (Viewport): 1536 x 695
+   - Device Pixel Ratio: 1.25 (Windows Zoom 125%)
+   - Risoluzione Schermo: 1536 x 864
+   
+   NOTA: 1.25 significa che il sito ha MENO spazio effettivo di un 1920x1080 nativo.
+
+2. COSA FARE SULL'ALTRO PC:
+   a. Apri la pagina: http://localhost:3000/debug
+   b. Leggi i valori.
+   
+3. INTERPRETAZIONE PROBLEMI:
+   - Se "Device Pixel Ratio" > 1: Windows ha uno zoom attivo (125%, 150%). Questo ingrandisce tutto e riduce lo spazio per il sito.
+     -> Soluzione: Imposta lo zoom di Windows a 100% o riduci lo zoom del browser (CTRL -).
+     
+   - Se "Window Inner Width" < 1024px:
+     Il browser vede lo schermo come un tablet. Il sito potrebbe passare al layout mobile o ibrido (hamburger menu, colonne impilate).
+     
+   - Se il sito è "Gigante":
+     Probabilmente c'è uno zoom di sistema alto (150%) su uno schermo non 4K.
+
+4. FILE CHECK:
+   - `theme/colors.json` : NECESSARIO. Usato da `npm run build` per generare le icone colorate. Non cancellare.
+   - `generate_svg.js` : Cancellato (era superfluo).
+   - `DEVLOG.md` : Unito in `PROJECT_REPORT.md`.

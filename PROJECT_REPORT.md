@@ -28,8 +28,20 @@ We have successfully transformed the GioFPV portfolio site into a premium, cinem
 
 ### 5. Technical & SEO
 - **SEO**: Fixed hydration errors and ensured proper metadata.
-- **Icons**: Integrated `lucide-react` for consistent and crisp iconography.
+- **Icons**:
+    - Integrated `lucide-react` for consistent and crisp iconography.
+    - Icons are auto-generated via `scripts/generate-icons.mjs` during build.
+    - **Source of Truth for Colors**: `theme/colors.json` is used by the icon generation script. This file MUST remain to ensure icons match the site theme during regeneration.
 - **Performance**: Optimized image loading and component structure.
+
+## Technical Notes (from DevLog)
+- **Icon Generation**:
+    - Script: `scripts/generate-icons.mjs`
+    - Source Images: `assets/G-mask.png` (Logo), `assets/drone-mask.png`.
+    - Output: `public/` (favicons, apple-touch-icon, etc).
+    - **Do NOT delete `theme/colors.json`**: It is required by the script to apply the correct gradients to the generated icons.
+- **Debug Page**:
+    - A `/debug` page exists to check viewport dimensions and scaling issues across different devices.
 
 ## Next Steps
 - **Content**: Replace the AI-generated thumbnails with actual project screenshots when available.
