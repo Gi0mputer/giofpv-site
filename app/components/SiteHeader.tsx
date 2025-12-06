@@ -52,7 +52,7 @@ export function SiteHeader() {
         </Link>
 
         {/* NAV */}
-        <nav className="flex items-center gap-2.5 sm:gap-5 md:gap-6 text-sm sm:text-base md:text-lg">
+        <nav className="flex items-center gap-2.5 sm:gap-5 md:gap-6 text-base sm:text-lg md:text-xl">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (
