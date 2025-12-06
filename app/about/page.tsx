@@ -88,7 +88,7 @@ export default function AboutPage() {
 
   return (
     <main className="bg-neutral-950">
-      <section className="relative flex flex-col bg-neutral-950 min-h-[100svh] pt-17 pb-8 px-5 sm:pt-18 sm:pb-16 sm:px-6 md:h-screen md:pt-[70px] md:pb-6 md:justify-between">
+      <section className="relative flex flex-col bg-neutral-950 min-h-screen pt-17 pb-8 px-5 sm:pt-18 sm:pb-16 sm:px-6 md:h-screen md:pt-[70px] md:pb-6 md:justify-between">
         <div className="flex-1 flex items-center w-full">
           <div className="w-full max-w-5xl mx-auto">
             <div className="text-center mb-3 sm:mb-10">
@@ -163,7 +163,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="gear" className="min-h-[100dvh] flex flex-col items-center justify-center px-5 sm:px-6 py-3 sm:py-10 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
+      <section id="gear" className="min-h-screen flex flex-col items-center justify-center px-5 sm:px-6 py-3 sm:py-10 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
         <div className="w-full max-w-5xl space-y-2 sm:space-y-6">
           <div className="space-y-1 sm:space-y-2 text-center mx-auto max-w-3xl">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight text-white">
