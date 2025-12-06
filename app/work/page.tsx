@@ -21,7 +21,7 @@ export default function WorkPage() {
         {/* Header */}
         <div className="text-center space-y-1 mb-6 lg:mb-4">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            <span className="bg-gradient-work bg-clip-text text-transparent">Projects</span>
+            <span className="text-sunset-amber">Projects</span>
           </h2>
           <p className="text-neutral-500 max-w-2xl mx-auto text-sm">
             Riprese aeree FPV e stabilizzate
