@@ -36,3 +36,4 @@ The script checks Node/npm presence/version, ensures `.npmrc` forces `cmd.exe`, 
 - Source assets for generation: `assets/` (icon-base, G-mask, drone-mask, logo SVG generated via `scripts/generate-logo.mjs`).
 - Dev previews (non pubblicate): `dev/` (`palette-preview.html`, `g-logo-preview.html`).
 - Project docs: `docs/PROJECT_REPORT.md`, `docs/DEBUG_DIAGNOSIS.txt`.
+- Utility: `scripts/commit_fix.bat` (helper batch if needed on Windows).
