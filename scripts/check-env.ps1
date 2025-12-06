@@ -35,18 +35,6 @@ try {
   $errors += "npm non trovato; verifica l'installazione di Node"
 }
 
-# npmrc script-shell
-$npmrcPath = Join-Path $repoRoot ".npmrc"
-if (Test-Path $npmrcPath) {
-  $npmrcContent = Get-Content $npmrcPath -Raw
-  Show-Step ".npmrc" $npmrcPath
-  if ($npmrcContent -notmatch 'script-shell\s*=\s*"C:\\\\Windows\\\\System32\\\\cmd\.exe"') {
-    $warnings += ".npmrc non forza cmd.exe; lancia `Set-ExecutionPolicy -Scope Process Bypass` prima di npm run dev"
-  }
-} else {
-  $warnings += ".npmrc mancante; aggiungi script-shell per evitare i blocchi di PowerShell"
-}
-
 # Execution policy (process)
 try {
   $policy = Get-ExecutionPolicy -Scope Process

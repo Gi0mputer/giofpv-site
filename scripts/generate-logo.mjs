@@ -5,6 +5,12 @@ import path from "path";
 // Genera l'SVG del logo partendo da centro + raggi + angoli, con sfumatura che segue la curva.
 // node scripts/generate-logo.mjs > assets/g-logo-generated.svg
 
+// Impostazioni base (coloring in pausa: gradient off di default)
+const enableGradient = false;
+const strokeColor = "#666666";
+const droneFillColor = strokeColor;
+const droneOpacity = 0.9;
+
 // Parametri principali (0° = destra, angoli positivi = antiorario)
 const cx = 0;          // centro X
 const cy = 0;          // centro Y
@@ -21,6 +27,10 @@ const barAngleDeg = 3; // angolo verso il basso
 const barInset = 1;  // togli bump stanghetta di G
 const innerBarLength = R * 0.70; // lunghezza stanghetta G
 const innerTopAdjustDeg = 10;
+
+// Drone mask placement
+const droneMaskSize = 220;
+const droneMaskPath = path.join(process.cwd(), "assets", "drone-mask.png");
 
 // -------------------------------------------------------------
 function degToRad(deg) {
@@ -224,6 +234,7 @@ const gradients = [];
 const paths = [];
 
 function addGradient(id, start, end, stops) {
+  if (!enableGradient) return;
   gradients.push({ id, start, end, stops });
 }
 
@@ -290,15 +301,48 @@ ${stopsStr}
 }
 
 function renderPath(p) {
-  return `    <path d="${p.d}" stroke="url(#${p.stroke})" />`;
+  const strokeAttr = enableGradient ? `stroke="url(#${p.stroke})"` : `stroke="${strokeColor}"`;
+  return `    <path d="${p.d}" ${strokeAttr} />`;
 }
+
+// -------------------------------------------------------------
+// 5) MASK DRONE AL CENTRO (usa il PNG come mask per riempire di colore uniforme)
+
+let droneMaskDef = "";
+let droneMaskedShape = "";
+if (fs.existsSync(droneMaskPath)) {
+  const dataUri = `data:image/png;base64,${fs.readFileSync(droneMaskPath).toString("base64")}`;
+  const halfMask = droneMaskSize / 2;
+  droneMaskDef = `
+    <mask id="drone-mask" x="${-halfMask}" y="${-halfMask}" width="${droneMaskSize}" height="${droneMaskSize}" maskUnits="userSpaceOnUse">
+      <image href="${dataUri}" x="${-halfMask}" y="${-halfMask}" width="${droneMaskSize}" height="${droneMaskSize}" />
+    </mask>`;
+  droneMaskedShape = `
+  <g mask="url(#drone-mask)">
+    <rect x="${-halfMask}" y="${-halfMask}" width="${droneMaskSize}" height="${droneMaskSize}" fill="${droneFillColor}" opacity="${droneOpacity}" />
+  </g>`;
+} else {
+  console.warn("Attenzione: drone-mask.png non trovato, salto il drone centrale.");
+}
+
+// -------------------------------------------------------------
+// 6) OUTPUT SVG
+
+const defsContent = [];
+if (enableGradient && gradients.length) {
+  defsContent.push(gradients.map(renderGradient).join("\n"));
+}
+if (droneMaskDef) {
+  defsContent.push(droneMaskDef);
+}
+
+const defsBlock = defsContent.length ? `  <defs>\n${defsContent.join("\n")}\n  </defs>\n` : "";
 
 const svg = `
 <svg xmlns="http://www.w3.org/2000/svg"
      viewBox="${-half} ${-half} ${size} ${size}">
-  <defs>
-${gradients.map(renderGradient).join("\n")}
-  </defs>
+${defsBlock.trimEnd()}
+  ${droneMaskedShape.trim()}
   <g fill="none"
      stroke-width="${strokeWidth}"
      stroke-linecap="round"
