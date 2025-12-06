@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 
 // scripts/generate-logo-v2.mjs
-// Genera l'SVG del logo con fix definitivi.
+// Genera l'SVG del logo con colorazione sequenziale lungo il percorso della forma "g"
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,15 +14,34 @@ const CONFIG = {
     enableGradient: true,
     strokeColor: "#ffffff",
     strokeWidth: 8,
-    R: 120, r: 93,
-    cx: 0, cy: 0,
-    gapDeg: 25, bridgeInset: 0.5,
-    barAngleDeg: 3, barInset: 1, innerBarScale: 0.68, innerTopAdjustDeg: 13,
+
+    // Dimensioni Cerchi
+    R: 120, // Raggio esterno
+    r: 93,  // Raggio interno
+    cx: 0,
+    cy: 0,
+
+    // Geometria Taglio
+    gapDeg: 25,
+    bridgeInset: 0.5,
+
+    // Geometria "G" Bar
+    barAngleDeg: 3,
+    barInset: 1,
+    innerBarScale: 0.68,
+    innerTopAdjustDeg: 13,
+
+    // Drone Mask
     drone: {
-        size: 250, offsetX: 0, offsetY: 1,
-        fill: "#ffffff", opacity: 1,
+        size: 250,
+        offsetX: 0,
+        offsetY: 1,
+        fill: "#ffffff",
+        opacity: 1,
         path: path.join(PROJECT_ROOT, "assets", "drone-mask.png"),
     },
+
+    // Color Palette File
     colorsPath: path.join(PROJECT_ROOT, "app", "theme", "colors.json"),
 };
 // #endregion
@@ -31,37 +50,62 @@ const CONFIG = {
 const MathUtils = {
     degToRad: (deg) => (deg * Math.PI) / 180,
     radToDeg: (rad) => (rad * 180) / Math.PI,
+
     polarToCartesian: (cx, cy, radius, deg) => {
         const rad = MathUtils.degToRad(deg);
-        return { x: cx + radius * Math.cos(rad), y: cy + radius * Math.sin(rad) };
+        return {
+            x: cx + radius * Math.cos(rad),
+            y: cy + radius * Math.sin(rad),
+        };
     },
-    angularDistanceCW: (start, end) => ((start - end) % 360 + 360) % 360,
-    angularDistanceCCW: (start, end) => ((end - start) % 360 + 360) % 360,
-    midAngle: (start, end, dir, t = 0.5) => {
-        const dist = dir === "CW" ? -MathUtils.angularDistanceCW(start, end) : MathUtils.angularDistanceCCW(start, end);
-        return start + dist * t;
+
+    angularDistanceCW: (startDeg, endDeg) => ((startDeg - endDeg) % 360 + 360) % 360,
+    angularDistanceCCW: (startDeg, endDeg) => ((endDeg - startDeg) % 360 + 360) % 360,
+
+    midAngle: (startDeg, endDeg, direction, t = 0.5) => {
+        const dist = direction === "CW"
+            ? -MathUtils.angularDistanceCW(startDeg, endDeg)
+            : MathUtils.angularDistanceCCW(startDeg, endDeg);
+        return startDeg + dist * t;
     },
-    splitArc: (start, end, dir, maxSpan = 90) => {
+
+    splitArc: (startDeg, endDeg, direction, maxSpanDeg = 90) => {
         const segments = [];
-        let current = start;
-        const span = Math.max(1, maxSpan);
-        const distFn = dir === "CW" ? MathUtils.angularDistanceCW : MathUtils.angularDistanceCCW;
-        const advFn = dir === "CW" ? (a, s) => a - s : (a, s) => a + s;
+        let current = startDeg;
+        const span = Math.max(1, maxSpanDeg);
+        const distance = direction === "CW" ? MathUtils.angularDistanceCW : MathUtils.angularDistanceCCW;
+        const advance = direction === "CW" ? (angle, step) => angle - step : (angle, step) => angle + step;
+
         while (true) {
-            if (distFn(current, end) <= span) { segments.push({ start: current, end }); break; }
-            const next = advFn(current, span);
+            const remaining = distance(current, endDeg);
+            if (remaining <= span) {
+                segments.push({ start: current, end: endDeg });
+                break;
+            }
+            const next = advance(current, span);
             segments.push({ start: current, end: next });
             current = next;
         }
         return segments;
     },
-    svgArcPath: (cx, cy, r, start, end, dir) => {
-        const s = MathUtils.polarToCartesian(cx, cy, r, start);
-        const e = MathUtils.polarToCartesian(cx, cy, r, end);
-        const sweep = dir === "CW" ? 0 : 1;
-        const delta = dir === "CW" ? MathUtils.angularDistanceCW(start, end) : MathUtils.angularDistanceCCW(start, end);
-        const large = delta > 180 ? 1 : 0;
-        return `M ${s.x.toFixed(3)} ${s.y.toFixed(3)} A ${r} ${r} 0 ${large} ${sweep} ${e.x.toFixed(3)} ${e.y.toFixed(3)}`;
+
+    svgArcPath: (cx, cy, radius, startDeg, endDeg, direction) => {
+        const start = MathUtils.polarToCartesian(cx, cy, radius, startDeg);
+        const end = MathUtils.polarToCartesian(cx, cy, radius, endDeg);
+
+        let delta, sweepFlag;
+        if (direction === "CW") {
+            delta = MathUtils.angularDistanceCW(startDeg, endDeg);
+            sweepFlag = 0;
+        } else {
+            delta = MathUtils.angularDistanceCCW(startDeg, endDeg);
+            sweepFlag = 1;
+        }
+        const largeArcFlag = delta > 180 ? 1 : 0;
+
+        return `M ${start.x.toFixed(3)} ${start.y.toFixed(3)} ` +
+            `A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ` +
+            `${end.x.toFixed(3)} ${end.y.toFixed(3)}`;
     }
 };
 // #endregion
@@ -70,135 +114,289 @@ const MathUtils = {
 const ColorSystem = {
     loadPalette: () => {
         try {
+            if (!fs.existsSync(CONFIG.colorsPath)) throw new Error("File missing");
             const raw = fs.readFileSync(CONFIG.colorsPath, "utf8");
             const json = JSON.parse(raw);
-            return { c1: json.logo[0], c2: json.logo[1], c3: json.logo[2] };
-        } catch { return { c1: "#fbbf24", c2: "#0ea5e9", c3: "#a855f7" }; }
+            const [c1, c2, c3] = json.logo || [];
+            if (!c1 || !c2 || !c3) throw new Error("Incomplete logo palette");
+            return { c1, c2, c3 };
+        } catch (err) {
+            return { c1: "#fbbf24", c2: "#0ea5e9", c3: "#a855f7" };
+        }
     },
-    hexToRgb: (h) => {
-        const n = parseInt(h.replace("#", ""), 16);
-        return { r: (n >> 16) & 0xff, g: (n >> 8) & 0xff, b: n & 0xff };
+
+    hexToRgb: (hex) => {
+        const clean = hex.replace("#", "");
+        const num = parseInt(clean, 16);
+        return { r: (num >> 16) & 0xff, g: (num >> 8) & 0xff, b: num & 0xff };
     },
-    rgbToHex: ({ r, g, b }) => `#${[r, g, b].map(x => Math.round(x).toString(16).padStart(2, "0")).join("")}`,
+
+    rgbToHex: ({ r, g, b }) => {
+        const toHex = (v) => Math.round(v).toString(16).padStart(2, "0");
+        return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+    },
+
     mix: (a, b, t) => {
-        const c1 = ColorSystem.hexToRgb(a), c2 = ColorSystem.hexToRgb(b);
-        return ColorSystem.rgbToHex({ r: c1.r + (c2.r - c1.r) * t, g: c1.g + (c2.g - c1.g) * t, b: c1.b + (c2.b - c1.b) * t });
+        const c1 = ColorSystem.hexToRgb(a);
+        const c2 = ColorSystem.hexToRgb(b);
+        return ColorSystem.rgbToHex({
+            r: Math.round(c1.r + (c2.r - c1.r) * t),
+            g: Math.round(c1.g + (c2.g - c1.g) * t),
+            b: Math.round(c1.b + (c2.b - c1.b) * t),
+        });
     },
-    getColorAtAngle: (angle) => {
-        const p = ColorSystem.loadPalette();
-        const sky = ColorSystem.mix(p.c2, "#ffffff", 0.2), vio = ColorSystem.mix(p.c3, "#ffffff", 0.12);
+
+    // NUOVO: Colorazione basata sul progresso lungo il percorso (0-1)
+    getColorAtProgress: (progress) => {
+        const palette = ColorSystem.loadPalette();
+        const skyBright = ColorSystem.mix(palette.c2, "#ffffff", 0.2);
+        const violetBright = ColorSystem.mix(palette.c3, "#ffffff", 0.12);
+
         const stops = [
-            { s: 0, c: p.c1 }, { s: 0.35, c: p.c1 }, { s: 0.52, c: p.c2 },
-            { s: 0.64, c: sky }, { s: 0.82, c: p.c3 }, { s: 0.94, c: vio }, { s: 1, c: p.c1 }
+            { stop: 0, color: palette.c1 },
+            { stop: 0.35, color: palette.c1 },
+            { stop: 0.52, color: palette.c2 },
+            { stop: 0.64, color: skyBright },
+            { stop: 0.82, color: palette.c3 },
+            { stop: 0.94, color: violetBright },
+            { stop: 1, color: palette.c1 },
         ];
-        const norm = (angle + 25 + 360) % 360; // gapDeg is 25
-        const t = ((360 - norm) % 360) / 360;
-        const w = ((t % 1) + 1) % 1;
+
+        const wrapped = ((progress % 1) + 1) % 1;
         for (let i = 0; i < stops.length - 1; i++) {
-            if (w >= stops[i].s && w <= stops[i + 1].s) {
-                return ColorSystem.mix(stops[i].c, stops[i + 1].c, (w - stops[i].s) / (stops[i + 1].s - stops[i].s || 1));
+            const a = stops[i];
+            const b = stops[i + 1];
+            if (wrapped >= a.stop && wrapped <= b.stop) {
+                const localT = (wrapped - a.stop) / (b.stop - a.stop || 1);
+                return ColorSystem.mix(a.color, b.color, localT);
             }
         }
-        return stops[0].c;
+        return stops[0].color;
     }
 };
 // #endregion
 
-// #region Geometry
+// #region Geometry Core
 function calculateLogoGeometry() {
     const { R, r, gapDeg, barAngleDeg, cx, cy, bridgeInset, barInset, innerBarScale, innerTopAdjustDeg } = CONFIG;
-    const outerStartDeg = -gapDeg, outerEndDeg = barAngleDeg;
+
+    // 1. Arco Esterno
+    const outerStartDeg = -gapDeg;
+    const outerEndDeg = barAngleDeg;
+
+    // 2. Arco Interno
     const absOuterStartRad = Math.abs(MathUtils.degToRad(outerStartDeg));
     let sinInner = (R / r) * Math.sin(absOuterStartRad);
     sinInner = Math.max(-1, Math.min(1, sinInner));
     const innerHalfGapDeg = MathUtils.radToDeg(Math.asin(sinInner));
-    const innerConnDeg = -innerHalfGapDeg, innerTopDeg = innerHalfGapDeg + innerTopAdjustDeg;
+
+    const innerConnDeg = -innerHalfGapDeg;
+    const innerTopDeg = innerHalfGapDeg + innerTopAdjustDeg;
+
+    // 3. Ponte
     const outerBridgePoint = MathUtils.polarToCartesian(cx, cy, R, outerStartDeg);
     const innerBridgePoint = MathUtils.polarToCartesian(cx, cy, r, innerConnDeg);
     const yBridge = (outerBridgePoint.y + innerBridgePoint.y) / 2;
+
+    const bridgeLine = {
+        start: { x: outerBridgePoint.x - bridgeInset, y: yBridge },
+        end: { x: innerBridgePoint.x + bridgeInset, y: yBridge }
+    };
+
+    // 4. Stanghetta G
     const outerBarPoint = MathUtils.polarToCartesian(cx, cy, R, barAngleDeg);
-    const barY = outerBarPoint.y, barStartX = outerBarPoint.x - barInset, barEndX = barStartX - R * innerBarScale;
+    const innerBarLength = R * innerBarScale;
+    const barY = outerBarPoint.y;
+    const barStartX = outerBarPoint.x - barInset;
+    const barEndX = barStartX - innerBarLength;
+
+    const barLine = {
+        start: { x: barStartX, y: barY },
+        end: { x: barEndX, y: barY }
+    };
+
     return {
         outer: { start: outerStartDeg, end: outerEndDeg },
         inner: { start: innerTopDeg, end: innerConnDeg },
-        bridge: { start: { x: outerBridgePoint.x - bridgeInset, y: yBridge }, end: { x: innerBridgePoint.x + bridgeInset, y: yBridge } },
-        bar: { start: { x: barStartX, y: barY }, end: { x: barEndX, y: barY } }
+        bridge: bridgeLine,
+        bar: barLine
     };
 }
 // #endregion
 
-// #region SVG Builder
+// #region Path Length Calculation
+function calculatePathLengths(geo) {
+    const { R, r } = CONFIG;
+
+    // 1. Arco interno in senso orario (dall'alto al basso)
+    const innerArcLen = MathUtils.angularDistanceCW(geo.inner.start, geo.inner.end) * Math.PI * r / 180;
+
+    // 2. Bridge da interno a esterno
+    const bridgeLen = Math.hypot(
+        geo.bridge.start.x - geo.bridge.end.x,
+        geo.bridge.start.y - geo.bridge.end.y
+    );
+
+    // 3. Arco esterno in senso antiorario (dal basso all'alto) - invertito rispetto a come è definito
+    const outerArcLen = MathUtils.angularDistanceCW(geo.outer.end, geo.outer.start) * Math.PI * R / 180;
+
+    // 4. Bar da destra a sinistra
+    const barLen = Math.abs(geo.bar.end.x - geo.bar.start.x);
+
+    const totalLen = innerArcLen + bridgeLen + outerArcLen + barLen;
+
+    return {
+        innerArc: { start: 0, length: innerArcLen / totalLen },
+        bridge: { start: innerArcLen / totalLen, length: bridgeLen / totalLen },
+        outerArc: { start: (innerArcLen + bridgeLen) / totalLen, length: outerArcLen / totalLen },
+        bar: { start: (innerArcLen + bridgeLen + outerArcLen) / totalLen, length: barLen / totalLen }
+    };
+}
+// #endregion
+
+// #region SVG Generator
 class SVGBuilder {
-    constructor() { this.defs = []; this.paths = []; this.gCount = 0; }
-    addGradient(s, e, stops) {
+    constructor(sections) {
+        this.defs = [];
+        this.paths = [];
+        this.gradientCount = 0;
+        this.sections = sections;
+    }
+
+    addGradient(start, end, stops) {
         if (!CONFIG.enableGradient) return null;
-        const id = `grad-${this.gCount++}`;
-        const st = stops.map(x => `<stop offset="${(x.offset * 100).toFixed(1)}%" stop-color="${x.color}" />`).join("");
-        this.defs.push(`<linearGradient id="${id}" x1="${s.x.toFixed(3)}" y1="${s.y.toFixed(3)}" x2="${e.x.toFixed(3)}" y2="${e.y.toFixed(3)}" gradientUnits="userSpaceOnUse">${st}</linearGradient>`);
+
+        const id = `grad-${this.gradientCount++}`;
+        const stopsStr = stops
+            .map(s => `<stop offset="${(s.offset * 100).toFixed(1)}%" stop-color="${s.color}" />`)
+            .join("\n      ");
+
+        this.defs.push(`
+    <linearGradient id="${id}" x1="${start.x.toFixed(3)}" y1="${start.y.toFixed(3)}" x2="${end.x.toFixed(3)}" y2="${end.y.toFixed(3)}" gradientUnits="userSpaceOnUse">
+      ${stopsStr}
+    </linearGradient>`);
+
         return id;
     }
-    addArc(r, s, e, dir, span = 90) {
-        MathUtils.splitArc(s, e, dir, span).forEach(seg => {
-            const pS = MathUtils.polarToCartesian(CONFIG.cx, CONFIG.cy, r, seg.start);
-            const pE = MathUtils.polarToCartesian(CONFIG.cx, CONFIG.cy, r, seg.end);
-            const mid = MathUtils.midAngle(seg.start, seg.end, dir);
-            const gid = this.addGradient(pS, pE, [
-                { offset: 0, color: ColorSystem.getColorAtAngle(seg.start) },
-                { offset: 0.5, color: ColorSystem.getColorAtAngle(mid) },
-                { offset: 1, color: ColorSystem.getColorAtAngle(seg.end) }
-            ]);
-            this.paths.push({ d: MathUtils.svgArcPath(CONFIG.cx, CONFIG.cy, r, seg.start, seg.end, dir), s: gid });
+
+    addArc(radius, startDeg, endDeg, direction, maxSpan, sectionKey) {
+        const section = this.sections[sectionKey];
+        const segments = MathUtils.splitArc(startDeg, endDeg, direction, maxSpan);
+        const segmentCount = segments.length;
+
+        segments.forEach((seg, idx) => {
+            const pStart = MathUtils.polarToCartesian(CONFIG.cx, CONFIG.cy, radius, seg.start);
+            const pEnd = MathUtils.polarToCartesian(CONFIG.cx, CONFIG.cy, radius, seg.end);
+
+            const segProgress = section.length / segmentCount;
+            const startProg = section.start + idx * segProgress;
+            const midProg = startProg + segProgress * 0.5;
+            const endProg = startProg + segProgress;
+
+            const stops = [
+                { offset: 0, color: ColorSystem.getColorAtProgress(startProg) },
+                { offset: 0.5, color: ColorSystem.getColorAtProgress(midProg) },
+                { offset: 1, color: ColorSystem.getColorAtProgress(endProg) },
+            ];
+
+            const gradId = this.addGradient(pStart, pEnd, stops);
+            const d = MathUtils.svgArcPath(CONFIG.cx, CONFIG.cy, radius, seg.start, seg.end, direction);
+            this.paths.push({ d, stroke: gradId });
         });
     }
-    addLine(pb, pe) {
-        const pm = { x: (pb.x + pe.x) / 2, y: (pb.y + pe.y) / 2 };
-        const gid = this.addGradient(pb, pe, [
-            { offset: 0, color: ColorSystem.getColorAtAngle(MathUtils.radToDeg(Math.atan2(pb.y, pb.x))) },
-            { offset: 0.5, color: ColorSystem.getColorAtAngle(MathUtils.radToDeg(Math.atan2(pm.y, pm.x))) },
-            { offset: 1, color: ColorSystem.getColorAtAngle(MathUtils.radToDeg(Math.atan2(pe.y, pe.x))) }
-        ]);
-        this.paths.push({ d: `M ${pb.x.toFixed(3)} ${pb.y.toFixed(3)} L ${pe.x.toFixed(3)} ${pe.y.toFixed(3)}`, s: gid });
-    }
-    render() {
-        // DRONE MASK
-        let droneSvg = "";
-        if (fs.existsSync(CONFIG.drone.path)) {
-            const b64 = fs.readFileSync(CONFIG.drone.path).toString("base64");
-            const { size, offsetX, offsetY } = CONFIG.drone;
-            this.defs.push(`<mask id="drone-mask" x="${-size / 2}" y="${-size / 2}" width="${size}" height="${size}" maskUnits="userSpaceOnUse"><image href="data:image/png;base64,${b64}" x="${-size / 2}" y="${-size / 2}" width="${size}" height="${size}" /></mask>`);
-            droneSvg = `<g mask="url(#drone-mask)" transform="translate(${offsetX}, ${offsetY})"><rect x="${-size / 2}" y="${-size / 2}" width="${size}" height="${size}" fill="${CONFIG.drone.fill}" opacity="${CONFIG.drone.opacity}" /></g>`;
-        }
-        // PATHS - THE FIX IS HERE
-        const pathsSvg = this.paths.map(p => {
-            const sVal = p.s ? `url(#${p.s})` : CONFIG.strokeColor;
-            return `<path d="${p.d}" stroke="${sVal}" />`; // QUOTES ADDED
-        }).join("\n    ");
 
-        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${-133} ${-133} ${266} ${266}">
-<defs>
+    addLine(pStart, pEnd, sectionKey) {
+        const section = this.sections[sectionKey];
+        const mid = { x: (pStart.x + pEnd.x) / 2, y: (pStart.y + pEnd.y) / 2 };
+
+        const startProg = section.start;
+        const midProg = section.start + section.length * 0.5;
+        const endProg = section.start + section.length;
+
+        const stops = [
+            { offset: 0, color: ColorSystem.getColorAtProgress(startProg) },
+            { offset: 0.5, color: ColorSystem.getColorAtProgress(midProg) },
+            { offset: 1, color: ColorSystem.getColorAtProgress(endProg) }
+        ];
+
+        const gradId = this.addGradient(pStart, pEnd, stops);
+        const d = `M ${pStart.x.toFixed(3)} ${pStart.y.toFixed(3)} L ${pEnd.x.toFixed(3)} ${pEnd.y.toFixed(3)}`;
+        this.paths.push({ d, stroke: gradId });
+    }
+
+    addDroneMask() {
+        if (!fs.existsSync(CONFIG.drone.path)) {
+            console.warn("WARN: Drone mask not found at " + CONFIG.drone.path);
+            return "";
+        }
+        const b64 = fs.readFileSync(CONFIG.drone.path).toString("base64");
+        const { size, offsetX, offsetY } = CONFIG.drone;
+        const half = size / 2;
+
+        this.defs.push(`
+    <mask id="drone-mask" x="${-half}" y="${-half}" width="${size}" height="${size}" maskUnits="userSpaceOnUse">
+      <image href="data:image/png;base64,${b64}" x="${-half}" y="${-half}" width="${size}" height="${size}" />
+    </mask>`);
+
+        return `
+  <g mask="url(#drone-mask)" transform="translate(${offsetX}, ${offsetY})">
+    <rect x="-125" y="-125" width="250" height="250" fill="${CONFIG.drone.fill}" opacity="${CONFIG.drone.opacity}" />
+  </g>`;
+    }
+
+    render() {
+        const size = (CONFIG.R + CONFIG.strokeWidth) * 2 + 10;
+        const half = size / 2;
+        const droneShape = this.addDroneMask();
+
+        const pathElements = this.paths.map(p => {
+            const strokeVal = p.stroke ? `url(#${p.stroke})` : CONFIG.strokeColor;
+            return `    <path d="${p.d}" stroke="${strokeVal}" />`;
+        }).join("\n");
+
+        return `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="${-half} ${-half} ${size} ${size}">
+  <defs>
 ${this.defs.join("\n")}
-</defs>
-${droneSvg}
-<g fill="none" stroke-width="${CONFIG.strokeWidth}" stroke-linecap="round" stroke-linejoin="round">
-    ${pathsSvg}
-</g>
+  </defs>
+  ${droneShape}
+  <g fill="none" stroke-width="${CONFIG.strokeWidth}" stroke-linecap="round" stroke-linejoin="round">
+${pathElements}
+  </g>
 </svg>`;
     }
 }
 // #endregion
 
-// #region Main
+// #region Main Execution
 function main() {
     const geo = calculateLogoGeometry();
-    const builder = new SVGBuilder();
-    builder.addArc(CONFIG.R, geo.outer.start, geo.outer.end, "CW", 90);
-    builder.addArc(CONFIG.r, geo.inner.start, geo.inner.end, "CCW", 60);
-    builder.addLine(geo.bridge.start, geo.bridge.end);
-    builder.addLine(geo.bar.start, geo.bar.end);
+    const sections = calculatePathLengths(geo);
+    const builder = new SVGBuilder(sections);
 
-    const out = path.join(PROJECT_ROOT, "public", "g-logo-generated.svg");
-    fs.writeFileSync(out, builder.render());
-    console.log("DONE V2");
+    // Percorso della forma "g":
+    // 1. Arco Interno in senso orario (dall'alto verso il basso)
+    builder.addArc(CONFIG.r, geo.inner.start, geo.inner.end, "CW", 60, 'innerArc');
+
+    // 2. Ponte da interno a esterno (bridge invertito)
+    builder.addLine(geo.bridge.end, geo.bridge.start, 'bridge');
+
+    // 3. Arco Esterno in senso antiorario (dal basso verso l'alto) - invertito
+    builder.addArc(CONFIG.R, geo.outer.end, geo.outer.start, "CW", 90, 'outerArc');
+
+    // 4. Stanghetta G
+    builder.addLine(geo.bar.start, geo.bar.end, 'bar');
+
+    const svgContent = builder.render().trim();
+    const outputPath = path.join(PROJECT_ROOT, "public", "g-logo-generated.svg");
+
+    try {
+        fs.writeFileSync(outputPath, svgContent);
+        console.log(`SUCCESS: Logo V2 with sequential coloring generated at: ${outputPath}`);
+    } catch (e) {
+        console.error("ERROR writing file:", e);
+    }
 }
+
 main();
 // #endregion
