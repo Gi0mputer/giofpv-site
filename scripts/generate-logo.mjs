@@ -1,9 +1,14 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from 'url';
 
 // scripts/generate-logo.mjs
 // Genera l'SVG del logo partendo da centro + raggi + angoli.
-// Usage: node scripts/generate-logo.mjs > assets/g-logo-generated.svg
+// Usage: node scripts/generate-logo.mjs
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const PROJECT_ROOT = path.resolve(__dirname, '..');
 
 // #region Configuration
 // -----------------------------------------------------------------------------
@@ -35,11 +40,11 @@ const CONFIG = {
     offsetY: 1,
     fill: "#ffffff", // White for colored version
     opacity: 1,
-    path: path.join(process.cwd(), "assets", "drone-mask.png"),
+    path: path.join(PROJECT_ROOT, "assets", "drone-mask.png"),
   },
 
   // Color Palette File
-  colorsPath: path.join(process.cwd(), "app", "theme", "colors.json"),
+  colorsPath: path.join(PROJECT_ROOT, "app", "theme", "colors.json"),
 };
 // #endregion
 
@@ -311,7 +316,7 @@ class SVGBuilder {
 
     return `
   <g mask="url(#drone-mask)" transform="translate(${offsetX}, ${offsetY})">
-    <rect x="${-half}" y="${-half}" width="${size}" height="${size}" fill="${CONFIG.drone.fill}" opacity="${CONFIG.drone.opacity}" />
+    <rect x="-125" y="-125" width="250" height="250" fill="${CONFIG.drone.fill}" opacity="${CONFIG.drone.opacity}" />
   </g>`;
   }
 
@@ -322,10 +327,9 @@ class SVGBuilder {
 
     // Render Paths
     const pathElements = this.paths.map(p => {
-      const strokeAttr = p.stroke ? `url(#${p.stroke})` : CONFIG.strokeColor;
-      // Se gradient spento, usa config color
-      const color = CONFIG.enableGradient ? strokeAttr : `"${CONFIG.strokeColor}"`;
-      return `    <path d="${p.d}" stroke=${color} />`;
+      const strokeVal = p.stroke ? `url(#${p.stroke})` : CONFIG.strokeColor;
+      // QUOTES FIXED HERE: stroke="${strokeVal}"
+      return `    <path d="${p.d}" stroke="${strokeVal}" />`;
     }).join("\n");
 
     return `
@@ -360,7 +364,15 @@ function main() {
   // 4. Stanghetta G
   builder.addLine(geo.bar.start, geo.bar.end);
 
-  console.log(builder.render().trim());
+  const svgContent = builder.render().trim();
+  const outputPath = path.join(PROJECT_ROOT, "public", "g-logo-generated.svg");
+
+  try {
+    fs.writeFileSync(outputPath, svgContent);
+    console.log(`SUCCESS: Logo generated at: ${outputPath}`);
+  } catch (e) {
+    console.error("ERROR writing file:", e);
+  }
 }
 
 main();
