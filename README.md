@@ -30,3 +30,9 @@ pwsh -ExecutionPolicy Bypass -File scripts/check-env.ps1
 ```
 
 The script checks Node/npm presence/version, ensures `.npmrc` forces `cmd.exe`, warns if ExecutionPolicy is Restricted, and reports if port 3000 or `.next/dev/lock` are occupied.
+
+## Assets & docs
+- Served assets: `public/` (favicons, logo PNG, profile pic, gear images, logo SVG if needed).
+- Source assets for generation: `assets/` (icon-base, G-mask, drone-mask, logo SVG generated via `scripts/generate-logo.mjs`).
+- Dev previews (non pubblicate): `dev/` (`palette-preview.html`, `g-logo-preview.html`).
+- Project docs: `docs/PROJECT_REPORT.md`, `docs/DEBUG_DIAGNOSIS.txt`.

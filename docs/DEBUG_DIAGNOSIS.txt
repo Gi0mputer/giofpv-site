@@ -25,6 +25,6 @@ Se sull'altro PC il sito appare "strano", "zoommato" o con element fuori posto, 
      Probabilmente c'è uno zoom di sistema alto (150%) su uno schermo non 4K.
 
 4. FILE CHECK:
-   - `theme/colors.json` : NECESSARIO. Usato da `npm run build` per generare le icone colorate. Non cancellare.
+   - `app/theme/colors.json` : NECESSARIO. Usato da `npm run build` per generare le icone colorate. Non cancellare.
    - `generate_svg.js` : Cancellato (era superfluo).
    - `DEVLOG.md` : Unito in `PROJECT_REPORT.md`.

@@ -31,7 +31,7 @@ We have successfully transformed the GioFPV portfolio site into a premium, cinem
 - **Icons**:
     - Integrated `lucide-react` for consistent and crisp iconography.
     - Icons are auto-generated via `scripts/generate-icons.mjs` during build.
-    - **Source of Truth for Colors**: `theme/colors.json` is used by the icon generation script. This file MUST remain to ensure icons match the site theme during regeneration.
+    - **Source of Truth for Colors**: `app/theme/colors.json` is used by the icon generation script. This file MUST remain to ensure icons match the site theme during regeneration.
 - **Performance**: Optimized image loading and component structure.
 
 ## Technical Notes (from DevLog)
@@ -39,7 +39,7 @@ We have successfully transformed the GioFPV portfolio site into a premium, cinem
     - Script: `scripts/generate-icons.mjs`
     - Source Images: `assets/G-mask.png` (Logo), `assets/drone-mask.png`.
     - Output: `public/` (favicons, apple-touch-icon, etc).
-    - **Do NOT delete `theme/colors.json`**: It is required by the script to apply the correct gradients to the generated icons.
+    - **Do NOT delete `app/theme/colors.json`**: It is required by the script to apply the correct gradients to the generated icons.
 - **Debug Page**:
     - A `/debug` page exists to check viewport dimensions and scaling issues across different devices.
     - Discrepancy observed on another desktop (browser zoom 100%): the `/debug` page shows `Window Inner 1440 x 675`, `Screen 1440 x 810`, `Device Pixel Ratio 2`. The high DPR (system display scaling) halves the effective CSS width, so breakpoints behave like a tablet; fix by lowering Windows display scaling or testing at DPR 1.

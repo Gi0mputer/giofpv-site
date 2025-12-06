@@ -7,7 +7,7 @@ const OUTPUT_DIR = path.join(ROOT, "public");
 const BASE_ICON = path.join(ROOT, "assets", "icon-base.png");
 const G_MASK = path.join(ROOT, "assets", "G-mask.png");
 const DRONE_MASK = path.join(ROOT, "assets", "drone-mask.png");
-const THEME_COLORS = path.join(ROOT, "theme", "colors.json");
+const THEME_COLORS = path.join(ROOT, "app", "theme", "colors.json");
 
 function loadPalette() {
   try {

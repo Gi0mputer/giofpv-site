@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 // scripts/generate-logo.mjs
 // Genera l'SVG del logo partendo da centro + raggi + angoli, evitando coordinate assolute.
 
@@ -9,13 +12,13 @@ const r = 78; // raggio cerchio interno
 const strokeWidth = 8;
 
 // Angoli (in gradi) per gli archi
-const outerStartDeg = 30; // arco esterno inizia in alto-dx
+const outerStartDeg = -30; // arco esterno inizia in alto-dx
 const outerEndDeg = 0; // termina a destra
 const innerStartDeg = 40; // arco interno, leggermente più alto
-const innerEndDeg = -20; // termina più in basso a destra
+const innerEndDeg = -40; // termina più in basso a destra
 
 // Lunghezza stanghetta della G (parte dal punto a 0° del cerchio esterno)
-const innerBarLength = R * 0.5;
+const innerBarLength = R * 0.6;
 
 // -------------------------------------------------------------
 function degToRad(deg) {
@@ -59,8 +62,8 @@ const outerArc = arcPath(cx, cy, R, outerStartDeg, outerEndDeg, "CW");
 const outerStartPoint = polarToCartesian(cx, cy, R, outerStartDeg);
 const yBridge = outerStartPoint.y;
 const dy = yBridge - cy;
-const xInnerBridge = cx + Math.sqrt(r * r - dy * dy);
-const bridgeSegment = `M ${outerStartPoint.x.toFixed(3)} ${yBridge.toFixed(3)} L ${xInnerBridge.toFixed(3)} ${yBridge.toFixed(3)}`;
+const xInnerBridge = cx + Math.sqrt(r * r - dy * dy) + 0.5;
+const bridgeSegment = `M ${(outerStartPoint.x - 0.5).toFixed(3)} ${yBridge.toFixed(3)} L ${xInnerBridge.toFixed(3)} ${yBridge.toFixed(3)}`;
 
 // 3) Arco interno (antiorario)
 const innerArc = arcPath(cx, cy, r, innerStartDeg, innerEndDeg, "CCW");
@@ -85,4 +88,6 @@ const svg = `
 </svg>
 `;
 
-console.log(svg.trim());
+const outputPath = path.join(process.cwd(), "assets", "g-logo.svg");
+fs.writeFileSync(outputPath, svg.trim(), "utf8");
+console.log(`SVG generato in ${outputPath}`);
