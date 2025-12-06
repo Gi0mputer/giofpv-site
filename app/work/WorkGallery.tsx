@@ -1,22 +1,32 @@
 "use client";
 
+// #region Imports
 import Image from "next/image";
 import { useState } from "react";
 import type { WorkItem } from "@/data/work";
+// #endregion
 
+// #region Types & Helpers
 type Props = {
   items: WorkItem[];
   initialVisible?: number;
 };
 
 function getYoutubeId(url: string) {
-  // Updated regex to handle /shorts/ URLs
+  // Regex for standard, shorts, and embed URLs
   const regex = /(?:youtube\.com\/(?:shorts\/|(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))|youtu\.be\/)([^"&?\/\s]{11})/;
   const match = url.match(regex);
   return match ? match[1] : null;
 }
+// #endregion
 
+// #region Components
+
+// -----------------------------------------------------------------------------
+// VideoCard
+// -----------------------------------------------------------------------------
 function VideoCard({ work }: { work: WorkItem }) {
+  // #region Logic
   const [isPlaying, setIsPlaying] = useState(false);
   const isVertical = work.format === "vertical";
   const videoId = getYoutubeId(work.href);
@@ -25,7 +35,9 @@ function VideoCard({ work }: { work: WorkItem }) {
   const thumbnailUrl = !isPlaceholder && videoId
     ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
     : "/portfolio/city-night.png";
+  // #endregion
 
+  // #region Render (Active Player)
   if (isPlaying && videoId) {
     return (
       <div className={`relative w-full bg-black ${isVertical ? "aspect-[9/16]" : "aspect-video"}`}>
@@ -39,7 +51,9 @@ function VideoCard({ work }: { work: WorkItem }) {
       </div>
     );
   }
+  // #endregion
 
+  // #region Render (Thumbnail)
   return (
     <div
       onClick={() => setIsPlaying(true)}
@@ -60,23 +74,29 @@ function VideoCard({ work }: { work: WorkItem }) {
       </div>
     </div>
   );
+  // #endregion
 }
 
+// -----------------------------------------------------------------------------
+// WorkGallery
+// -----------------------------------------------------------------------------
 export function WorkGallery({ items, initialVisible }: Props) {
+  // #region Data Processing
   const verticalVideos = items.filter(item => item.format === "vertical");
   const horizontalVideos = items.filter(item => item.format === "horizontal");
   const [visibleHorizontal, setVisibleHorizontal] = useState(initialVisible || 0);
 
   const actuallyVisibleCount = Math.min(visibleHorizontal, horizontalVideos.length);
   const canLoadMore = actuallyVisibleCount < horizontalVideos.length;
+  // #endregion
 
+  // #region Handlers
   const handleLoadMore = () => {
-    setVisibleHorizontal((prev) => prev + 4); // Load 4 videos at a time (matching vertical slot)
+    setVisibleHorizontal((prev) => prev + 4); // Load 4 videos at a time
     setTimeout(() => {
-      // Scroll to horizontal section with offset for fixed header
-        const horizontalSection = document.getElementById('horizontal-section');
-        if (horizontalSection) {
-        const headerHeight = 56; // Height of fixed header (h-14 = 3.5rem = 56px)
+      const horizontalSection = document.getElementById('horizontal-section');
+      if (horizontalSection) {
+        const headerHeight = 56;
         const elementPosition = horizontalSection.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
 
@@ -87,9 +107,12 @@ export function WorkGallery({ items, initialVisible }: Props) {
       }
     }, 200);
   };
+  // #endregion
 
+  // #region Render
   return (
     <section className="space-y-4">
+      {/* Verticals Grid */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {verticalVideos.map((work) => (
           <article key={work.title} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/80 shadow-lg">
@@ -98,6 +121,7 @@ export function WorkGallery({ items, initialVisible }: Props) {
         ))}
       </div>
 
+      {/* Horizontals Grid */}
       {visibleHorizontal > 0 && (
         <div id="horizontal-section" className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {horizontalVideos.slice(0, visibleHorizontal).map((work) => (
@@ -108,6 +132,7 @@ export function WorkGallery({ items, initialVisible }: Props) {
         </div>
       )}
 
+      {/* Load More Button */}
       {canLoadMore && (
         <div className="flex justify-center pt-6 mb-5">
           <button type="button" onClick={handleLoadMore}
@@ -118,4 +143,6 @@ export function WorkGallery({ items, initialVisible }: Props) {
       )}
     </section>
   );
+  // #endregion
 }
+// #endregion

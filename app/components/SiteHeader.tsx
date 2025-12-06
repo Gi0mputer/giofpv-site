@@ -1,17 +1,23 @@
 "use client";
 
+// #region Imports
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+// #endregion
 
+// #region Configuration
 const navLinks = [
   { href: "/work", label: "Work", color: "text-sunset-amber" },
   { href: "/about", label: "About", color: "text-sunset-sky" },
   { href: "/contact", label: "Contact", color: "text-sunset-orange" },
 ];
+// #endregion
 
+// #region Component
 export function SiteHeader() {
+  // #region Logic
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -22,7 +28,9 @@ export function SiteHeader() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  // #endregion
 
+  // #region Render
   return (
     <header
       className={`fixed top-0 z-40 w-full transition-all duration-300 bg-neutral-950/90 backdrop-blur`}
@@ -64,4 +72,6 @@ export function SiteHeader() {
       </div>
     </header>
   );
+  // #endregion
 }
+// #endregion

@@ -1,10 +1,13 @@
 // app/layout.tsx
+// #region Imports
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import "./globals.css";
+// #endregion
 
+// #region Config & Metadata
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -39,7 +42,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon-32x32.png",
   },
 };
+// #endregion
 
+// #region Layout Component
 function LayoutContent({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
@@ -59,3 +64,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+// #endregion

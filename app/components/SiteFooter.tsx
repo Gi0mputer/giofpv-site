@@ -1,17 +1,23 @@
 "use client";
 
+// #region Imports
 import Link from "next/link";
 import { Instagram, Phone, Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
+// #endregion
 
+// #region Component
 export function SiteFooter() {
   const pathname = usePathname();
 
   // Hide footer on contact page since it already has contact info
+  // #region Conditional Logic
   if (pathname === "/contact") {
     return null;
   }
+  // #endregion
 
+  // #region Render
   return (
     <footer className="bg-black text-white">
       {/* Main Footer Content */}
@@ -76,4 +82,6 @@ export function SiteFooter() {
       </div>
     </footer>
   );
+  // #endregion
 }
+// #endregion
