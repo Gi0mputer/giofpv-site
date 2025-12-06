@@ -8,8 +8,8 @@ import path from "path";
 // #region Configuration
 // -----------------------------------------------------------------------------
 const CONFIG = {
-  enableGradient: false,
-  strokeColor: "#666666",
+  enableGradient: true,
+  strokeColor: "#ffffff",
   strokeWidth: 8,
 
   // Dimensioni Cerchi
@@ -25,13 +25,15 @@ const CONFIG = {
   // Geometria "G" Bar
   barAngleDeg: 3,      // Angolo coda G
   barInset: 1,         // Correzione bump G
-  innerBarScale: 0.70, // Lunghezza stanghetta relativa a R
-  innerTopAdjustDeg: 10,
+  innerBarScale: 0.68, // Lunghezza stanghetta relativa a R
+  innerTopAdjustDeg: 13,
 
   // Drone Mask (Centrale)
   drone: {
-    size: 280,
-    fill: "#666666", // Copia strokeColor per default
+    size: 250,
+    offsetX: 0,
+    offsetY: 1,
+    fill: "#ffffff", // White for colored version
     opacity: 1,
     path: path.join(process.cwd(), "assets", "drone-mask.png"),
   },
@@ -299,7 +301,7 @@ class SVGBuilder {
       return "";
     }
     const b64 = fs.readFileSync(CONFIG.drone.path).toString("base64");
-    const size = CONFIG.drone.size;
+    const { size, offsetX, offsetY } = CONFIG.drone;
     const half = size / 2;
 
     this.defs.push(`
@@ -308,7 +310,7 @@ class SVGBuilder {
     </mask>`);
 
     return `
-  <g mask="url(#drone-mask)">
+  <g mask="url(#drone-mask)" transform="translate(${offsetX}, ${offsetY})">
     <rect x="${-half}" y="${-half}" width="${size}" height="${size}" fill="${CONFIG.drone.fill}" opacity="${CONFIG.drone.opacity}" />
   </g>`;
   }
