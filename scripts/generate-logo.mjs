@@ -38,7 +38,7 @@ const CONFIG = {
     size: 250,
     offsetX: 0,
     offsetY: 1,
-    fill: "#ffffff", // White for colored version
+    fill: "#ffffff", // Overridden by palette.c3 at runtime
     opacity: 1,
     path: path.join(PROJECT_ROOT, "assets", "drone-mask.png"),
   },
@@ -124,12 +124,12 @@ const ColorSystem = {
       if (!fs.existsSync(CONFIG.colorsPath)) throw new Error("File missing");
       const raw = fs.readFileSync(CONFIG.colorsPath, "utf8");
       const json = JSON.parse(raw);
-      const [c1, c2, c3] = json.logo || [];
+      const [c1, c2, c3, c4] = json.logo || [];
       if (!c1 || !c2 || !c3) throw new Error("Incomplete logo palette");
-      return { c1, c2, c3 };
+      return { c1, c2, c3, c4: c4 || c3 };
     } catch (err) {
       // Fallback
-      return { c1: "#fbbf24", c2: "#0ea5e9", c3: "#a855f7" };
+      return { c1: "#fbbf24", c2: "#0ea5e9", c3: "#a855f7", c4: "#a855f7" };
     }
   },
 
@@ -158,17 +158,11 @@ const ColorSystem = {
   getColorAtAngle: (angleDeg) => {
     // Definizione gradienti (Lazy load o calcolati qui)
     const palette = ColorSystem.loadPalette();
-    const skyBright = ColorSystem.mix(palette.c2, "#ffffff", 0.2);
-    const violetBright = ColorSystem.mix(palette.c3, "#ffffff", 0.12);
-
-    // Stops
     const stops = [
       { stop: 0, color: palette.c1 },
-      { stop: 0.35, color: palette.c1 },
-      { stop: 0.52, color: palette.c2 },
-      { stop: 0.64, color: skyBright },
-      { stop: 0.82, color: palette.c3 },
-      { stop: 0.94, color: violetBright },
+      { stop: 0.49, color: palette.c2 },
+      { stop: 0.67, color: palette.c3 },
+      { stop: 0.80, color: palette.c4 },
       { stop: 1, color: palette.c1 },
     ];
 
@@ -350,6 +344,9 @@ ${pathElements}
 // -----------------------------------------------------------------------------
 function main() {
   const geo = calculateLogoGeometry();
+  const palette = ColorSystem.loadPalette();
+  CONFIG.drone.fill = palette.drone || palette.c4 || palette.c3 || CONFIG.drone.fill;
+  CONFIG.drone.opacity = 1;
   const builder = new SVGBuilder();
 
   // 1. Arco Esterno (CW)

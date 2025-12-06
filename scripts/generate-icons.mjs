@@ -13,13 +13,13 @@ function loadPalette() {
   try {
     const raw = fs.readFileSync(THEME_COLORS, "utf8");
     const json = JSON.parse(raw);
-    const [c1, c2, c3] = json.logo || [];
-    const drone = json.drone || "#ffffff";
+    const [c1, c2, c3, c4] = json.logo || [];
+    const drone = json.drone || c4 || c3 || "#ffffff";
     if (!c1 || !c2 || !c3) throw new Error("Logo palette incompleta");
-    return { c1, c2, c3, drone };
+    return { c1, c2, c3, c4: c4 || c3, drone };
   } catch (err) {
     console.warn("Palette non trovata o incompleta, uso fallback:", err.message);
-    return { c1: "#00f0ff", c2: "#bd00ff", c3: "#ffcc00", drone: "#ffffff" };
+    return { c1: "#00f0ff", c2: "#bd00ff", c3: "#ffcc00", c4: "#ffcc00", drone: "#ffffff" };
   }
 }
 
@@ -34,13 +34,14 @@ const sizes = [
   { size: 32, name: "favicon-32x32.png" },
 ];
 
-function makeGradientSvg(width, height, { c1, c2, c3 }) {
+function makeGradientSvg(width, height, { c1, c2, c3, c4 }) {
   return `
 <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
   <defs>
     <linearGradient id="grad" x1="100%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="${c3}" />
-      <stop offset="50%" stop-color="${c2}" />
+      <stop offset="0%" stop-color="${c4}" />
+      <stop offset="35%" stop-color="${c3}" />
+      <stop offset="65%" stop-color="${c2}" />
       <stop offset="100%" stop-color="${c1}" />
     </linearGradient>
   </defs>
@@ -72,9 +73,17 @@ async function generateForSize(entry) {
 
   // 3) Livello drone (colore separato) se disponibile
   if (droneMaskExists) {
-    const droneLayer = await sharp(DRONE_MASK).resize(size, size).tint(palette.drone).png().toBuffer();
+    // Crea un layer pieno (colore solido) e applica la maschera del drone come alpha
+    const maskBuffer = await sharp(DRONE_MASK).resize(size, size).ensureAlpha().toBuffer();
+    const solidDrone = await sharp({
+      create: { width: size, height: size, channels: 4, background: palette.drone }
+    })
+      .composite([{ input: maskBuffer, blend: "dest-in" }])
+      .png()
+      .toBuffer();
+
     finalBuffer = await sharp(finalBuffer)
-      .composite([{ input: droneLayer, blend: "over" }])
+      .composite([{ input: solidDrone, blend: "over" }])
       .png()
       .toBuffer();
   }
