@@ -10,79 +10,16 @@ export default function AboutPage() {
   // State to track MULTIPLE expanded cards (array of titles)
   const [expandedCards, setExpandedCards] = useState<string[]>([]);
 
-  const getHeaderOffset = () => (window.innerWidth >= 1024 ? 90 : 72);
-
-  const smoothScrollTo = (targetY: number, duration = 550) => {
-    const startY = window.pageYOffset;
-    const diff = targetY - startY;
-    const startTime = performance.now();
-    const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = easeInOutCubic(progress);
-      window.scrollTo(0, startY + diff * eased);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
-  };
-
   const toggleGear = (title: string) => {
     setExpandedCards((prev) => {
       const isCurrentlyExpanded = prev.includes(title);
 
       if (isCurrentlyExpanded) {
         // Close card: remove from array
-        const newState = prev.filter((t) => t !== title);
-
-        // If all cards are closed, scroll back to the section start
-        if (newState.length === 0) {
-          setTimeout(() => {
-            const gearSection = document.getElementById("gear");
-            if (gearSection) {
-              const headerOffset = getHeaderOffset();
-              const y = gearSection.getBoundingClientRect().top + window.pageYOffset - headerOffset +50 ;
-              smoothScrollTo(y);
-            }
-          }, 100);
-        } else {
-          // If there is an expanded card above the one just closed, center on it
-          const closedIndex = gear.findIndex((g) => g.title === title);
-          const expandedAbove = gear
-            .slice(0, closedIndex)
-            .reverse()
-            .find((g) => newState.includes(g.title));
-
-          if (expandedAbove) {
-            setTimeout(() => {
-              const element = document.getElementById(`gear-${expandedAbove.title}`);
-              if (element) {
-                const headerOffset = getHeaderOffset();
-                const elementRect = element.getBoundingClientRect();
-                const elementTop = elementRect.top + window.pageYOffset;
-                const visibleHeight = window.innerHeight - headerOffset;
-                const y = elementTop - headerOffset - visibleHeight / 2 + elementRect.height / 2 + 16;
-                smoothScrollTo(y);
-              }
-            }, 150);
-          }
-        }
-
-        return newState;
-      } else {
-        // Open card: add to array AND scroll to it
-        setTimeout(() => {
-          const element = document.getElementById(`gear-${title}`);
-          if (element) {
-            const headerOffset = getHeaderOffset();
-            const y = element.getBoundingClientRect().top + window.pageYOffset - headerOffset - 30;
-            smoothScrollTo(y);
-          }
-        }, 100); // Small delay to ensure render
-        return [...prev, title];
+        return prev.filter((t) => t !== title);
       }
+      // Open card: add to array (no auto-scroll to avoid jumps)
+      return [...prev, title];
     });
   };
 
