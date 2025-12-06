@@ -163,7 +163,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="gear" className="min-h-[100svh] flex flex-col items-center px-5 sm:px-6 py-3 sm:py-10 bg-neutral-950 scroll-mt-8 lg:scroll-mt-4">
+      <section id="gear" className="min-h-[100svh] flex flex-col items-center px-5 sm:px-6 py-3 sm:py-10 bg-neutral-950 scroll-mt-24 lg:scroll-mt-16">
         <div className="w-full max-w-5xl space-y-2 sm:space-y-6">
           <div className="space-y-1 sm:space-y-2 text-center mx-auto max-w-3xl">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight text-white">
