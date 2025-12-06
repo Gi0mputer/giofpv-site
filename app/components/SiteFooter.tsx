@@ -28,11 +28,11 @@ export function SiteFooter() {
           href="https://wa.me/393451575507"
           className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
         >
-          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
+          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-sky group-hover:scale-110 transition-transform border border-white/10">
             <Phone size={20} />
           </div>
           <div>
-            <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Phone - Whatsapp</h3>
+            <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Phone</h3>
             <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-sky">
               +39 345 157 5507
             </span>
@@ -44,7 +44,7 @@ export function SiteFooter() {
           href="mailto:giovanni.fantoni.1997@gmail.com"
           className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
         >
-          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
+          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-amber group-hover:scale-110 transition-transform border border-white/10">
             <Mail size={20} />
           </div>
           <div>
@@ -62,12 +62,12 @@ export function SiteFooter() {
           rel="noreferrer"
           className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
         >
-          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
+          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-[#ff3ea5] group-hover:scale-110 transition-transform border border-white/10">
             <Instagram size={20} />
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Connect</h3>
-            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-violet">
+            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-[#ff3ea5]">
               @gio.fanto
             </span>
           </div>

@@ -27,9 +27,9 @@ export default function ContactPage() {
             href="https://wa.me/393451575507"
             className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-sky/10 text-sunset-sky group-hover:scale-110 transition-transform">
-              <Phone size={20} />
-            </div>
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-sky group-hover:scale-110 transition-transform border border-white/10">
+            <Phone size={20} />
+          </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Phone</div>
             <span className="block text-lg font-semibold text-white group-hover:text-sunset-sky transition-colors">
               +39 345 157 5507
@@ -41,9 +41,9 @@ export default function ContactPage() {
             href="mailto:gio.fantoni.fpv@gmail.com"
             className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-amber/10 text-sunset-amber group-hover:scale-110 transition-transform">
-              <Mail size={20} />
-            </div>
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-amber group-hover:scale-110 transition-transform border border-white/10">
+            <Mail size={20} />
+          </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Email</div>
             <span className="block text-sm sm:text-lg font-semibold text-white group-hover:text-sunset-amber transition-colors break-all sm:break-normal">
               giovanni.fantoni.1997@gmail.com
@@ -57,11 +57,11 @@ export default function ContactPage() {
             rel="noreferrer"
             className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-sunset-violet/10 text-sunset-violet group-hover:scale-110 transition-transform">
-              <Instagram size={20} />
-            </div>
+          <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-[#ff3ea5] group-hover:scale-110 transition-transform border border-white/10">
+            <Instagram size={20} />
+          </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Instagram</div>
-            <span className="block text-lg font-semibold text-white group-hover:text-sunset-violet transition-colors">
+            <span className="block text-lg font-semibold text-white group-hover:text-[#ff3ea5] transition-colors">
               @gio.fanto
             </span>
           </Link>

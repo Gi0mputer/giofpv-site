@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 
 // #region Configuration
 const navLinks = [
-  { href: "/work", label: "Work", color: "text-sunset-amber" },
-  { href: "/about", label: "About", color: "text-sunset-sky" },
-  { href: "/contact", label: "Contact", color: "text-sunset-orange" },
+  { href: "/work", label: "Work", color: "text-sunset-amber" },   // amber = warm
+  { href: "/about", label: "About", color: "text-sunset-sky" },   // cyan
+  { href: "/contact", label: "Contact", color: "text-sunset-orange" }, // amber
 ];
 // #endregion
 
