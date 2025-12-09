@@ -33,7 +33,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Phone</h3>
-            <span className="block text-lg font-semibold text-sunset-sky transition-colors">
+            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-sky">
               +39 345 157 5507
             </span>
           </div>
@@ -49,7 +49,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Email</h3>
-            <span className="block text-lg font-semibold text-sunset-amber transition-colors">
+            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-amber">
               giovanni.fantoni.1997@gmail.com
             </span>
           </div>
@@ -67,7 +67,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Connect</h3>
-            <span className="block text-lg font-semibold text-instagram transition-colors">
+            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-instagram">
               @gio.fanto
             </span>
           </div>
