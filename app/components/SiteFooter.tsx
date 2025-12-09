@@ -33,7 +33,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Phone</h3>
-            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-sky">
+            <span className="block text-lg font-semibold text-sunset-sky transition-colors">
               +39 345 157 5507
             </span>
           </div>
@@ -49,7 +49,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Email</h3>
-            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-sunset-amber">
+            <span className="block text-lg font-semibold text-sunset-amber transition-colors">
               giovanni.fantoni.1997@gmail.com
             </span>
           </div>
@@ -62,12 +62,12 @@ export function SiteFooter() {
           rel="noreferrer"
           className="group py-12 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer flex-1"
         >
-          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-[#ff3ea5] group-hover:scale-110 transition-transform border border-white/10">
+          <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-instagram group-hover:scale-110 transition-transform border border-white/10">
             <Instagram size={20} />
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-1">Connect</h3>
-            <span className="block text-lg font-semibold text-white transition-colors group-hover:text-[#ff3ea5]">
+            <span className="block text-lg font-semibold text-instagram transition-colors">
               @gio.fanto
             </span>
           </div>

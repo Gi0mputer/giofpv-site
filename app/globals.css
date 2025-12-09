@@ -11,11 +11,11 @@
 
   /* Logo gradient */
   --gradient-logo: linear-gradient(90deg,
-    #9e3eff 0%,
-    #00e5ff 40%,
-    #ff3ea5 67%,
-    #ffac47 85%,
-    #9e3eff 100%);
+      #9e3eff 0%,
+      #00e5ff 40%,
+      #ff3ea5 67%,
+      #ffac47 85%,
+      #9e3eff 100%);
 
   /* Work (/): warm (Projects) */
   --color-work-primary: #ffd34d;
@@ -32,10 +32,13 @@
   --sunset-violet: #9e3eff;
   --gradient-gear: linear-gradient(to right, #9e3eff 0%, #b86aff 55%, #9e3eff 100%);
 
-  /* Contact (/contact): orange */
-  --color-contact-primary: #ff8a1f;
-  --sunset-orange: #ff8a1f;
-  --gradient-contact: linear-gradient(to right, #ff8a1f 0%, #ffb347 55%, #ff8a1f 100%);
+  /* Contact (/contact): FIRE Orange */
+  --color-contact-primary: #ff4500;
+  --sunset-orange: #ff4500;
+  --gradient-contact: linear-gradient(to right, #ff4500 0%, #ff8c00 55%, #ff4500 100%);
+
+  /* Social Brands */
+  --color-instagram: #ff3ea5;
 }
 
 @theme inline {
@@ -59,6 +62,7 @@
   --color-sunset-orange: var(--sunset-orange);
   --color-sunset-sky: var(--sunset-sky);
   --color-sunset-violet: var(--sunset-violet);
+  --color-instagram: var(--color-instagram);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -98,6 +102,7 @@ body {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

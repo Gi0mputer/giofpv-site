@@ -6,7 +6,7 @@ export default function ContactPage() {
   return (
     <main className="h-[100dvh] bg-neutral-950 pt-20 sm:pt-24 pb-6 px-6 flex flex-col items-center justify-center relative overflow-hidden overflow-y-hidden supports-[height:100dvh]:h-[100dvh]">
       {/* Background Gradient Blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sunset-orange/20 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-5xl space-y-4 sm:space-y-12 relative z-10 text-center">
         {/* Header */}
@@ -31,7 +31,7 @@ export default function ContactPage() {
               <Phone size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Phone</div>
-            <span className="block text-lg font-semibold text-white group-hover:text-sunset-sky transition-colors">
+            <span className="block text-lg font-semibold text-sunset-sky transition-colors">
               +39 345 157 5507
             </span>
           </Link>
@@ -45,7 +45,7 @@ export default function ContactPage() {
               <Mail size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Email</div>
-            <span className="block text-sm sm:text-lg font-semibold text-white group-hover:text-sunset-amber transition-colors break-all sm:break-normal">
+            <span className="block text-sm sm:text-lg font-semibold text-sunset-amber transition-colors break-all sm:break-normal">
               giovanni.fantoni.1997@gmail.com
             </span>
           </a>
@@ -57,11 +57,11 @@ export default function ContactPage() {
             rel="noreferrer"
             className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-[#ff3ea5] group-hover:scale-110 transition-transform border border-white/10">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-instagram group-hover:scale-110 transition-transform border border-white/10">
               <Instagram size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Instagram</div>
-            <span className="block text-lg font-semibold text-white group-hover:text-[#ff3ea5] transition-colors">
+            <span className="block text-lg font-semibold text-instagram transition-colors">
               @gio.fanto
             </span>
           </Link>
