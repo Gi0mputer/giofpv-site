@@ -17,14 +17,23 @@ We have successfully transformed the GioFPV portfolio site into a premium, cinem
 
 ### 3. Dynamic Video Gallery
 - **Mixed Formats**: Successfully integrated both vertical (Shorts) and horizontal videos.
+- **Exclusivity Logic**: Implemented smart playback control ensuring only one video plays at a time (previous video pauses when a new one starts).
 - **Verticals First**: Reordered the gallery to showcase vertical videos at the top.
 - **Inline Playback**: Replaced external YouTube links with an inline video player, keeping users on the site.
 - **Cinematic Thumbnails**: Replaced placeholder SVGs with high-quality, AI-generated cinematic drone shots.
 
 ### 4. Page Improvements
-- **About Page**: Redesigned with a focus on readability and visual appeal. Replaced static images with a premium icon grid for collaborations.
-- **Contact Page**: Fixed layout issues (email overflow), corrected color inconsistencies, and applied the premium design language.
-- **Work Page**: Updated the header to match the new site aesthetic.
+- **About Page**:
+    - Combined Bio and Gear sections for a seamless narrative flow.
+    - **Refined Spacing**: Optimized margins and padding for perfect symmetry between sections and header balance.
+    - **Gear Section**: Implemented an accordion-style gear list with "See more" functionality.
+- **Contact Page**:
+    - **Visuals**: Updated background glow to a subtle, centered "Sunset Orange" vignette with deep black edges.
+    - **Colors**: Refined contact theme color to a vibrant Safety Orange/Yellow (#ff9900).
+    - **Mobile Optimization**: Compacted layout for smaller screens (e.g., iPhone SE).
+- **Footer**:
+    - **Symmetry**: Adjusted top margins and layouts to align perfectly with the page flow on all devices.
+    - **Responsiveness**: Optimized padding and font sizes for mobile devices.
 
 ### 5. Technical & SEO
 - **SEO**: Fixed hydration errors and ensured proper metadata.
@@ -33,6 +42,7 @@ We have successfully transformed the GioFPV portfolio site into a premium, cinem
     - Icons are auto-generated via `scripts/generate-icons.mjs` during build.
     - **Source of Truth for Colors**: `app/theme/colors.json` is used by the icon generation script. This file MUST remain to ensure icons match the site theme during regeneration.
 - **Performance**: Optimized image loading and component structure.
+- **Clean-up**: Removed debug pages and unnecessary assets for production readiness.
 
 ## Technical Notes (from DevLog)
 - **Icon Generation**:
@@ -40,9 +50,6 @@ We have successfully transformed the GioFPV portfolio site into a premium, cinem
     - Source Images: `assets/G-mask.png` (Logo), `assets/drone-mask.png`.
     - Output: `public/` (favicons, apple-touch-icon, etc).
     - **Do NOT delete `app/theme/colors.json`**: It is required by the script to apply the correct gradients to the generated icons.
-- **Debug Page**:
-    - A `/debug` page exists to check viewport dimensions and scaling issues across different devices.
-    - Discrepancy observed on another desktop (browser zoom 100%): the `/debug` page shows `Window Inner 1440 x 675`, `Screen 1440 x 810`, `Device Pixel Ratio 2`. The high DPR (system display scaling) halves the effective CSS width, so breakpoints behave like a tablet; fix by lowering Windows display scaling or testing at DPR 1.
 
 ## Next Steps
 - **Content**: Replace the AI-generated thumbnails with actual project screenshots when available.
