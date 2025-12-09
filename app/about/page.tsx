@@ -88,12 +88,12 @@ export default function AboutPage() {
 
   return (
     <main className="bg-neutral-950">
-      <section className="relative flex flex-col items-center bg-neutral-950 pt-24 pb-12 px-5 sm:pt-32 sm:pb-16 sm:px-6">
+      <section className="relative flex flex-col items-center bg-neutral-950 pt-16 sm:pt-20 pb-6 px-5 sm:px-6">
         {/* Ambient Glow - Cyan */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
-        <div className="w-full max-w-5xl mx-auto mb-12 relative z-10">
-          <div className="text-center mb-3 sm:mb-10">
+        <div className="w-full max-w-5xl mx-auto mb-0 relative z-10">
+          <div className="text-center mb-2 sm:mb-8">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight">
               <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
@@ -150,16 +150,10 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Arrow (Unified Position) */}
-        <div className="hidden md:flex justify-center animate-bounce z-20">
-          <Link href="#gear" className="text-white/40 hover:text-cyan-400 transition-all duration-300 hover:scale-110">
-            <ChevronDown size={32} strokeWidth={1.5} />
-          </Link>
-        </div>
       </section>
 
       {/* Gear Section - Slightly Lighter Background */}
-      <section id="gear" className="relative flex flex-col items-center px-5 sm:px-6 pt-12 pb-12 bg-[#0c0c0c] md:bg-[#0f0f0f] scroll-mt-24 lg:scroll-mt-24">
+      <section id="gear" className="relative flex flex-col items-center px-5 sm:px-6 pt-6 pb-12 bg-[#0c0c0c] md:bg-[#0f0f0f] scroll-mt-24 lg:scroll-mt-24">
         {/* Ambient Glow - Violet */}
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none translate-y-1/4 -translate-x-1/4" />
         <div className="w-full max-w-5xl space-y-2 sm:space-y-6">
