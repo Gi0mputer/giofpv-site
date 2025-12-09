@@ -16,7 +16,7 @@ function loadPalette() {
         return { c1, c2, c3, c4: c4 || c3, drone };
     } catch (err) {
         console.warn("Palette non trovata o incompleta, uso fallback:", err.message);
-        return { c1: "#00f0ff", c2: "#bd00ff", c3: "#ffcc00", c4: "#ffcc00", drone: "#ffffff" };
+        return { c1: "#ff9900", c2: "#9e3eff", c3: "#ff3ea5", c4: "#00e5ff", drone: "#ffffff" };
     }
 }
 
@@ -35,12 +35,13 @@ const sizes = [
 async function generateForSize(entry) {
     const { size, name } = entry;
 
+    // Passiamo solo i colori, il gradiente (sequence e weights) usa il default di generate_logo_final.mjs
     const svg = buildLogoSvg({
         colors: {
-            cyan: palette.c1,
-            violet: palette.c2,
-            pink: palette.c3,
-            orange: palette.c4
+            c1: palette.c1,
+            c2: palette.c2,
+            c3: palette.c3,
+            c4: palette.c4
         },
         drone: { enabled: true }
     });

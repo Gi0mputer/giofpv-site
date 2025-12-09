@@ -1,3 +1,4 @@
+/* eslint-disable */
 import fs from "fs";
 import path from "path";
 import { pathToFileURL } from "url";
@@ -14,8 +15,8 @@ const CONFIG = {
     strokeWidth: 8,
 
     geometry: {
-        R: 120, // Raggio esterno
-        r: 93,  // Raggio interno
+        R: 120,
+        r: 93,
         cx: 0,
         cy: 0,
         gapDeg: 25,
@@ -29,24 +30,32 @@ const CONFIG = {
     drone: {
         enabled: true,
         scale: 1,
-        offsetX: 1,
+        offsetX: 0,
         offsetY: 5,
         rotation: 0,
-        circleRadius: 12,
-        armLength: 48,
+        circleRadius: 14,
+        armLength: 50,
         strokeWidth: 8,
+
+        // Colore Drone
+        autoColor: false,       // Se true, usa il colore finale del gradiente
+        customColor: '#ff9900' // Colore usato se autoColor è false
     },
 
     colors: {
-        cyan: '#00e5ff',
-        violet: '#9e3eff',
-        pink: '#ff3ea5',
-        orange: '#ff9900'
+        c1: '#00e5ff',
+        c2: '#9e3eff',
+        c3: '#ff3ea5',
+        c4: '#ff9900'
     },
     gradient: {
-        start: 'cyan',
-        end: 'orange',
-        weights: { cyan: 30, orange: 70 }
+        // Ordine sequenziale dei colori
+        sequence: ['c1', 'c2', 'c3', 'c4'],
+        // Pesi "Quantity" (Centro di Massa)
+        weights: [10, 30, 80, 10],
+
+        // Inverti direzione gradiente (Sequenza e Pesi)
+        reverse: false
     }
 };
 // #endregion
@@ -111,18 +120,58 @@ function createColorSystem(cfg) {
         return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     };
 
-    const getColorAtPct = (pct) => {
-        const { start, end, weights } = cfg.gradient;
-        const sW = weights[start];
-        const colors = cfg.colors;
+    // Calculate Stops based on "Center of Mass" logic
+    let stops = [];
 
-        if (pct <= sW) {
-            return interpolate(colors[start], colors.violet, pct / sW);
-        } else if (pct <= 50) {
-            return interpolate(colors.violet, colors.pink, (pct - sW) / (50 - sW));
-        } else {
-            return interpolate(colors.pink, colors[end], (pct - 50) / 50);
+    // Gestione Reverse
+    let seq = [...cfg.gradient.sequence];
+    let weights = cfg.gradient.weights ? [...cfg.gradient.weights] : [];
+
+    if (cfg.gradient.reverse) {
+        seq.reverse();
+        if (weights.length > 0) weights.reverse();
+    }
+
+    if (weights && weights.length >= seq.length) {
+        const total = weights.reduce((a, b) => a + b, 0);
+        let acc = 0;
+        stops = [];
+        for (let i = 0; i < seq.length; i++) {
+            const w = weights[i];
+            const center = acc + w / 2;
+            stops.push(total > 0 ? center / total : 0);
+            acc += w;
         }
+    } else {
+        // Uniform fallback
+        stops = seq.map((_, i) => i / Math.max(1, seq.length - 1));
+    }
+
+    const getColorAtPct = (pct) => {
+        const t = Math.max(0, Math.min(1, pct / 100));
+
+        // Before first center -> Pure Start Color
+        if (t <= stops[0]) return cfg.colors[seq[0]];
+
+        // After last center -> Pure End Color
+        if (t >= stops[stops.length - 1]) return cfg.colors[seq[seq.length - 1]];
+
+        // Interpolate between centers
+        for (let i = 0; i < stops.length - 1; i++) {
+            if (t >= stops[i] && t <= stops[i + 1]) {
+                const range = stops[i + 1] - stops[i];
+                const localT = (t - stops[i]) / (range || 1);
+
+                const c1 = cfg.colors[seq[i]];
+                const c2 = cfg.colors[seq[i + 1]];
+
+                if (!c1) return c2 || '#000000';
+                if (!c2) return c1;
+
+                return interpolate(c1, c2, localT);
+            }
+        }
+        return cfg.colors[seq[seq.length - 1]];
     };
 
     return { interpolate, getColorAtPct };
@@ -135,18 +184,14 @@ function calculateGeometry(cfg) {
 
     const outerStart = -gapDeg;
     const outerEnd = barAngleDeg;
-
     const absOuterStartRad = Math.abs(MathUtils.degToRad(outerStart));
     const sinInner = Math.max(-1, Math.min(1, (R / r) * Math.sin(absOuterStartRad)));
     const innerHalfGap = MathUtils.radToDeg(Math.asin(sinInner));
-
     const innerConn = -innerHalfGap;
     const innerTop = innerHalfGap + innerTopAdjustDeg;
-
     const pOuterBridge = MathUtils.polarToCartesian(cx, cy, R, outerStart);
     const pInnerBridge = MathUtils.polarToCartesian(cx, cy, r, innerConn);
     const yBridge = (pOuterBridge.y + pInnerBridge.y) / 2;
-
     const pBarOuter = MathUtils.polarToCartesian(cx, cy, R, barAngleDeg);
     const barLength = R * innerBarScale;
     const barStartX = pBarOuter.x - barInset;
@@ -222,8 +267,11 @@ class SVGBuilder {
     }
 
     addDrone(center) {
-        const { circleRadius, armLength, strokeWidth, scale, offsetX, offsetY, rotation } = this.cfg.drone;
-        const color = this.colorSystem.getColorAtPct(100);
+        const { circleRadius, armLength, strokeWidth, scale, offsetX, rotation, offsetY, autoColor, customColor } = this.cfg.drone;
+
+        // Select logic based on autoColor
+        const color = autoColor ? this.colorSystem.getColorAtPct(100) : customColor;
+
         const angles = [45, 135, 225, 315];
         let dPaths = '';
         dPaths += `<circle cx="0" cy="0" r="${circleRadius}" />`;
