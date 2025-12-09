@@ -19,12 +19,19 @@ export function HeroVideo() {
                 - Aspect Ratio triggers resizing if height limit is hit first.
             */}
             <div
-                className="relative w-full max-w-6xl aspect-video rounded-xl shadow-2xl shadow-black/50 z-10 mx-4 md:mx-0
-                           max-h-[60vh] md:max-h-[calc(100svh-180px)]"
+                className="relative aspect-video rounded-xl shadow-2xl shadow-black/50 z-10 mx-4 md:mx-0 overflow-hidden bg-black"
+                style={{
+                    // Robust "Contain" Logic for CSS:
+                    // 1. Mobile: Default to width-based sizing (w-full handled by className max-w-6xl effectively).
+                    // 2. Desktop: Calculate width based on the AVAILABLE HEIGHT to ensure 16:9 ratio is never broken.
+                    //    If the calculated width (Height * 1.77) is wider than screen, min() falls back to 100%.
+                    //    max-w-7xl caps it for ultra-wide screens.
+                    width: 'min(100%, min(80rem, calc((100vh - 180px) * 1.7777)))',
+                }}
             >
                 <iframe
                     src="https://www.youtube.com/embed/kddVKHFSUAw?autoplay=1&mute=1&controls=0&loop=1&playlist=kddVKHFSUAw&rel=0&modestbranding=1&playsinline=1&vq=hd1080"
-                    className="absolute inset-0 h-full w-full rounded-xl"
+                    className="absolute inset-0 h-full w-full object-cover"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     title="Hero Video"
