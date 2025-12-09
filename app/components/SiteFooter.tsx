@@ -21,7 +21,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-black text-white">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3 mt-10 md:mt-5 min-h-[100svh] md:min-h-0 flex-col justify-center gap-0 md:gap-0 divide-y divide-white/10 md:divide-y-0 md:divide-x md:divide-white/10">
+      <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3 mt-0 md:mt-0 min-h-[80svh] md:min-h-0 flex-col justify-center gap-0 md:gap-0 divide-y divide-white/10 md:divide-y-0 md:divide-x md:divide-white/10">
 
         {/* Phone - Whatsapp Section */}
         <Link
