@@ -11,11 +11,10 @@
 
   /* Logo gradient */
   --gradient-logo: linear-gradient(90deg,
-      #9e3eff 0%,
-      #00e5ff 40%,
-      #ff3ea5 67%,
-      #ffac47 85%,
-      #9e3eff 100%);
+      #ff9900 0%,
+      #ff3ea5 40%,
+      #9e3eff 70%,
+      #00e5ff 100%);
 
   /* Work (/): warm (Projects) */
   --color-work-primary: #ffd34d;

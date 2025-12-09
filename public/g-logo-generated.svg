@@ -1,70 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-133 -133 266 266">
   <defs>
 
+    <!-- Outer Loop: Orange -> Pink -> Purple -> Cyan -->
     <linearGradient id="grad-0" x1="108.757" y1="-50.714" x2="-50.714" y2="-108.757" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#9e3eff" />
-      <stop offset="50.0%" stop-color="#7669ff" />
-      <stop offset="100.0%" stop-color="#4d93ff" />
+      <stop offset="0.0%" stop-color="#ff9900" />
+      <stop offset="100.0%" stop-color="#ff636e" />
     </linearGradient>
 
     <linearGradient id="grad-1" x1="-50.714" y1="-108.757" x2="-108.757" y2="50.714" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#4d93ff" />
-      <stop offset="50.0%" stop-color="#25beff" />
-      <stop offset="100.0%" stop-color="#0edcfa" />
+      <stop offset="0.0%" stop-color="#ff636e" />
+      <stop offset="100.0%" stop-color="#cc4ec2" />
     </linearGradient>
 
     <linearGradient id="grad-2" x1="-108.757" y1="50.714" x2="50.714" y2="108.757" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#0edcfa" />
-      <stop offset="50.0%" stop-color="#bf68bc" />
-      <stop offset="100.0%" stop-color="#ff826b" />
+      <stop offset="0.0%" stop-color="#cc4ec2" />
+      <stop offset="100.0%" stop-color="#6781f8" />
     </linearGradient>
 
     <linearGradient id="grad-3" x1="50.714" y1="108.757" x2="119.836" y2="6.280" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#ff826b" />
-      <stop offset="50.0%" stop-color="#ed9868" />
-      <stop offset="100.0%" stop-color="#c469b7" />
+      <stop offset="0.0%" stop-color="#6781f8" />
+      <stop offset="100.0%" stop-color="#00e5ff" />
     </linearGradient>
 
+    <!-- Inner Loop: Cyan -> Purple -> Pink -> Orange -->
     <linearGradient id="grad-4" x1="64.549" y1="66.951" x2="-25.706" y2="89.377" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#feab49" />
-      <stop offset="50.0%" stop-color="#ff6881" />
-      <stop offset="100.0%" stop-color="#cf5eb6" />
+      <stop offset="0.0%" stop-color="#00e5ff" />
+      <stop offset="100.0%" stop-color="#4faffc" />
     </linearGradient>
 
     <linearGradient id="grad-5" x1="-25.706" y1="89.377" x2="-90.256" y2="22.426" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#cf5eb6" />
-      <stop offset="50.0%" stop-color="#59abe0" />
-      <stop offset="100.0%" stop-color="#07deff" />
+      <stop offset="0.0%" stop-color="#4faffc" />
+      <stop offset="100.0%" stop-color="#9e3eff" />
     </linearGradient>
 
     <linearGradient id="grad-6" x1="-90.256" y1="22.426" x2="-64.549" y2="-66.951" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#07deff" />
-      <stop offset="50.0%" stop-color="#22c2ff" />
-      <stop offset="100.0%" stop-color="#3ca5ff" />
+      <stop offset="0.0%" stop-color="#9e3eff" />
+      <stop offset="100.0%" stop-color="#cf50b1" />
     </linearGradient>
 
     <linearGradient id="grad-7" x1="-64.549" y1="-66.951" x2="25.706" y2="-89.377" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#3ca5ff" />
-      <stop offset="50.0%" stop-color="#5789ff" />
-      <stop offset="100.0%" stop-color="#726cff" />
+      <stop offset="0.0%" stop-color="#cf50b1" />
+      <stop offset="100.0%" stop-color="#ff6173" />
     </linearGradient>
 
     <linearGradient id="grad-8" x1="25.706" y1="-89.377" x2="77.956" y2="-50.714" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#726cff" />
-      <stop offset="50.0%" stop-color="#8459ff" />
-      <stop offset="100.0%" stop-color="#9746ff" />
+      <stop offset="0.0%" stop-color="#ff6173" />
+      <stop offset="100.0%" stop-color="#ff9900" />
     </linearGradient>
 
+    <!-- Connectors -->
     <linearGradient id="grad-9" x1="108.257" y1="-50.714" x2="78.456" y2="-50.714" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#9e3eff" />
-      <stop offset="50.0%" stop-color="#9b41ff" />
-      <stop offset="100.0%" stop-color="#9745ff" />
+      <stop offset="0.0%" stop-color="#ff9900" />
+      <stop offset="100.0%" stop-color="#ff9900" />
     </linearGradient>
 
     <linearGradient id="grad-10" x1="118.836" y1="6.280" x2="37.236" y2="6.280" gradientUnits="userSpaceOnUse">
-      <stop offset="0.0%" stop-color="#c469b7" />
-      <stop offset="50.0%" stop-color="#c66bb3" />
-      <stop offset="100.0%" stop-color="#cd73a7" />
+      <stop offset="0.0%" stop-color="#00e5ff" />
+      <stop offset="100.0%" stop-color="#00e5ff" />
     </linearGradient>
 
     <mask id="drone-mask" x="-125" y="-125" width="250" height="250" maskUnits="userSpaceOnUse">

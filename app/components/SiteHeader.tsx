@@ -42,7 +42,7 @@ export function SiteHeader() {
           className="flex items-center gap-2 text-sm sm:text-base md:text-lg font-semibold tracking-wide uppercase text-white"
         >
           <Image
-            src="/favicon-48x48.png"
+            src="/g-logo-generated.svg"
             alt="GioFPV logo"
             width={22}
             height={22}

@@ -1,4 +1,9 @@
 {
-  "logo": ["#9e3eff", "#00e5ff", "#ff3ea5", "#ffac47"],
-  "drone": "#ffac47"
+  "logo": [
+    "#ff9900",
+    "#ff3ea5",
+    "#9e3eff",
+    "#00e5ff"
+  ],
+  "drone": "#ff9900"
 }
