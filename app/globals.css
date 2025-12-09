@@ -32,10 +32,10 @@
   --sunset-violet: #9e3eff;
   --gradient-gear: linear-gradient(to right, #9e3eff 0%, #b86aff 55%, #9e3eff 100%);
 
-  /* Contact (/contact): FIRE Orange */
-  --color-contact-primary: #ff4500;
-  --sunset-orange: #ff4500;
-  --gradient-contact: linear-gradient(to right, #ff4500 0%, #ff8c00 55%, #ff4500 100%);
+  /* Contact (/contact): Vibrant Orange (Yellow-ish) */
+  --color-contact-primary: #ff9900;
+  --sunset-orange: #ff9900;
+  --gradient-contact: linear-gradient(to right, #ff9900 0%, #ffb700 55%, #ff9900 100%);
 
   /* Social Brands */
   --color-instagram: #ff3ea5;

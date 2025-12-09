@@ -87,7 +87,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="bg-neutral-950 overflow-x-hidden">
+    <main className="bg-neutral-950">
       <section className="relative flex flex-col items-center bg-neutral-950 pt-24 pb-12 px-5 sm:pt-32 sm:pb-16 sm:px-6">
         {/* Ambient Glow - Cyan */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
