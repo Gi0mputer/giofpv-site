@@ -28,9 +28,9 @@ const CONFIG = {
 
     drone: {
         enabled: true,
-        scale: 0.65,
-        offsetX: 0,
-        offsetY: 0,
+        scale: 1,
+        offsetX: 1,
+        offsetY: 5,
         rotation: 0,
         circleRadius: 12,
         armLength: 48,
@@ -165,8 +165,8 @@ function calculateGeometry(cfg) {
             end: { x: barEndX, y: barY }
         },
         droneCenter: {
-            x: (barStartX + barEndX) / 2,
-            y: barY
+            x: cx,
+            y: cy
         }
     };
 }

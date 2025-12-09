@@ -9,6 +9,24 @@
       "webRoot": "${workspaceFolder}",
       "preLaunchTask": "dev",
       "runtimeExecutable": "${env:ProgramFiles}\\Google\\Chrome\\Application\\chrome.exe"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "regen logo",
+      "program": "${workspaceFolder}/scripts/icon-gen/generate_logo_final.mjs",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "regen icons",
+      "program": "${workspaceFolder}/scripts/icon-gen/generate-icons.mjs",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
     }
   ]
 }

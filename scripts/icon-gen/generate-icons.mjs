@@ -54,8 +54,23 @@ async function generateForSize(entry) {
     console.log(`Generata: ${outPath}`);
 }
 
+async function cleanOldIcons() {
+    console.log("Cleaning old icons in " + PUBLIC_ICONS_DIR + "...");
+    if (fs.existsSync(PUBLIC_ICONS_DIR)) {
+        const files = fs.readdirSync(PUBLIC_ICONS_DIR);
+        for (const file of files) {
+            if (file.endsWith(".png") || file.endsWith(".ico")) {
+                fs.unlinkSync(path.join(PUBLIC_ICONS_DIR, file));
+                console.log(`Deleted: ${file}`);
+            }
+        }
+    }
+}
+
 async function main() {
     ensureDir(PUBLIC_ICONS_DIR);
+
+    await cleanOldIcons();
 
     for (const entry of sizes) {
         await generateForSize(entry);
