@@ -39,22 +39,27 @@ const CONFIG = {
 
         // Colore Drone
         autoColor: false,       // Se true, usa il colore finale del gradiente
-        customColor: '#ff9900' // Colore usato se autoColor è false
+        customColor: '#4400feff' // Colore usato se autoColor è false
     },
 
     colors: {
-        c1: '#00e5ff',
-        c2: '#9e3eff',
+        c1: '#9e3eff',
+        c2: '#00e5ff',
         c3: '#ff3ea5',
-        c4: '#ff9900'
+        c4: '#ffac47'
     },
     gradient: {
-        // Ordine sequenziale dei colori
         sequence: ['c1', 'c2', 'c3', 'c4'],
-        // Pesi "Quantity" (Centro di Massa)
-        weights: [10, 30, 80, 10],
 
-        // Inverti direzione gradiente (Sequenza e Pesi)
+        // STOP precisi in percentuale (0-100)
+        stops: [17, 33, 40, 80],
+
+        // Fallback weights (ignorati se stops è definito)
+        //weights: [10, 10, 10, 30],
+
+        // Color Shift (0-100): trasla i colori ciclicamente
+        shift: 40,
+
         reverse: false
     }
 };
@@ -120,27 +125,41 @@ function createColorSystem(cfg) {
         return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     };
 
-    // Calculate Stops based on "Center of Mass" logic
     let stops = [];
 
-    // Gestione Reverse
-    let seq = [...cfg.gradient.sequence];
+    // Configura
+    const seq = [...cfg.gradient.sequence];
+    const userStops = cfg.gradient.stops ? [...cfg.gradient.stops] : null;
     let weights = cfg.gradient.weights ? [...cfg.gradient.weights] : [];
 
+    // Handle Reverse
     if (cfg.gradient.reverse) {
         seq.reverse();
+        if (userStops) {
+            // Se reverse, inverti gli stop: x -> 100-x
+            userStops.reverse();
+            for (let i = 0; i < userStops.length; i++) {
+                userStops[i] = 100 - userStops[i];
+            }
+        }
         if (weights.length > 0) weights.reverse();
     }
 
-    if (weights && weights.length >= seq.length) {
-        const total = weights.reduce((a, b) => a + b, 0);
+    // Logica STOP prioritari
+    if (userStops && userStops.length === seq.length) {
+        // Normalizza 0-1
+        stops = userStops.map(s => s / 100);
+    }
+    // Fallback Logica Pesi
+    else if (Array.isArray(weights) && weights.length >= seq.length) {
+        const intervals = weights.slice(0, seq.length - 1);
+        const totalDistance = intervals.reduce((a, b) => a + b, 0) || 1;
+
+        stops = [0];
         let acc = 0;
-        stops = [];
-        for (let i = 0; i < seq.length; i++) {
-            const w = weights[i];
-            const center = acc + w / 2;
-            stops.push(total > 0 ? center / total : 0);
-            acc += w;
+        for (let i = 0; i < intervals.length; i++) {
+            acc += intervals[i];
+            stops.push(acc / totalDistance);
         }
     } else {
         // Uniform fallback
@@ -148,7 +167,11 @@ function createColorSystem(cfg) {
     }
 
     const getColorAtPct = (pct) => {
-        const t = Math.max(0, Math.min(1, pct / 100));
+        // Applica Shift Ciclico (0-100)
+        let shifted = pct + (cfg.gradient.shift || 0);
+        let tPct = shifted % 100;
+
+        const t = Math.max(0, Math.min(1, tPct / 100));
 
         // Before first center -> Pure Start Color
         if (t <= stops[0]) return cfg.colors[seq[0]];
@@ -315,10 +338,26 @@ export function buildLogoSvg(overrides = {}) {
     const builder = new SVGBuilder(cfg, colorSystem);
     const { R, r } = cfg.geometry;
 
-    builder.addArc(r, geo.inner.start, geo.inner.end, "CCW", { start: 0, end: 45 });
-    builder.addLine(geo.bridge.end, geo.bridge.start, 45, 55);
-    builder.addArc(R, geo.outer.start, geo.outer.end, "CW", { start: 55, end: 90 });
-    builder.addLine(geo.bar.start, geo.bar.end, 90, 100);
+    // Calcolo lunghezze reali per mappare il gradiente in modo lineare
+    const distCCW = MathUtils.angularDistanceCCW(geo.inner.start, geo.inner.end);
+    const distCW = MathUtils.angularDistanceCW(geo.outer.start, geo.outer.end);
+
+    const lenInner = (distCCW * Math.PI / 180) * r;
+    const lenBridge = Math.sqrt(Math.pow(geo.bridge.start.x - geo.bridge.end.x, 2) + Math.pow(geo.bridge.start.y - geo.bridge.end.y, 2));
+    const lenOuter = (distCW * Math.PI / 180) * R;
+    const lenBar = Math.sqrt(Math.pow(geo.bar.start.x - geo.bar.end.x, 2) + Math.pow(geo.bar.start.y - geo.bar.end.y, 2));
+
+    const totalLen = lenInner + lenBridge + lenOuter + lenBar;
+
+    // Percentuali cumulative
+    const pInner = (lenInner / totalLen) * 100;
+    const pBridge = pInner + (lenBridge / totalLen) * 100;
+    const pOuter = pBridge + (lenOuter / totalLen) * 100;
+
+    builder.addArc(r, geo.inner.start, geo.inner.end, "CCW", { start: 0, end: pInner });
+    builder.addLine(geo.bridge.end, geo.bridge.start, pInner, pBridge);
+    builder.addArc(R, geo.outer.start, geo.outer.end, "CW", { start: pBridge, end: pOuter });
+    builder.addLine(geo.bar.start, geo.bar.end, pOuter, 100);
 
     return builder.render(geo.droneCenter);
 }

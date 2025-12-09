@@ -125,7 +125,7 @@ export default function AboutPage() {
             </p>
 
             <div className="float-left mr-4 mt-3 sm:mt-12 lg:mr-16 lg:mt-0 mb-0 lg:mb-3 shape-circle">
-              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/70 shadow-[0_0_40px_-12px_rgba(6,182,212,0.35)] bg-cyan-500/10 p-4 sm:p-5">
+              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/70 shadow-[0_0_40px_-12px_rgba(6,182,212,0.35)] p-4 sm:p-5">
                 <Image
                   src="/icons/icon-512x512.png"
                   alt="GioFPV Logo"
