@@ -35,14 +35,8 @@ const sizes = [
 async function generateForSize(entry) {
     const { size, name } = entry;
 
-    // Passiamo solo i colori, il gradiente (sequence e weights) usa il default di generate_logo_final.mjs
+    // Usa la configurazione definita in generate_logo_final.mjs (che l'utente ha modificato)
     const svg = buildLogoSvg({
-        colors: {
-            c1: palette.c1,
-            c2: palette.c2,
-            c3: palette.c3,
-            c4: palette.c4
-        },
         drone: { enabled: true }
     });
 
