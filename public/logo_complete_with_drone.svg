@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-133 -133 266 266">
+  <defs>
+    <!-- Gradients for G logo (Cyan 30% → Orange 70%) -->
+    <linearGradient id="grad-4" x1="64.549" y1="66.951" x2="-25.706" y2="89.377" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00e5ff" />
+      <stop offset="100%" stop-color="#2dc8f4" />
+    </linearGradient>
+    <linearGradient id="grad-5" x1="-25.706" y1="89.377" x2="-90.256" y2="22.426" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2dc8f4" />
+      <stop offset="100%" stop-color="#5aabea" />
+    </linearGradient>
+    <linearGradient id="grad-6" x1="-90.256" y1="22.426" x2="-64.549" y2="-66.951" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5aabea" />
+      <stop offset="100%" stop-color="#878ddf" />
+    </linearGradient>
+    <linearGradient id="grad-7" x1="-64.549" y1="-66.951" x2="25.706" y2="-89.377" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#878ddf" />
+      <stop offset="100%" stop-color="#b470d4" />
+    </linearGradient>
+    <linearGradient id="grad-8" x1="25.706" y1="-89.377" x2="77.956" y2="-50.714" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#b470d4" />
+      <stop offset="100%" stop-color="#e153c9" />
+    </linearGradient>
+    <linearGradient id="grad-9" x1="78.456" y1="-50.714" x2="108.257" y2="-50.714" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e153c9" />
+      <stop offset="100%" stop-color="#ff3bb5" />
+    </linearGradient>
+    <linearGradient id="grad-0" x1="108.757" y1="-50.714" x2="-50.714" y2="-108.757" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff3bb5" />
+      <stop offset="100%" stop-color="#ff4c9d" />
+    </linearGradient>
+    <linearGradient id="grad-1" x1="-50.714" y1="-108.757" x2="-108.757" y2="50.714" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff4c9d" />
+      <stop offset="100%" stop-color="#ff5d85" />
+    </linearGradient>
+    <linearGradient id="grad-2" x1="-108.757" y1="50.714" x2="50.714" y2="108.757" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff5d85" />
+      <stop offset="100%" stop-color="#ff6e6d" />
+    </linearGradient>
+    <linearGradient id="grad-3" x1="50.714" y1="108.757" x2="119.836" y2="6.280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff6e6d" />
+      <stop offset="100%" stop-color="#ff8437" />
+    </linearGradient>
+    <linearGradient id="grad-10" x1="118.836" y1="6.280" x2="37.236" y2="6.280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff8437" />
+      <stop offset="100%" stop-color="#ff9900" />
+    </linearGradient>
+  </defs>
+  
+  <g fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Arco Esterno -->
+    <path d="M 108.757 -50.714 A 120 120 0 0 0 -50.714 -108.757" stroke="url(#grad-0)" />
+    <path d="M -50.714 -108.757 A 120 120 0 0 0 -108.757 50.714" stroke="url(#grad-1)" />
+    <path d="M -108.757 50.714 A 120 120 0 0 0 50.714 108.757" stroke="url(#grad-2)" />
+    <path d="M 50.714 108.757 A 120 120 0 0 0 119.836 6.280" stroke="url(#grad-3)" />
+    
+    <!-- Arco Interno -->
+    <path d="M 64.549 66.951 A 93 93 0 0 1 -25.706 89.377" stroke="url(#grad-4)" />
+    <path d="M -25.706 89.377 A 93 93 0 0 1 -90.256 22.426" stroke="url(#grad-5)" />
+    <path d="M -90.256 22.426 A 93 93 0 0 1 -64.549 -66.951" stroke="url(#grad-6)" />
+    <path d="M -64.549 -66.951 A 93 93 0 0 1 25.706 -89.377" stroke="url(#grad-7)" />
+    <path d="M 25.706 -89.377 A 93 93 0 0 1 77.956 -50.714" stroke="url(#grad-8)" />
+    
+    <!-- Stanghette -->
+    <path d="M 108.257 -50.714 L 78.456 -50.714" stroke="url(#grad-9)" />
+    <path d="M 118.836 6.280 L 37.236 6.280" stroke="url(#grad-10)" />
+    
+    <!-- Drone (positioned on long dash, orange color) -->
+    <g transform="translate(78, 6) scale(0.65) rotate(0)" stroke="#ff9900">
+      <circle cx="0" cy="0" r="12" />
+      <path d="M 33.9 33.9 L 8.5 8.5" />
+      <circle cx="33.9" cy="33.9" r="12" />
+      <path d="M -33.9 33.9 L -8.5 8.5" />
+      <circle cx="-33.9" cy="33.9" r="12" />
+      <path d="M -33.9 -33.9 L -8.5 -8.5" />
+      <circle cx="-33.9" cy="-33.9" r="12" />
+      <path d="M 33.9 -33.9 L 8.5 -8.5" />
+      <circle cx="33.9" cy="-33.9" r="12" />
+    </g>
+  </g>
+</svg>

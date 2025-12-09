@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-110 -110 220 220">
+  <g transform="translate(0, 0) scale(0.8) rotate(0)">
+    <g fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" color="#000">
+      <!-- Body -->
+      <circle cx="0" cy="0" r="18" />
+      <!-- Arm & Motor 0 (45°) -->
+      <path d="M 49.497 49.497 L 12.728 12.728" />
+      <circle cx="49.497" cy="49.497" r="18" />
+      <!-- Arm & Motor 1 (135°) -->
+      <path d="M -49.497 49.497 L -12.728 12.728" />
+      <circle cx="-49.497" cy="49.497" r="18" />
+      <!-- Arm & Motor 2 (225°) -->
+      <path d="M -49.497 -49.497 L -12.728 -12.728" />
+      <circle cx="-49.497" cy="-49.497" r="18" />
+      <!-- Arm & Motor 3 (315°) -->
+      <path d="M 49.497 -49.497 L 12.728 -12.728" />
+      <circle cx="49.497" cy="-49.497" r="18" />
+    </g>
+  </g>
+</svg>
