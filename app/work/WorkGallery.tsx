@@ -25,9 +25,14 @@ function getYoutubeId(url: string) {
 // -----------------------------------------------------------------------------
 // VideoCard
 // -----------------------------------------------------------------------------
-function VideoCard({ work }: { work: WorkItem }) {
+type VideoCardProps = {
+  work: WorkItem;
+  isPlaying: boolean;
+  onPlay: () => void;
+};
+
+function VideoCard({ work, isPlaying, onPlay }: VideoCardProps) {
   // #region Logic
-  const [isPlaying, setIsPlaying] = useState(false);
   const isVertical = work.format === "vertical";
   const videoId = getYoutubeId(work.href);
 
@@ -56,7 +61,7 @@ function VideoCard({ work }: { work: WorkItem }) {
   // #region Render (Thumbnail)
   return (
     <div
-      onClick={() => setIsPlaying(true)}
+      onClick={onPlay}
       className={`relative w-full cursor-pointer ${isVertical ? "aspect-[9/16]" : "aspect-video"}`}
     >
       <Image fill alt={work.title} src={thumbnailUrl}
@@ -85,6 +90,7 @@ export function WorkGallery({ items, initialVisible }: Props) {
   const verticalVideos = items.filter(item => item.format === "vertical");
   const horizontalVideos = items.filter(item => item.format === "horizontal");
   const [visibleHorizontal, setVisibleHorizontal] = useState(initialVisible || 0);
+  const [playingTitle, setPlayingTitle] = useState<string | null>(null);
 
   const actuallyVisibleCount = Math.min(visibleHorizontal, horizontalVideos.length);
   const canLoadMore = actuallyVisibleCount < horizontalVideos.length;
@@ -116,7 +122,11 @@ export function WorkGallery({ items, initialVisible }: Props) {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {verticalVideos.map((work) => (
           <article key={work.title} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/80 shadow-lg">
-            <VideoCard work={work} />
+            <VideoCard
+              work={work}
+              isPlaying={playingTitle === work.title}
+              onPlay={() => setPlayingTitle(work.title)}
+            />
           </article>
         ))}
       </div>
@@ -126,7 +136,11 @@ export function WorkGallery({ items, initialVisible }: Props) {
         <div id="horizontal-section" className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {horizontalVideos.slice(0, visibleHorizontal).map((work) => (
             <article key={work.title} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/80 shadow-lg">
-              <VideoCard work={work} />
+              <VideoCard
+                work={work}
+                isPlaying={playingTitle === work.title}
+                onPlay={() => setPlayingTitle(work.title)}
+              />
             </article>
           ))}
         </div>
