@@ -69,7 +69,7 @@ function VideoCard({ work }: { work: WorkItem }) {
         <span className="rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">▶ Play</span>
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-4">
-        <div className="text-[10px] uppercase tracking-widest text-sunset-sky mb-1">{work.category}</div>
+        <div className="text-[10px] uppercase tracking-widest text-sunset-amber mb-1">{work.category}</div>
         <h3 className={`font-semibold leading-tight text-white ${isVertical ? "text-sm" : "text-lg"}`}>{work.title}</h3>
       </div>
     </div>
@@ -136,7 +136,7 @@ export function WorkGallery({ items, initialVisible }: Props) {
       {canLoadMore && (
         <div className="flex justify-center pt-6 mb-5">
           <button type="button" onClick={handleLoadMore}
-            className="rounded-full border border-sunset-sky/40 px-6 py-2 text-sm font-medium text-sunset-sky transition hover:border-sunset-sky hover:text-white hover:bg-sunset-sky/10">
+            className="rounded-full border border-sunset-amber/40 px-6 py-2 text-sm font-medium text-sunset-amber transition hover:border-sunset-amber hover:text-white hover:bg-sunset-amber/10">
             See more
           </button>
         </div>
