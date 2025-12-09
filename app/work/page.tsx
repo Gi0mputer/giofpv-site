@@ -11,6 +11,9 @@ export default function WorkPage() {
   return (
     <main className="min-h-screen bg-neutral-950 pt-0">
 
+      {/* Ambient Glow - Amber */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
+
       {/* #region Hero */}
       <HeroVideo />
       {/* #endregion */}

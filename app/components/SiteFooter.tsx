@@ -21,12 +21,12 @@ export function SiteFooter() {
   return (
     <footer className="bg-black text-white">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3  mt-10 md:mt-5">
+      <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-3 mt-10 md:mt-5 min-h-[100svh] md:min-h-0 flex-col justify-center gap-0 md:gap-0 divide-y divide-white/10 md:divide-y-0 md:divide-x md:divide-white/10">
 
         {/* Phone - Whatsapp Section */}
         <Link
           href="https://wa.me/393451575507"
-          className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+          className="group py-12 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer flex-1"
         >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-sky group-hover:scale-110 transition-transform border border-white/10">
             <Phone size={20} />
@@ -42,7 +42,7 @@ export function SiteFooter() {
         {/* Email Section */}
         <a
           href="mailto:giovanni.fantoni.1997@gmail.com"
-          className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+          className="group py-12 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer flex-1"
         >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-amber group-hover:scale-110 transition-transform border border-white/10">
             <Mail size={20} />
@@ -60,7 +60,7 @@ export function SiteFooter() {
           href="https://instagram.com/gio.fanto"
           target="_blank"
           rel="noreferrer"
-          className="group py-10 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer"
+          className="group py-12 md:py-4 flex flex-col items-center justify-center gap-3 text-center cursor-pointer flex-1"
         >
           <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-[#ff3ea5] group-hover:scale-110 transition-transform border border-white/10">
             <Instagram size={20} />
