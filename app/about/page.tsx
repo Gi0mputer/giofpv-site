@@ -104,7 +104,7 @@ export default function AboutPage() {
             <div className="float-right mt-5 sm:mt-10 lg:mt-0 ml-2 lg:ml-16 mb-3 lg:mb-3 shape-circle">
               <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/70 shadow-[0_0_40px_-12px_rgba(6,182,212,0.35)] bg-cyan-500/10">
                 <Image
-                  src="/profilepic.png"
+                  src="/images/profilepic.png"
                   alt="Giovanni Fantoni"
                   width={224}
                   height={224}
@@ -127,7 +127,7 @@ export default function AboutPage() {
             <div className="float-left mr-4 mt-3 sm:mt-12 lg:mr-16 lg:mt-0 mb-0 lg:mb-3 shape-circle">
               <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-sunset-sky/70 shadow-[0_0_40px_-12px_rgba(6,182,212,0.35)] bg-cyan-500/10 p-4 sm:p-5">
                 <Image
-                  src="/icon-512x512.png"
+                  src="/icons/icon-512x512.png"
                   alt="GioFPV Logo"
                   width={180}
                   height={180}

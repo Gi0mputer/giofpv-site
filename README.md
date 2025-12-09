@@ -33,7 +33,7 @@ The script checks Node/npm presence/version, warns if ExecutionPolicy is Restric
 
 ## Assets & docs
 - Served assets: `public/` (favicons, logo PNG, profile pic, gear images, logo SVG if needed).
-- Source assets for generation: `assets/` (icon-base, G-mask, drone-mask, logo SVG generated via `scripts/generate-logo.mjs`).
+- Icon generation workspace: `public/icon-gen/` (generation scripts, source masks/base icons, and generated outputs/previews).
 - Dev previews (non pubblicate): `dev/` (`palette-preview.html`, `g-logo-preview.html`).
 - Project docs: `docs/PROJECT_REPORT.md`, `docs/DEBUG_DIAGNOSIS.txt`.
 - Utility: `scripts/commit_fix.bat` (helper batch if needed on Windows).

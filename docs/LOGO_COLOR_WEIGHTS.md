@@ -90,10 +90,10 @@ Significa:
 
 ## Come Usare
 
-Usa lo script `scripts/generate_logo_weighted.mjs` con i pesi desiderati:
+Usa lo script `public/icon-gen/generate_logo_weighted.mjs` con i pesi desiderati:
 
 ```bash
-node scripts/generate_logo_weighted.mjs
+node public/icon-gen/generate_logo_weighted.mjs
 ```
 
 Modifica i pesi nello script per personalizzare le varianti!

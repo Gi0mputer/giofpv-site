@@ -7,7 +7,7 @@
     "build": "npm run generate:icons && next build",
     "start": "next start",
     "lint": "eslint",
-    "generate:icons": "node scripts/generate-icons.mjs"
+    "generate:icons": "node scripts/icon-gen/generate-icons.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.554.0",
