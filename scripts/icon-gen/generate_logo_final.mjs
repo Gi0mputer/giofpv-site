@@ -11,7 +11,7 @@ const PROJECT_ROOT = ROOT;
 
 // #region 1. CONFIGURATION
 const CONFIG = {
-    outputPath: path.join(PUBLIC_BRAND_DIR, "logo_final.svg"),
+    outputPath: path.join(ROOT, "public", "logo_final.svg"),
     strokeWidth: 8,
 
     geometry: {
@@ -58,7 +58,7 @@ const CONFIG = {
         //weights: [10, 10, 10, 30],
 
         // Color Shift (0-100): trasla i colori ciclicamente
-        shift: 40,
+        shift: 30,
 
         reverse: false
     }
@@ -365,7 +365,8 @@ export function buildLogoSvg(overrides = {}) {
 function run() {
     console.log("Final logo generation...");
     const svg = buildLogoSvg();
-    ensureDir(PUBLIC_BRAND_DIR);
+    const publicDir = path.join(ROOT, "public");
+    ensureDir(publicDir);
     fs.writeFileSync(CONFIG.outputPath, svg);
     console.log(`Saved: ${CONFIG.outputPath}`);
 }

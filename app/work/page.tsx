@@ -13,20 +13,18 @@ export default function WorkPage() {
     <VideoProvider>
       <main className="min-h-screen bg-neutral-950 pt-0">
 
-        {/* Ambient Glow - Amber */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-work-primary/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
-
-        {/* #region Hero */}
         <HeroVideo />
         {/* #endregion */}
 
         {/* #region Gallery Section */}
-        <div id="gallery" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-2 sm:py-4 mt-4 lg:mt-7 space-y-4 animate-fade-in scroll-mt-15" style={{ animationDelay: "0.5s" }}>
+        <div id="gallery" className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-2 sm:py-4 mt-4 lg:mt-7 space-y-4 animate-fade-in scroll-mt-15" style={{ animationDelay: "0.5s" }}>
+          {/* Ambient Glow - Behind Projects */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-work-glow/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
           {/* Header */}
           <div className="text-center space-y-1 mb-6 lg:mb-4">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-              <span className="text-work-primary">Projects</span>
+              <span className="bg-work-title-gradient bg-clip-text text-transparent">Projects</span>
             </h2>
             <p className="text-neutral-500 max-w-2xl mx-auto text-sm">
               Riprese aeree FPV e stabilizzate

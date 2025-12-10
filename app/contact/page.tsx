@@ -5,8 +5,8 @@ import { Phone, Mail, Instagram } from "lucide-react";
 export default function ContactPage() {
   return (
     <main className="h-[100dvh] bg-neutral-950 pt-20 sm:pt-24 pb-6 px-6 flex flex-col items-center justify-center relative overflow-hidden overflow-y-hidden supports-[height:100dvh]:h-[100dvh]">
-      {/* Background Gradient Blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-contact-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Background Gradient Blob - Centered */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-contact-glow/8 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="w-full max-w-5xl space-y-4 sm:space-y-12 relative z-10 text-center">
         {/* Header */}

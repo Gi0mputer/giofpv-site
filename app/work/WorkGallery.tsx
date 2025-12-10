@@ -87,7 +87,7 @@ function VideoCard({ work }: VideoCardProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           <div className="absolute left-3 top-3 rounded-full bg-black/70 px-2 py-1 text-[10px] font-medium text-neutral-200 backdrop-blur-sm">{work.duration}</div>
           <div className="absolute bottom-0 left-0 right-0 p-4">
-            <div className="text-[10px] uppercase tracking-widest text-work-primary mb-1">{work.category}</div>
+            <div className="text-[10px] uppercase tracking-widest text-work-accent mb-1">{work.category}</div>
             <h3 className={`font-semibold leading-tight text-white ${isVertical ? "text-sm" : "text-lg"}`}>{work.title}</h3>
           </div>
 
@@ -171,7 +171,7 @@ export function WorkGallery({ items, initialVisible }: Props) {
       {canLoadMore && (
         <div className="flex justify-center pt-6 mb-5">
           <button type="button" onClick={handleLoadMore}
-            className="rounded-full border border-work-primary/40 px-6 py-2 text-sm font-medium text-work-primary transition hover:border-work-primary hover:text-white hover:bg-work-primary/10">
+            className="rounded-full border border-work-accent px-6 py-2 text-sm font-medium text-white transition hover:bg-work-accent/10 hover:shadow-[0_0_15px_-3px_var(--work-accent)]">
             See more
           </button>
         </div>

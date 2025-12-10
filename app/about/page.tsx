@@ -89,20 +89,21 @@ export default function AboutPage() {
   return (
     <main className="bg-neutral-950">
       <section className="relative flex flex-col items-center bg-neutral-950 pt-20 sm:pt-24 pb-10 sm:pb-12 px-5 sm:px-6 2xl:max-w-[1600px] 2xl:mx-auto">
-        {/* Ambient Glow - Cyan */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-about-primary/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/2" />
+        {/* Ambient Glows - Cyan (dual) */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-about-glow/6 rounded-full blur-[120px] pointer-events-none -translate-y-1/4 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-about-glow/6 rounded-full blur-[120px] pointer-events-none translate-y-1/4 -translate-x-1/4" />
 
         <div className="w-full max-w-5xl mx-auto mb-0 relative z-10">
           <div className="text-center mb-2 sm:mb-8">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight">
-              <span className="bg-gradient-about bg-clip-text text-transparent">Aerial & FPV</span>
+              <span className="bg-about-title-gradient bg-clip-text text-transparent">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
             </h1>
           </div>
 
           <div className="text-[15px] sm:text-lg text-neutral-300 leading-relaxed max-w-4xl mx-auto clearfix text-left sm:text-justify">
             <div className="float-right mt-5 sm:mt-10 lg:mt-0 ml-2 lg:ml-16 mb-3 lg:mb-3 shape-circle">
-              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-about-bubble-1/70 shadow-[0_0_40px_-12px_var(--about-primary)]">
+              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-about-bubble-1/70 shadow-[0_0_40px_-12px_var(--about-glow)]">
                 <Image
                   src="/images/profilepic.png"
                   alt="Giovanni Fantoni"
@@ -125,7 +126,7 @@ export default function AboutPage() {
             </p>
 
             <div className="float-left mr-4 mt-3 sm:mt-12 lg:mr-16 lg:mt-0 mb-0 lg:mb-3 shape-circle">
-              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-about-bubble-2/70 shadow-[0_0_40px_-12px_var(--about-primary)] p-4 sm:p-5">
+              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-about-bubble-2/70 shadow-[0_0_40px_-12px_var(--about-glow)] p-4 sm:p-5">
                 <Image
                   src="/icons/icon-512x512.png"
                   alt="GioFPV Logo"
@@ -154,13 +155,13 @@ export default function AboutPage() {
 
       {/* Gear Section - Slightly Lighter Background */}
       <section id="gear" className="relative flex flex-col items-center px-5 sm:px-6 pt-10 sm:pt-12 pb-6 sm:pb-8 bg-[#0c0c0c] md:bg-[#0f0f0f] scroll-mt-24 lg:scroll-mt-24 2xl:max-w-[1600px] 2xl:mx-auto">
-        {/* Ambient Glow - Violet */}
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gear-primary/5 rounded-full blur-[100px] pointer-events-none translate-y-1/4 -translate-x-1/4" />
+        {/* Ambient Glow - Violet (centered) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gear-glow/8 rounded-full blur-[150px] pointer-events-none" />
         <div className="w-full max-w-5xl space-y-2 sm:space-y-6">
           <div className="space-y-1 sm:space-y-2 text-center mx-auto max-w-3xl">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
-              <span className="bg-gradient-gear bg-clip-text text-transparent">Backpack</span>
+              <span className="bg-gear-title-gradient bg-clip-text text-transparent">Backpack</span>
             </h1>
             <div className="mt-3 sm:mt-8 space-y-2 sm:space-y-3 text-[15px] sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
               <p>
@@ -192,13 +193,13 @@ export default function AboutPage() {
                       onClick={() => toggleGear(item.title)}
                       className="w-full p-3 sm:p-6 flex flex-col items-center gap-3 sm:gap-6 text-center cursor-pointer"
                     >
-                      <div className="flex h-20 w-20 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden group-hover:scale-105 transition-transform border-2 border-gear-bubble/50 shadow-[0_0_30px_-10px_var(--gear-primary)]">
+                      <div className="flex h-20 w-20 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden group-hover:scale-105 transition-transform border-2 border-gear-accent/50 shadow-[0_0_30px_-10px_var(--gear-accent)]">
                         <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
                       </div>
-                      <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-gear-primary transition-colors">
+                      <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-[#b06bfd] transition-colors drop-shadow-sm">
                         {item.title}
                       </h3>
-                      <div className="inline-flex items-center justify-center rounded-full bg-white/5 border border-white/10 px-4 py-1.5 sm:px-6 sm:py-2 text-xs sm:text-sm font-medium text-white transition-all group-hover:bg-white/10 group-hover:border-white/20 group-hover:scale-105">
+                      <div className="inline-flex items-center justify-center rounded-full border border-gear-accent px-4 py-1.5 sm:px-6 sm:py-2 text-xs sm:text-sm font-medium text-white transition-all group-hover:bg-gear-accent/10 group-hover:shadow-[0_0_15px_-3px_var(--gear-accent)] group-hover:scale-105">
                         See more
                       </div>
                     </button>
@@ -206,7 +207,7 @@ export default function AboutPage() {
 
                   {isExpanded && (
                     <div className="p-3 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-6 animate-fade-in">
-                      <div className="flex h-24 w-24 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden transition-transform border-2 border-gear-bubble/50 shadow-[0_0_30px_-10px_var(--gear-primary)]">
+                      <div className="flex h-24 w-24 sm:h-32 sm:w-32 shrink-0 items-center justify-center rounded-full bg-neutral-900 overflow-hidden transition-transform border-2 border-gear-accent/50 shadow-[0_0_30px_-10px_var(--gear-accent)]">
                         <Image src={item.image} alt={item.title} width={128} height={128} className="object-cover w-full h-full" />
                       </div>
 

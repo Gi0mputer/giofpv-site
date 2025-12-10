@@ -1,86 +1,152 @@
 @import "tailwindcss";
 
-/* ========================================================================
-   COLOR SYSTEM - Semantic Palette
-   ======================================================================== */
-
 :root {
-  /* --- PALETTE PRIMITIVES --- */
-  --c-violet: #9e3eff;
-  --c-cyan: #00e5ff;
-  --c-pink: #ff3ea5;
-  --c-orange: #ff3ea5;
-  --c-amber: #ffca29;
+  /* Palette Primitives - Extended Collection */
 
-  /* --- BASE --- */
+  /* #region Violets */
+  --c-violet-dark: #4400feff;
+  /* Deep violet (current) */
+  --c-violet: #9e3eff;
+  /* Standard violet */
+  --c-violet-light: #b06bfd;
+  /* Light violet */
+  --c-violet-pastel: #df95ffff;
+  /* Pastel violet */
+  --c-violet-deep: #7e34fdff;
+  /* Deep purple-violet */
+  /* #endregion */
+
+  /* #region Cyans & Blues */
+  --c-cyan-bright: #00e5ff;
+  /* Bright cyan (logo) */
+  --c-cyan: #3ea8ff;
+  /* Standard cyan (current) */
+  --c-cyan-sky: #06b6d4;
+  /* Sky cyan */
+  --c-cyan-deep: #0eb7d8;
+  /* Deep cyan */
+  --c-cyan-ocean: #1ea7c6;
+  /* Ocean cyan */
+  --c-cyan-steel: #2da7d4ff;
+  /* Steel blue-cyan */
+  /* #endregion */
+
+  /* #region Pinks & Magentas */
+  --c-pink: #ff3ea5;
+  /* Standard pink (current) */
+  --c-pink-hot: #ff00d9;
+  /* Hot magenta */
+  --c-pink-soft: #f9739eff;
+  /* Soft pink */
+  --c-fuchsia: #d946ef;
+  /* Fuchsia */
+  /* #endregion */
+
+  /* #region Oranges & Reds */
+  --c-orange: #ffac47;
+  /* Standard orange (current) */
+  --c-orange-peach: #ff8d69;
+  /* Peach orange */
+  --c-orange-coral: #ff7043;
+  /* Coral orange */
+  --c-orange-fire: #ff4e27ff;
+  /* Fire orange */
+  --c-red-coral: #ff0062;
+  /* Coral red */
+  --c-orange-sunset: #ff9900;
+  /* Sunset orange (legacy logo) */
+  /* #endregion */
+
+  /* #region Yellows & Ambers */
+  --c-amber: #ffca29;
+  /* Standard amber (current) */
+  --c-amber-warm: #ffac47ff;
+  /* Warm amber */
+  /* #endregion */
+
+  /* #region Neutrals & Pastels */
+  --c-cream: #f9e3c3;
+  /* Cream */
+  --c-cream-light: #f8dcb4;
+  /* Light cream */
+  --c-beige: #e8d7b1;
+  /* Beige */
+  --c-tan: #d9b892;
+  /* Tan */
+  --c-lime: #b9cf77ff;
+  /* Lime green */
+  /* #endregion */
+
+  /* Base */
   --background: #0a0a0a;
   --foreground: #ededed;
 
-  /* --- LOGO GRADIENT --- */
-  /* Used for the global brand text "FPV" */
-  --gradient-logo: linear-gradient(90deg, var(--c-orange) 0%, var(--c-pink) 40%, var(--c-violet) 70%, var(--c-cyan) 100%);
+  /* Header */
+  --header-logo-gradient: linear-gradient(90deg, var(--c-orange) 20%, var(--c-pink) 40%, var(--c-violet) 70%, var(--c-cyan-bright) 100%);
+  --header-work: var(--c-amber);
+  --header-about: var(--c-cyan);
+  --header-contact: var(--c-orange);
 
-  /* ========================================================================
-     PAGE SPECIFIC THEMES
-     ======================================================================== */
+  /* Work Page */
+  --work-title-gradient: linear-gradient(to right, var(--c-amber) 0%, var(--c-amber-warm) 60%, var(--c-amber) 100%);
+  --work-accent: var(--c-amber);
+  --work-glow: var(--c-amber);
 
-  /* --- WORK PAGE --- */
-  /* Primary color for "Work" link, "Projects" title, stickers, badges */
-  --work-primary: var(--c-amber);
-  /* Gradient for titles */
-  --work-gradient: linear-gradient(to right, var(--c-amber) 0%, #ffac47 60%, var(--c-amber) 100%);
-
-  /* --- ABOUT PAGE --- */
-  /* Section 1: Intro (Cyan Theme) */
-  --about-primary: var(--c-cyan);
-  --about-gradient: linear-gradient(to right, #008cff 0%, var(--c-cyan) 50%, #008cff 100%);
+  /* About Page */
+  --about-title-gradient: linear-gradient(to right, var(--c-cyan) 0%, var(--c-cyan-bright) 50%, var(--c-cyan) 100%);
   --about-bubble-1: var(--c-cyan);
-  /* Profile Pic Border */
   --about-bubble-2: var(--c-cyan);
-  /* Logo Icon Bubble */
+  --about-glow: var(--c-cyan);
 
-  /* Section 2: Gear (Violet Theme) */
-  --gear-primary: var(--c-violet);
-  --gear-gradient: linear-gradient(to right, #4400feff 0%, var(--c-violet) 50%, #4400feff 100%);
-  --gear-bubble: var(--c-violet);
-  /* Drone bubbles */
+  /* Gear Section */
+  --gear-title-gradient: linear-gradient(to right, var(--c-violet-dark) 0%, var(--c-violet) 60%, var(--c-violet-dark) 100%);
+  --gear-accent: var(--c-violet-dark);
+  --gear-glow: var(--c-violet-dark);
 
-  /* --- CONTACT PAGE --- */
-  --contact-primary: var(--c-orange);
-  --contact-gradient: linear-gradient(to right, #ff00d9 5%, var(--c-orange) 50%, #ff0062 95%);
+  /* Contact Page */
+  --contact-title-gradient: linear-gradient(to right, var(--c-pink-hot) 5%, var(--c-orange) 50%, var(--c-red-coral) 95%);
+  --contact-glow: var(--c-orange);
 
-  /* --- SOCIAL / EXTRAS --- */
-  --social-instagram: var(--c-pink);
+  /* Footer */
+  --footer-phone: var(--c-cyan);
+  --footer-mail: var(--c-amber);
+  --footer-ig: var(--c-pink);
 }
 
-@theme inline {
-  /* Base */
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Gradients Backgrounds */
-  --background-image-gradient-logo: var(--gradient-logo);
-  --background-image-gradient-work: var(--work-gradient);
-  --background-image-gradient-about: var(--about-gradient);
-  --background-image-gradient-gear: var(--gear-gradient);
-  --background-image-gradient-contact: var(--contact-gradient);
+  /* Header */
+  --color-header-work: var(--header-work);
+  --color-header-about: var(--header-about);
+  --color-header-contact: var(--header-contact);
 
-  /* Semantic Colors */
-  --color-work-primary: var(--work-primary);
-  --color-about-primary: var(--about-primary);
-  --color-gear-primary: var(--gear-primary);
-  --color-contact-primary: var(--contact-primary);
+  /* Work */
+  --color-work-accent: var(--work-accent);
+  --color-work-glow: var(--work-glow);
 
-  /* Bubbles & Accents (mapped to semantic colors for utility usage if needed) */
+  /* About */
   --color-about-bubble-1: var(--about-bubble-1);
   --color-about-bubble-2: var(--about-bubble-2);
-  --color-gear-bubble: var(--gear-bubble);
+  --color-about-glow: var(--about-glow);
 
-  /* Socials */
-  --color-instagram: var(--social-instagram);
+  /* Gear */
+  --color-gear-accent: var(--gear-accent);
+  --color-gear-glow: var(--gear-glow);
 
+  /* Contact */
+  --color-contact-glow: var(--contact-glow);
+
+  /* Footer */
+  --color-footer-phone: var(--footer-phone);
+  --color-footer-mail: var(--footer-mail);
+  --color-footer-ig: var(--footer-ig);
+
+  /* Misc */
+  --color-instagram: var(--c-pink);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -100,8 +166,7 @@ body {
 }
 
 ::selection {
-  background: var(--about-primary);
-  /* Cyan highlight */
+  background: var(--about-bubble-1);
   color: #0a0a0a;
 }
 
@@ -113,6 +178,43 @@ body {
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
     opacity: 0;
+  }
+
+  .bg-header-logo-gradient {
+    background: var(--header-logo-gradient);
+  }
+
+  .bg-work-title-gradient {
+    background: var(--work-title-gradient);
+  }
+
+  .bg-about-title-gradient {
+    background: var(--about-title-gradient);
+  }
+
+  .bg-gear-title-gradient {
+    background: var(--gear-title-gradient);
+  }
+
+  .bg-contact-title-gradient {
+    background: var(--contact-title-gradient);
+  }
+
+  .bg-gradient-contact {
+    background: var(--contact-title-gradient);
+  }
+
+  /* Legacy/compatibility classes */
+  .text-about-primary {
+    color: var(--about-bubble-1);
+  }
+
+  .text-work-primary {
+    color: var(--work-accent);
+  }
+
+  .bg-contact-primary {
+    background-color: var(--contact-glow);
   }
 }
 
@@ -130,6 +232,23 @@ body {
 
 html {
   scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .shape-circle {

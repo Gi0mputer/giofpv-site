@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 
 // #region Configuration
 const navLinks = [
-  { href: "/work", label: "Work", color: "text-work-primary" },
-  { href: "/about", label: "About", color: "text-about-primary" },
-  { href: "/contact", label: "Contact", color: "text-contact-primary" },
+  { href: "/work", label: "Work", color: "text-header-work" },
+  { href: "/about", label: "About", color: "text-header-about" },
+  { href: "/contact", label: "Contact", color: "text-header-contact" },
 ];
 // #endregion
 
@@ -42,13 +42,13 @@ export function SiteHeader() {
           className="flex items-center gap-2 text-sm sm:text-base md:text-lg font-semibold tracking-wide uppercase text-white"
         >
           <Image
-            src="/brand/logo_final.svg"
+            src="/logo_final.svg"
             alt="GioFPV logo"
             width={22}
             height={22}
             className="h-9 w-9"
           />
-          <span>Gio<span className="bg-gradient-logo bg-clip-text text-transparent">FPV</span></span>
+          <span>Gio<span className="bg-header-logo-gradient bg-clip-text text-transparent">FPV</span></span>
         </Link>
 
         {/* NAV */}
