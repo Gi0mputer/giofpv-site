@@ -72,7 +72,7 @@ export function HeroVideo() {
             <div className="absolute bottom-8 hidden md:flex animate-bounce z-20">
                 <Link
                     href="#gallery"
-                    className="text-white/40 hover:text-work-primary transition-all duration-300 hover:scale-110"
+                    className="text-white/40 hover:text-work-accent transition-all duration-300 hover:scale-110"
                 >
                     <ChevronDown size={32} strokeWidth={1.5} />
                 </Link>

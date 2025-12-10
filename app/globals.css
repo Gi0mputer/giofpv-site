@@ -77,40 +77,55 @@
   /* Lime green */
   /* #endregion */
 
-  /* Base */
+  /* #region Base */
   --background: #0a0a0a;
   --foreground: #ededed;
+  /* #endregion */
 
-  /* Header */
-  --header-logo-gradient: linear-gradient(90deg, var(--c-orange) 20%, var(--c-pink) 40%, var(--c-violet) 70%, var(--c-cyan-bright) 100%);
-  --header-work: var(--c-amber);
-  --header-about: var(--c-cyan);
-  --header-contact: var(--c-orange);
+  /* #region Logo Colors */
+  --c-logo1: #783effff;
+  --c-logo2: #00e5ff;
+  --c-logo3: #ff3e7eff;
+  --c-logo4: #ff8d69;
+  /* #endregion */
 
-  /* Work Page */
-  --work-title-gradient: linear-gradient(to right, var(--c-amber) 0%, var(--c-amber-warm) 60%, var(--c-amber) 100%);
-  --work-accent: var(--c-amber);
-  --work-glow: var(--c-amber);
+  /* #region Header Page */
+  --header-logo-gradient: linear-gradient(90deg, var(--c-logo4) 30%, var(--c-logo3) 40%, var(--c-logo1) 60%, var(--c-logo2) 90%);
+  --header-work: #ff9249;
+  --header-about: #00e5ff;
+  --header-contact: #ff3e7eff;
+  /* #endregion */
 
-  /* About Page */
+  /* #region Work Page */
+  --work-title-gradient: linear-gradient(to right, var(--header-work) 0%, var(--c-amber-warm) 60%, var(--header-work) 100%);
+  --work-accent: var(--header-work);
+  --work-glow: var(--header-work);
+  /* #endregion */
+
+  /* #region About Page */
   --about-title-gradient: linear-gradient(to right, var(--c-cyan) 0%, var(--c-cyan-bright) 50%, var(--c-cyan) 100%);
   --about-bubble-1: var(--c-cyan);
   --about-bubble-2: var(--c-cyan);
   --about-glow: var(--c-cyan);
 
-  /* Gear Section */
   --gear-title-gradient: linear-gradient(to right, var(--c-violet-dark) 0%, var(--c-violet) 60%, var(--c-violet-dark) 100%);
   --gear-accent: var(--c-violet-dark);
   --gear-glow: var(--c-violet-dark);
+  /* #endregion */
 
-  /* Contact Page */
-  --contact-title-gradient: linear-gradient(to right, var(--c-pink-hot) 5%, var(--c-orange) 50%, var(--c-red-coral) 95%);
-  --contact-glow: var(--c-orange);
+  /* #region Footer */
+  --footer-phone: #00e5ff;
+  --footer-mail: #ff783a;
+  --footer-ig: #ff3e7eff;
+  /* #endregion */
 
-  /* Footer */
-  --footer-phone: var(--c-cyan);
-  --footer-mail: var(--c-amber);
-  --footer-ig: var(--c-pink);
+  /* #region Contact Page */
+  --contact-title-gradient: linear-gradient(to right, var(--footer-phone) 5%, var(--footer-mail) 50%, var(--footer-ig) 95%);
+  --contact-glow: var(--footer-mail);
+  /* #endregion */
+
+
+
 }
 
 @theme {
@@ -146,7 +161,7 @@
   --color-footer-ig: var(--footer-ig);
 
   /* Misc */
-  --color-instagram: var(--c-pink);
+  --color-instagram: #ff3ea5;
 }
 
 @media (prefers-color-scheme: dark) {

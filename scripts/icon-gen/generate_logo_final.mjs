@@ -39,26 +39,26 @@ const CONFIG = {
 
         // Colore Drone
         autoColor: false,       // Se true, usa il colore finale del gradiente
-        customColor: '#4400feff' // Colore usato se autoColor è false
+        customColor: '#fe7200ff' // Colore usato se autoColor è false
     },
 
     colors: {
-        c1: '#9e3eff',
+        c1: '#783effff',
         c2: '#00e5ff',
-        c3: '#ff3ea5',
-        c4: '#ffac47'
+        c3: '#ff3e7eff',
+        c4: '#ff6c47ff'
     },
     gradient: {
         sequence: ['c1', 'c2', 'c3', 'c4'],
 
         // STOP precisi in percentuale (0-100)
-        stops: [17, 33, 40, 80],
+        stops: [10, 39, 10, 67],
 
         // Fallback weights (ignorati se stops è definito)
         //weights: [10, 10, 10, 30],
 
         // Color Shift (0-100): trasla i colori ciclicamente
-        shift: 30,
+        shift: 100,
 
         reverse: false
     }

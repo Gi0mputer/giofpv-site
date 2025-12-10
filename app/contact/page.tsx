@@ -27,11 +27,11 @@ export default function ContactPage() {
             href="https://wa.me/393451575507"
             className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-about-primary group-hover:scale-110 transition-transform border border-white/10">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-footer-phone group-hover:scale-110 transition-transform border border-white/10">
               <Phone size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Phone</div>
-            <span className="block text-lg font-semibold text-white group-hover:text-about-primary transition-colors">
+            <span className="block text-lg font-semibold text-white group-hover:text-footer-phone transition-colors">
               +39 345 157 5507
             </span>
           </Link>
@@ -41,11 +41,11 @@ export default function ContactPage() {
             href="mailto:gio.fantoni.fpv@gmail.com"
             className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-work-primary group-hover:scale-110 transition-transform border border-white/10">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-footer-mail group-hover:scale-110 transition-transform border border-white/10">
               <Mail size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Email</div>
-            <span className="block text-sm sm:text-lg font-semibold text-white group-hover:text-work-primary transition-colors break-all sm:break-normal">
+            <span className="block text-sm sm:text-lg font-semibold text-white group-hover:text-footer-mail transition-colors break-all sm:break-normal">
               giovanni.fantoni.1997@gmail.com
             </span>
           </a>
@@ -57,11 +57,11 @@ export default function ContactPage() {
             rel="noreferrer"
             className="group rounded-2xl border border-white/5 bg-white/5 p-4 sm:p-6 transition-all hover:bg-white/10 hover:border-white/10 hover:-translate-y-1 flex flex-col items-center"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-instagram group-hover:scale-110 transition-transform border border-white/10">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-footer-ig group-hover:scale-110 transition-transform border border-white/10">
               <Instagram size={20} />
             </div>
             <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">Instagram</div>
-            <span className="block text-lg font-semibold text-white group-hover:text-instagram transition-colors">
+            <span className="block text-lg font-semibold text-white group-hover:text-footer-ig transition-colors">
               @gio.fanto
             </span>
           </Link>
