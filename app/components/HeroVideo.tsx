@@ -1,12 +1,27 @@
 "use client";
 
-// #region Imports
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-// #endregion
+import { useVideoContext } from "../context/VideoContext";
+import { useEffect, useRef } from "react";
 
 // #region Component
 export function HeroVideo() {
+    const { activeVideoId } = useVideoContext();
+    const iframeRef = useRef<HTMLIFrameElement>(null);
+
+    useEffect(() => {
+        if (!iframeRef.current?.contentWindow) return;
+
+        if (activeVideoId) {
+            // Someone else is playing -> Pause Hero
+            iframeRef.current.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        } else {
+            // No one is playing -> Resume Hero (if intended to be always loop)
+            iframeRef.current.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+    }, [activeVideoId]);
+
     return (
         <section className="relative w-full flex flex-col items-center pt-24 pb-6 md:p-0 md:h-[100svh] md:justify-center bg-neutral-950 overflow-hidden">
 
@@ -42,7 +57,8 @@ export function HeroVideo() {
                     }
                 `}</style>
                 <iframe
-                    src="https://www.youtube.com/embed/kddVKHFSUAw?autoplay=1&mute=1&controls=0&loop=1&playlist=kddVKHFSUAw&rel=0&modestbranding=1&playsinline=1&vq=hd1080"
+                    ref={iframeRef}
+                    src="https://www.youtube.com/embed/kddVKHFSUAw?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=kddVKHFSUAw&rel=0&modestbranding=1&playsinline=1&vq=hd1080"
                     className="absolute inset-0 h-full w-full object-cover"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -56,7 +72,7 @@ export function HeroVideo() {
             <div className="absolute bottom-8 hidden md:flex animate-bounce z-20">
                 <Link
                     href="#gallery"
-                    className="text-white/40 hover:text-amber-400 transition-all duration-300 hover:scale-110"
+                    className="text-white/40 hover:text-work-primary transition-all duration-300 hover:scale-110"
                 >
                     <ChevronDown size={32} strokeWidth={1.5} />
                 </Link>

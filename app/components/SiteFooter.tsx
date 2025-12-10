@@ -28,12 +28,12 @@ export function SiteFooter() {
           href="https://wa.me/393451575507"
           className="group py-6 md:py-4 flex flex-col items-center justify-center gap-2 md:gap-3 text-center cursor-pointer flex-1"
         >
-          <div className="mb-1 md:mb-2 inline-flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-sky group-hover:scale-110 transition-transform border border-white/10">
+          <div className="mb-1 md:mb-2 inline-flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-neutral-900 text-about-primary group-hover:scale-110 transition-transform border border-white/10">
             <Phone size={18} className="md:w-5 md:h-5" />
           </div>
           <div>
             <h3 className="text-[10px] md:text-xs uppercase tracking-widest text-neutral-500 mb-0.5 md:mb-1">Phone</h3>
-            <span className="block text-base md:text-lg font-semibold text-white transition-colors group-hover:text-sunset-sky">
+            <span className="block text-base md:text-lg font-semibold text-white transition-colors group-hover:text-about-primary">
               +39 345 157 5507
             </span>
           </div>
@@ -44,12 +44,12 @@ export function SiteFooter() {
           href="mailto:giovanni.fantoni.1997@gmail.com"
           className="group py-6 md:py-4 flex flex-col items-center justify-center gap-2 md:gap-3 text-center cursor-pointer flex-1"
         >
-          <div className="mb-1 md:mb-2 inline-flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-neutral-900 text-sunset-amber group-hover:scale-110 transition-transform border border-white/10">
+          <div className="mb-1 md:mb-2 inline-flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full bg-neutral-900 text-work-primary group-hover:scale-110 transition-transform border border-white/10">
             <Mail size={18} className="md:w-5 md:h-5" />
           </div>
           <div>
             <h3 className="text-[10px] md:text-xs uppercase tracking-widest text-neutral-500 mb-0.5 md:mb-1">Email</h3>
-            <span className="block text-base md:text-lg font-semibold text-white transition-colors group-hover:text-sunset-amber">
+            <span className="block text-base md:text-lg font-semibold text-white transition-colors group-hover:text-work-primary">
               giovanni.fantoni.1997@gmail.com
             </span>
           </div>

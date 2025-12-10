@@ -4,39 +4,42 @@
 import { WorkGallery } from "./WorkGallery";
 import { works } from "@/data/work";
 import { HeroVideo } from "../components/HeroVideo";
+import { VideoProvider } from "../context/VideoContext";
 // #endregion
 
 // #region Page Component
 export default function WorkPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 pt-0">
+    <VideoProvider>
+      <main className="min-h-screen bg-neutral-950 pt-0">
 
-      {/* Ambient Glow - Amber */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
+        {/* Ambient Glow - Amber */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-work-primary/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
 
-      {/* #region Hero */}
-      <HeroVideo />
-      {/* #endregion */}
+        {/* #region Hero */}
+        <HeroVideo />
+        {/* #endregion */}
 
-      {/* #region Gallery Section */}
-      <div id="gallery" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-2 sm:py-4 mt-4 lg:mt-7 space-y-4 animate-fade-in scroll-mt-15" style={{ animationDelay: "0.5s" }}>
+        {/* #region Gallery Section */}
+        <div id="gallery" className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-2 sm:py-4 mt-4 lg:mt-7 space-y-4 animate-fade-in scroll-mt-15" style={{ animationDelay: "0.5s" }}>
 
-        {/* Header */}
-        <div className="text-center space-y-1 mb-6 lg:mb-4">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            <span className="text-sunset-amber">Projects</span>
-          </h2>
-          <p className="text-neutral-500 max-w-2xl mx-auto text-sm">
-            Riprese aeree FPV e stabilizzate
-          </p>
+          {/* Header */}
+          <div className="text-center space-y-1 mb-6 lg:mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+              <span className="text-work-primary">Projects</span>
+            </h2>
+            <p className="text-neutral-500 max-w-2xl mx-auto text-sm">
+              Riprese aeree FPV e stabilizzate
+            </p>
+          </div>
+
+          {/* List */}
+          <WorkGallery items={works} initialVisible={0} />
         </div>
+        {/* #endregion */}
 
-        {/* List */}
-        <WorkGallery items={works} initialVisible={0} />
-      </div>
-      {/* #endregion */}
-
-    </main>
+      </main>
+    </VideoProvider>
   );
 }
 // #endregion
