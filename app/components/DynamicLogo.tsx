@@ -282,7 +282,12 @@ interface PathDef {
 // #region ========================================
 // 6. MAIN COMPONENT
 // ========================================
+// Counter for unique component instance IDs
+let instanceCounter = 0;
+
 export default function DynamicLogo({ className }: { className?: string }) {
+    // Unique ID for this component instance (prevents gradient ID conflicts)
+    const instanceId = useMemo(() => instanceCounter++, []);
     // Animation state
     const requestRef = useRef<number>(0);
     const shiftRef = useRef<number>(CONFIG.gradient.shift);
@@ -304,9 +309,9 @@ export default function DynamicLogo({ className }: { className?: string }) {
         const localGrads: GradientDef[] = [];
         let gradCount = 0;
 
-        /** Helper to create a gradient definition */
+        /** Helper to create a gradient definition with unique ID */
         const addGradient = (start: { x: number, y: number }, end: { x: number, y: number }, pctStart: number, pctEnd: number) => {
-            const id = `g_dyn_${gradCount++}`;
+            const id = `g_dyn_${instanceId}_${gradCount++}`;
             localGrads.push({
                 id,
                 x1: start.x, y1: start.y,
