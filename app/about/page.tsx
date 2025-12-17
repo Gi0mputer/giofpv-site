@@ -105,7 +105,7 @@ export default function AboutPage() {
             <div className="float-right mt-5 sm:mt-10 lg:mt-0 ml-2 lg:ml-16 mb-3 lg:mb-3 shape-circle">
               <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-about-bubble-1/70 shadow-[0_0_40px_-12px_var(--about-glow)]">
                 <Image
-                  src="/images/profilepic.png"
+                  src="/images/profilepic.jpeg"
                   alt="Giovanni Fantoni"
                   width={224}
                   height={224}
