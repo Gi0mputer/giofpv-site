@@ -231,7 +231,7 @@ interface PathDef {
 export default function DynamicLogo({ className }: { className?: string }) {
     // References to stop elements for direct DOM manipulation
     const stopsRef = useRef<Map<string, SVGStopElement>>(new Map());
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number>(0);
     const shiftRef = useRef<number>(CONFIG.gradient.shift);
 
     // 1. Static Geometry Calculation (Memoized)
