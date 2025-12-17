@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import DynamicLogo from "@/app/components/DynamicLogo";
 
 export default function AboutPage() {
   // State to track MULTIPLE expanded cards (array of titles)
@@ -126,14 +127,8 @@ export default function AboutPage() {
             </p>
 
             <div className="float-left mr-4 mt-3 sm:mt-12 lg:mr-16 lg:mt-0 mb-0 lg:mb-3 shape-circle">
-              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-about-bubble-2/70 shadow-[0_0_40px_-12px_var(--about-glow)] p-4 sm:p-5">
-                <Image
-                  src="/icons/icon-512x512.png"
-                  alt="GioFPV Logo"
-                  width={180}
-                  height={180}
-                  className="object-contain w-full h-full"
-                />
+              <div className="w-36 h-36 sm:w-40 sm:h-40 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-about-bubble-2/70 shadow-[0_0_40px_-12px_var(--about-glow)] flex items-center justify-center bg-neutral-950 p-6 sm:p-7">
+                <DynamicLogo className="w-full h-full" />
               </div>
             </div>
 

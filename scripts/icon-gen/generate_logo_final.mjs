@@ -2,64 +2,106 @@
 import fs from "fs";
 import path from "path";
 import { pathToFileURL } from "url";
-import { PUBLIC_BRAND_DIR, ROOT, ensureDir } from "./icon-gen-paths.mjs";
+import { ROOT, ensureDir } from "./icon-gen-paths.mjs";
 
 // scripts/icon-gen/generate_logo_final.mjs
 // Genera l'SVG finale del logo combinando Geometria G e Drone Geometrico.
 
 const PROJECT_ROOT = ROOT;
 
-// #region 1. CONFIGURATION
+// #region ========================================
+// 1. CONFIGURATION & PARAMETERS
+// ========================================
+/**
+ * Main configuration object for the static logo generation.
+ * Modify these values to customize the logo appearance.
+ * This configuration matches the DynamicLogo component for consistency.
+ */
 const CONFIG = {
-    outputPath: path.join(ROOT, "public", "logo_final.svg"),
+    /** Output file path - generated in icons directory with other generated assets */
+    outputPath: path.join(ROOT, "public", "icons", "logo.svg"),
+
+    /** SVG stroke width in pixels */
     strokeWidth: 8,
 
+    /** Geometric parameters for the 'G' shape */
     geometry: {
-        R: 120,
-        r: 93,
-        cx: 0,
-        cy: 0,
-        gapDeg: 25,
-        bridgeInset: 0.5,
-        barAngleDeg: 3,
-        barInset: 1,
-        innerBarScale: 0.68,
-        innerTopAdjustDeg: 13,
+        R: 120,              // Outer radius
+        r: 93,               // Inner radius
+        cx: 0,               // Center X
+        cy: 0,               // Center Y
+        gapDeg: 25,          // Gap angle in degrees
+        bridgeInset: 0.5,    // Bridge inset adjustment
+        barAngleDeg: 3,      // Bar angle in degrees
+        barInset: 1,         // Bar inset from outer arc
+        innerBarScale: 0.68, // Bar length as fraction of R
+        innerTopAdjustDeg: 13, // Inner arc top adjustment
     },
 
+    /** Drone configuration */
     drone: {
-        enabled: true,
-        scale: 1,
-        offsetX: 0,
-        offsetY: 5,
-        rotation: 0,
-        circleRadius: 14,
-        armLength: 50,
-        strokeWidth: 8,
+        enabled: true,       // Show/hide drone
+        scale: 1,            // Overall scale
+        offsetX: 0,          // X offset from center
+        offsetY: 5,          // Y offset from center
+        rotation: 0,         // Rotation in degrees
+        circleRadius: 14,    // Drone body radius
+        armLength: 50,       // Drone arm length
+        strokeWidth: 8,      // Drone stroke width
 
-        // Colore Drone
-        autoColor: false,       // Se true, usa il colore finale del gradiente
-        customColor: '#fe7200ff' // Colore usato se autoColor è false
+        /** 
+         * Color mode for drone.
+         * If true: uses gradient end color (synced with bar end)
+         * If false: uses customColor below
+         */
+        autoColor: true,
+        customColor: '#4400feff' // Color when autoColor is false
     },
 
+    /**
+     * Color palette for gradient.
+     * Define your colors here using hex format (#RRGGBB or #RRGGBBAA).
+     */
     colors: {
-        c1: '#783effff',
-        c2: '#00e5ff',
-        c3: '#ff3e7eff',
-        c4: '#ff6c47ff'
+        c1: '#9e3eff',  // Violet
+        c2: '#00e5ff',  // Cyan
+        c3: '#ff3ea5',  // Pink
+        c4: '#ffac47'   // Orange
     },
+
+    /**
+     * Gradient configuration.
+     * Controls color distribution along the path.
+     */
     gradient: {
+        /** 
+         * Color sequence along the path.
+         * Use keys from 'colors' object above.
+         */
         sequence: ['c1', 'c2', 'c3', 'c4'],
 
-        // STOP precisi in percentuale (0-100)
-        stops: [10, 39, 10, 67],
+        /**
+         * Stop positions (0-100%).
+         * Must have length = sequence.length + 1 for smooth wrapping.
+         * Example: [0, 25, 50, 75, 100] creates 4 color transitions:
+         * - c1→c2 from 0% to 25%
+         * - c2→c3 from 25% to 50%
+         * - c3→c4 from 50% to 75%
+         * - c4→c1 from 75% to 100% (wraps for smooth rotation)
+         */
+        stops: [10, 20, 60, 90, 100],
 
-        // Fallback weights (ignorati se stops è definito)
-        //weights: [10, 10, 10, 30],
+        /**
+         * Color shift (0-100%).
+         * Change this to rotate the gradient along the path.
+         * - 0: Default position
+         * - 25: Rotated 25%
+         * - 50: Rotated 50% (halfway)
+         * - 100: Full rotation (same as 0)
+         */
+        shift: 84,
 
-        // Color Shift (0-100): trasla i colori ciclicamente
-        shift: 100,
-
+        /** Reverse the color sequence */
         reverse: false
     }
 };
@@ -125,68 +167,29 @@ function createColorSystem(cfg) {
         return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     };
 
-    let stops = [];
-
-    // Configura
+    // Build color sequence with wrapping for smooth animation
     const seq = [...cfg.gradient.sequence];
-    const userStops = cfg.gradient.stops ? [...cfg.gradient.stops] : null;
-    let weights = cfg.gradient.weights ? [...cfg.gradient.weights] : [];
+    if (cfg.gradient.reverse) seq.reverse();
 
-    // Handle Reverse
-    if (cfg.gradient.reverse) {
-        seq.reverse();
-        if (userStops) {
-            // Se reverse, inverti gli stop: x -> 100-x
-            userStops.reverse();
-            for (let i = 0; i < userStops.length; i++) {
-                userStops[i] = 100 - userStops[i];
-            }
-        }
-        if (weights.length > 0) weights.reverse();
-    }
-
-    // Logica STOP prioritari
-    if (userStops && userStops.length === seq.length) {
-        // Normalizza 0-1
-        stops = userStops.map(s => s / 100);
-    }
-    // Fallback Logica Pesi
-    else if (Array.isArray(weights) && weights.length >= seq.length) {
-        const intervals = weights.slice(0, seq.length - 1);
-        const totalDistance = intervals.reduce((a, b) => a + b, 0) || 1;
-
-        stops = [0];
-        let acc = 0;
-        for (let i = 0; i < intervals.length; i++) {
-            acc += intervals[i];
-            stops.push(acc / totalDistance);
-        }
-    } else {
-        // Uniform fallback
-        stops = seq.map((_, i) => i / Math.max(1, seq.length - 1));
-    }
+    // Add first color at end for wrapping
+    const wrappedSeq = [...seq, seq[0]];
+    const baseStops = cfg.gradient.stops;
 
     const getColorAtPct = (pct) => {
-        // Applica Shift Ciclico (0-100)
-        let shifted = pct + (cfg.gradient.shift || 0);
-        let tPct = shifted % 100;
+        // Apply shift and wrap (0-100)
+        const normalizedPos = ((pct + (cfg.gradient.shift || 0)) % 100 + 100) % 100;
 
-        const t = Math.max(0, Math.min(1, tPct / 100));
+        // Find which segment we're in
+        for (let i = 0; i < baseStops.length - 1; i++) {
+            const stop1 = baseStops[i];
+            const stop2 = baseStops[i + 1];
 
-        // Before first center -> Pure Start Color
-        if (t <= stops[0]) return cfg.colors[seq[0]];
+            if (normalizedPos >= stop1 && normalizedPos <= stop2) {
+                const range = stop2 - stop1;
+                const localT = range > 0 ? (normalizedPos - stop1) / range : 0;
 
-        // After last center -> Pure End Color
-        if (t >= stops[stops.length - 1]) return cfg.colors[seq[seq.length - 1]];
-
-        // Interpolate between centers
-        for (let i = 0; i < stops.length - 1; i++) {
-            if (t >= stops[i] && t <= stops[i + 1]) {
-                const range = stops[i + 1] - stops[i];
-                const localT = (t - stops[i]) / (range || 1);
-
-                const c1 = cfg.colors[seq[i]];
-                const c2 = cfg.colors[seq[i + 1]];
+                const c1 = cfg.colors[wrappedSeq[i]];
+                const c2 = cfg.colors[wrappedSeq[i + 1]];
 
                 if (!c1) return c2 || '#000000';
                 if (!c2) return c1;
@@ -194,7 +197,8 @@ function createColorSystem(cfg) {
                 return interpolate(c1, c2, localT);
             }
         }
-        return cfg.colors[seq[seq.length - 1]];
+
+        return cfg.colors[wrappedSeq[0]];
     };
 
     return { interpolate, getColorAtPct };
@@ -292,8 +296,12 @@ class SVGBuilder {
     addDrone(center) {
         const { circleRadius, armLength, strokeWidth, scale, offsetX, rotation, offsetY, autoColor, customColor } = this.cfg.drone;
 
-        // Select logic based on autoColor
-        const color = autoColor ? this.colorSystem.getColorAtPct(100) : customColor;
+        /**
+         * Get drone color.
+         * If autoColor is true, uses color at end of bar (99.9% to avoid wrapping to 0%).
+         * This ensures the drone color matches the bar's end color exactly.
+         */
+        const color = autoColor ? this.colorSystem.getColorAtPct(99.9) : customColor;
 
         const angles = [45, 135, 225, 315];
         let dPaths = '';

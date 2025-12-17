@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
-import { PUBLIC_BRAND_DIR, ensureDir } from "./icon-gen-paths.mjs";
+import { PUBLIC_ICONS_DIR, ensureDir } from "./icon-gen-paths.mjs";
 
 // scripts/icon-gen/generate-palette-previews.mjs
 // Genera l'SVG con solo i gradienti richiesti (grad-2, grad-3, grad-4, grad-10, grad-11)
 
-const OUTPUT_PATH = path.join(PUBLIC_BRAND_DIR, "palette-previews.svg");
+const OUTPUT_PATH = path.join(PUBLIC_ICONS_DIR, "palette-previews.svg");
 
 const gradients = [
     {
@@ -99,7 +99,7 @@ ${rows}
 
 function main() {
     const svg = render();
-    ensureDir(PUBLIC_BRAND_DIR);
+    ensureDir(PUBLIC_ICONS_DIR);
     fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
     console.log(`Palette preview generata in: ${OUTPUT_PATH}`);
 }

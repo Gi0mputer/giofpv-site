@@ -2,9 +2,9 @@
 
 // #region Imports
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import DynamicLogo from "./DynamicLogo";
 // #endregion
 
 // #region Configuration
@@ -39,15 +39,9 @@ export function SiteHeader() {
         {/* LOGO */}
         <Link
           href="/work"
-          className="flex items-center gap-2 text-sm sm:text-base md:text-lg font-semibold tracking-wide uppercase text-white"
+          className="flex items-center gap-3 text-base sm:text-lg md:text-xl font-semibold tracking-wide uppercase text-white"
         >
-          <Image
-            src="/logo_final.svg"
-            alt="GioFPV logo"
-            width={22}
-            height={22}
-            className="h-9 w-9"
-          />
+          <DynamicLogo className="h-11 w-11 sm:h-12 sm:w-12" />
           <span>Gio<span className="bg-header-logo-gradient bg-clip-text text-transparent">FPV</span></span>
         </Link>
 
