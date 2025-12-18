@@ -119,7 +119,7 @@ export default function AboutPage() {
               Mi chiamo Giovanni Fantoni e sono un videomaker e pilota di droni.
             </p>
             <p className="mb-2 sm:mb-3">
-              Da sempre ho una grande curiosita' e desiderio di esplorare, gia' da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
+              Da sempre ho una grande curiosità e desiderio di esplorare, già da piccolo mi affascinava l'idea di vedere le cose dall'alto, da una prospettiva diversa rispetto a quella a cui siamo abituati.
             </p>
 
             <p className="mb-1 sm:mb-6">
@@ -137,11 +137,11 @@ export default function AboutPage() {
                 Quando il mondo dei droni ha iniziato a evolversi, ho trovato in questa tecnologia il punto d'incontro perfetto tra le mie passioni.
               </p>
               <p className="mb-1 ml-8 sm:mb-3 sm:ml-16">
-                Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilita' creative.
+                Negli anni ho continuato ad aggiornarmi e sperimentare, fino ad avvicinarmi anche al volo FPV, che mi ha aperto nuove possibilità creative.
               </p>
             </div>
             <p className="mb-3 sm:mb-3 text-left sm:text-justify">
-              Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista piu' interessante.
+              Oggi realizzo riprese aeree pensate per mostrare ogni luogo dal suo punto di vista più interessante.
             </p>
           </div>
         </div>

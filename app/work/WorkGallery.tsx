@@ -92,8 +92,8 @@ function VideoCard({ work }: VideoCardProps) {
           </div>
 
           {/* Play Button Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center transition duration-300 opacity-0 group-hover:opacity-100">
-            <span className="rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
+          <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
+            <span className="rounded-full border border-work-accent bg-black/40 px-6 py-2 text-sm font-medium text-white backdrop-blur-md shadow-[0_0_15px_-3px_var(--work-accent)]">
               ▶ Play
             </span>
           </div>
@@ -127,20 +127,24 @@ export function WorkGallery({ items, initialVisible }: Props) {
 
   // #region Handlers
   const handleLoadMore = () => {
+    const isFirstLoad = visibleHorizontal === 0;
     setVisibleHorizontal((prev) => prev + 4); // Load 4 videos at a time
-    setTimeout(() => {
-      const horizontalSection = document.getElementById('horizontal-section');
-      if (horizontalSection) {
-        const headerHeight = 56;
-        const elementPosition = horizontalSection.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerHeight;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }, 200);
+    if (isFirstLoad) {
+      setTimeout(() => {
+        const horizontalSection = document.getElementById('horizontal-section');
+        if (horizontalSection) {
+          const headerHeight = 56;
+          const elementPosition = horizontalSection.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 200);
+    }
   };
   // #endregion
 
