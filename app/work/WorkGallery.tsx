@@ -152,12 +152,25 @@ export function WorkGallery({ items, initialVisible }: Props) {
   return (
     <section className="space-y-4">
       {/* Verticals Grid */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {verticalVideos.map((work) => (
-          <article key={work.title} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/80 shadow-lg">
-            <VideoCard work={work} />
-          </article>
-        ))}
+      {/* Verticals Section */}
+      <div className="relative group/carousel">
+        {/* Mobile Swipe Hint */}
+        <div className="flex items-center gap-2 mb-2 md:hidden text-xs font-medium text-neutral-500 uppercase tracking-widest animate-pulse">
+          <span>Swipe</span>
+          <span className="text-lg">→</span>
+        </div>
+
+        {/* Carousel Container */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory pb-6 -mx-4 px-4 gap-4 md:grid md:grid-cols-4 md:gap-4 md:pb-0 md:mx-0 md:px-0 md:overflow-visible remove-scrollbar">
+          {verticalVideos.map((work) => (
+            <article
+              key={work.title}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/80 shadow-lg min-w-[45%] snap-center md:min-w-0"
+            >
+              <VideoCard work={work} />
+            </article>
+          ))}
+        </div>
       </div>
 
       {/* Horizontals Grid */}

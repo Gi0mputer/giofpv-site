@@ -42,7 +42,7 @@ export function SiteHeader() {
           className="flex items-center gap-3 text-base sm:text-lg md:text-xl font-semibold tracking-wide uppercase text-white"
         >
           <DynamicLogo className="h-11 w-11 sm:h-12 sm:w-12" />
-          <span>Gio<span className="bg-header-logo-gradient bg-clip-text text-transparent">FPV</span></span>
+          <span>Gio<span className="text-gradient-header">FPV</span></span>
         </Link>
 
         {/* NAV */}

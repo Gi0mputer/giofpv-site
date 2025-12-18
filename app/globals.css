@@ -90,14 +90,14 @@
   /* #endregion */
 
   /* #region Header Page */
-  --header-logo-gradient: linear-gradient(90deg, var(--c-logo4) 30%, var(--c-logo3) 40%, var(--c-logo1) 60%, var(--c-logo2) 90%);
+  --header-logo-gradient: linear-gradient(90deg, var(--c-logo4) 0%, var(--c-logo3) 25%, var(--c-logo1) 50%, var(--c-logo2) 75%, var(--c-logo4) 100%);
   --header-work: #ff9249;
   --header-about: #00e5ff;
   --header-contact: #ff3e7eff;
   /* #endregion */
 
   /* #region Work Page */
-  --work-title-gradient: linear-gradient(to right, var(--header-work) 0%, var(--c-amber-warm) 60%, var(--header-work) 100%);
+  --work-title-gradient: linear-gradient(to right, var(--header-work) 0%, var(--c-amber-warm) 50%, var(--header-work) 100%);
   --work-accent: var(--header-work);
   --work-glow: var(--header-work);
   /* #endregion */
@@ -108,7 +108,7 @@
   --about-bubble-2: var(--c-cyan);
   --about-glow: var(--c-cyan);
 
-  --gear-title-gradient: linear-gradient(to right, var(--c-violet-dark) 0%, var(--c-violet) 60%, var(--c-violet-dark) 100%);
+  --gear-title-gradient: linear-gradient(to right, var(--c-violet-dark) 0%, var(--c-violet) 50%, var(--c-violet-dark) 100%);
   --gear-accent: var(--c-violet-dark);
   --gear-glow: var(--c-violet-dark);
   /* #endregion */
@@ -120,7 +120,7 @@
   /* #endregion */
 
   /* #region Contact Page */
-  --contact-title-gradient: linear-gradient(to right, var(--footer-phone) 5%, var(--footer-mail) 50%, var(--footer-ig) 95%);
+  --contact-title-gradient: linear-gradient(to right, var(--footer-phone) 0%, var(--footer-mail) 33%, var(--footer-ig) 66%, var(--footer-mail) 83%, var(--footer-phone) 100%);
   --contact-glow: var(--footer-mail);
   /* #endregion */
 
@@ -266,6 +266,20 @@ html {
   background: #555;
 }
 
+/* Base class for liquid text */
+.liquid-text {
+  background-size: 200% auto;
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* color: transparent; */
+  /* -webkit-text-fill-color: transparent; */
+  animation: gradient-flow-linear 6s linear infinite;
+  /* Ensure readability fallback */
+  display: inline-block;
+  color: white;
+  /* Fallback provvisorio */
+}
+
 .shape-circle {
   shape-outside: circle(50%);
   -webkit-shape-outside: circle(50%);
@@ -280,3 +294,127 @@ html {
     padding-bottom: 1.25rem;
   }
 }
+
+/* #region Animations - Gradient Flow */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Animated Gradient Text Classes - Complete & Self-Contained */
+.text-gradient-header {
+  background: var(--header-logo-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 6s linear infinite;
+  display: inline-block;
+}
+
+.text-gradient-work {
+  background: var(--work-title-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 6s linear infinite;
+  display: inline-block;
+}
+
+.text-gradient-about {
+  background: var(--about-title-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 6s linear infinite;
+  display: inline-block;
+}
+
+.text-gradient-gear {
+  background: var(--gear-title-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 6s linear infinite;
+  display: inline-block;
+}
+
+.text-gradient-contact {
+  background: var(--contact-title-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 6s linear infinite;
+  display: inline-block;
+}
+
+/* Floating Animations for Background Glows */
+@keyframes floating-slow {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(30px, -50px);
+  }
+
+  66% {
+    transform: translate(-20px, 20px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes floating-reverse {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(-30px, 50px);
+  }
+
+  66% {
+    transform: translate(20px, -20px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-float-slow {
+  animation: floating-slow 20s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floating-reverse 23s ease-in-out infinite;
+}
+
+/* #endregion */
+
+/* #region Utilities - Scrollbar */
+.remove-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.remove-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+/* #endregion */

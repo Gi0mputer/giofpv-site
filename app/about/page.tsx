@@ -91,13 +91,13 @@ export default function AboutPage() {
     <main className="bg-neutral-950">
       <section className="relative flex flex-col items-center bg-neutral-950 pt-20 sm:pt-24 pb-10 sm:pb-12 px-5 sm:px-6 2xl:max-w-[1600px] 2xl:mx-auto">
         {/* Ambient Glows - Cyan (dual) */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-about-glow/6 rounded-full blur-[120px] pointer-events-none -translate-y-1/4 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-about-glow/6 rounded-full blur-[120px] pointer-events-none translate-y-1/4 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-about-glow/6 rounded-full blur-[120px] pointer-events-none -translate-y-1/4 translate-x-1/4 animate-float-slow" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-about-glow/6 rounded-full blur-[120px] pointer-events-none translate-y-1/4 -translate-x-1/4 animate-float-reverse" />
 
         <div className="w-full max-w-5xl mx-auto mb-0 relative z-10">
           <div className="text-center mb-2 sm:mb-8">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight">
-              <span className="bg-about-title-gradient bg-clip-text text-transparent">Aerial & FPV</span>
+              <span className="text-gradient-about">Aerial & FPV</span>
               <span className="text-white"> Filmmaker</span>
             </h1>
           </div>
@@ -151,12 +151,12 @@ export default function AboutPage() {
       {/* Gear Section - Slightly Lighter Background */}
       <section id="gear" className="relative flex flex-col items-center px-5 sm:px-6 pt-10 sm:pt-12 pb-6 sm:pb-8 bg-[#0c0c0c] md:bg-[#0f0f0f] scroll-mt-24 lg:scroll-mt-24 2xl:max-w-[1600px] 2xl:mx-auto">
         {/* Ambient Glow - Violet (centered) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gear-glow/8 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gear-glow/8 rounded-full blur-[150px] pointer-events-none animate-float-slow" />
         <div className="w-full max-w-5xl space-y-2 sm:space-y-6">
           <div className="space-y-1 sm:space-y-2 text-center mx-auto max-w-3xl">
             <h1 className="text-2xl sm:text-5xl font-bold tracking-tight text-white">
               What's in my{" "}
-              <span className="bg-gear-title-gradient bg-clip-text text-transparent">Backpack</span>
+              <span className="text-gradient-gear">Backpack</span>
             </h1>
             <div className="mt-3 sm:mt-8 space-y-2 sm:space-y-3 text-[15px] sm:text-lg text-neutral-300 leading-relaxed text-left sm:text-justify max-w-4xl mx-auto">
               <p>
